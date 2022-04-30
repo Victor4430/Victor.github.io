@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>布局</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			.nav {
+				width: 1920px;
+				height: 50px;
+				background-color: black;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				z-index: 1;
+			}
+			.box_1{
+				width: 1200px;
+				height: 900px;/* 后期可以改成自动 */
+				/* background-color: pink; */
+				position:relative;
+				margin-top: 50px;
+				left: 50%;
+				margin-left:-600px ;
+				
+			}
+			.b2{
+				width: 1200px;
+				height: 100px;
+				/* background-color: gray; */
+			}
+			.b2 div:nth-child(1){
+				width: 298px;
+				height: 98px;
+				background-color: green;
+				float: left;
+				margin: 2px 2px 2px 0px;
+				
+			}
+			.b2 div:nth-child(2){
+				width: 598px;
+				height: 98px;
+				background-color: darkblue;
+				float: left;
+				margin: 2px 2px 2px 0px;
+			}
+			.b2 div:nth-child(3){
+				width: 298px;
+				height: 98px;
+				background-color: firebrick;
+				float: left;
+				margin: 2px 2px 2px 0px;
+			}
+			.b3{
+				background-color: midnightblue;
+				width: initial;
+				height: 40px;
+				margin: 2px 0px 0px 0px;
+			}
+			.b4{
+				background-color: darkgreen;
+				width: initial;
+				height: 40px;
+				margin: 2px 0px 0px 0px;
+			}
+			.b5{
+				background-color: red;
+				width: initial;
+				height: 40px;
+				margin: 2px 0px 0px 0px;
+			}
+			.b6{
+				background-color: chartreuse;
+				width: initial;
+				height: 40px;
+				margin: 2px 0px 0px 0px;
+			}
+			.box_2{
+				width: initial;
+				height: 450px;
+				/* background-color: #AFAFAF; */
+				position: relative;
+			}
+			.box_2 div:nth-child(1){
+				width: 300px;
+				height: 178px;
+				background-color: #FA8035;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				margin: 2px 0px 0px 0px;
+			}
+			.box_2 div:nth-child(2){
+				width: 300px;
+				height: 268px;
+				background-color: blue;
+				position: absolute;
+				top: 180px;
+				left: 0px;
+				margin: 2px 0px 0px 0px;
+			}
+			.box_2 div:nth-child(3){
+				width: 598px;
+				height: 448px;
+				background-color: rosybrown;
+				position: absolute;
+				top: 0px;
+				left: 300px;
+				margin: 2px 0px 0px 2px;
+			}
+			.box_2 div:nth-child(4){
+				width: 298px;
+				height: 448px;
+				background-color: skyblue;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				margin: 2px 0px 0px 2px;
+			}
+			.b7{
+				width: initial;
+				height: 160px;
+				background-color: darkred;
+				margin: 2px 0px 0px 0px;
+			}
+			.b8{
+				width: initial;
+				height: 40px;
+				background-color: dimgray;
+				margin: 2px 0px 0px 0px;
+			}
+			ul{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			.back{
+				border: white solid 1px;
+				position: fixed;
+				top: 400px;
+				left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">nav</div>
+		<div class="box_1">
+			<div class="b2">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="b3"></div>
+			<div class="b4"></div>
+			<div class="b5"></div>
+			<div class="b6"></div>
+			<div class="box_2">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="b7"></div>
+			<div class="b8"></div>
+		</div>
+		<div class="back">
+			<ul>
+				<li><a href="./演示.html">返回课堂演示</a></li>
+				<li><a href="http://demo443.com/">返回首页</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

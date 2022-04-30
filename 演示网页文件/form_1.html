@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>相亲</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<style type="text/css">
+			textarea{
+				width: 327px;
+				height: 165px;
+			}
+			.center_1{
+				width: 500px;
+				margin: 100px auto;
+				background-color: white;
+			}
+			ul{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			.back{
+				border: white solid 1px;
+				position: fixed;
+				top: 400px;
+				left: 20px;
+			}
+			a{
+				color: #0000FF;
+			}
+			a:hover{
+				color: #FA8035;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="back">
+			<ul>
+				<li><a href="./演示.html">返回课堂演示</a></li>
+				<li><a href="http://demo443.com/">返回首页</a></li>
+			</ul>
+		</div>
+		<div class="center_1">
+			<h2>在此填写会员注册资料</h2>
+			<form action="../up/biaodan.asp" method="post">
+				<fieldset>
+					<table border="0" cellspacing="" cellpadding="">
+						<legend>
+							
+								<strong>账户信息</strong>
+							
+						</legend>
+						<tr>
+							<td><label for="user">会员名字:</label></td>
+							<td><input type="text" name="user" id="user" placeholder="身份证/邮箱/手机号" /></td>
+						</tr>
+						<tr>
+							<td><label for="pwd">登陆密码:</label></td>
+							<td><input type="password" name="pwd" id="pwd" placeholder="请输入您的密码" /></td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<table border="0" cellspacing="" cellpadding="">
+						
+					
+							<legend><strong>个人资料</strong></legend>
+						
+						<tr>
+							<td>性 &nbsp &nbsp &nbsp 别:</td>
+							<td><input type="radio" name="sex" id="boy" value="男" /><label for="boy">男</label>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input type="radio" name="sex" id="girl" value="女" /><label for="girl">女</label></td>
+							
+						</tr>
+						<tr>
+							<td>婚姻状态:</td>
+							<td><input type="radio" name="hun" id="yihun" value="已婚" /><label for="yihun">已婚</label> &nbsp &nbsp &nbsp  &nbsp <input type="radio" name="hun" id="weihun" value="未婚" /><label for="weihun">未婚</label></td>
+							
+						</tr>
+						<tr>
+							<td>兴趣爱好:</td>
+							<td><input type="checkbox" name="love" id="lv" value="旅行" /><label for="lv">旅行</label> &nbsp &nbsp &nbsp &nbsp <input type="checkbox" name="love" id="game" value="旅行" /> <label for="game">游戏</label>  &nbsp &nbsp &nbsp <input type="checkbox" name="love" id="QQ" value="旅行" /><label for="QQ">聊天</label></td>
+							
+						</tr>
+						<tr>
+							<td>相 &nbsp &nbsp &nbsp 片:</td>
+							<td><input type="file" name="photo" id="photo" value="相片" /><input type="button" name="" id="" value="确定/重选" /></td>
+							
+						</tr>
+						<tr>
+							<td>年 &nbsp &nbsp &nbsp 龄:</td>
+							<td>
+								<select>
+									<option value ="0">18</option>
+									<option value ="0">19</option>
+									<option value ="0">20</option>
+									<option value ="0">21</option>
+									<option value ="0">22</option>
+									<option value ="0">23</option>
+									<option value ="0">24</option>
+									<option value ="0">25</option>
+									<option value ="0">26</option>
+									<option value ="0">27</option>
+									<option value ="0">28</option>
+									<option value ="0">29</option>
+									<option value ="0">30</option>
+									<option value ="0">31</option>
+									<option value ="0">32</option>
+									<option value ="0">33</option>
+									<option value ="0">34</option>
+									<option value ="0">35</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<div class="txt">
+								<td>简 &nbsp &nbsp &nbsp 介：</td>
+								<td>
+									<textarea rows="10" cols="60" placeholder="请简单介绍一下自己"></textarea>
+								</td>
+							</div>
+						</tr>
+						<tr>
+							<td><input type="submit" name="" id="" value="确认注册" /></td>
+							<td><input type="reset" name="" id="" value="重选填写" /></td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+</html>
