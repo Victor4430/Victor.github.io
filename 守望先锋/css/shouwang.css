@@ -1,0 +1,1029 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+	
+}
+body{
+	position: relative;
+}
+.beijing{
+	width: 1730px;
+	height: auto;
+}/* 
+.beijing video{
+	width: 1730px;
+	height: 1000px;
+} */
+.logo{
+	width:62px ;
+	height: 40px;
+	background-image: url(../img/title.png);
+	background-repeat: no-repeat;
+	background-position: 9% 60%;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	float: left;
+	z-index: 1;
+}
+.text{
+	width:initial ;
+	height: 40px;
+	position: relative;
+	float: left;
+/* 	top: 0px;
+	left: 41px; */
+}
+.float-right{
+	width: 200px;
+	height: 40px;
+	float: right;
+}
+/* 导航栏容器 */
+.nav{
+	width: 100%;
+	height: 40px;
+	/* background-color: gray; */
+	position: absolute;
+	top: 0px;
+	z-index: 1;
+}
+/* 一级导航背景样式 */
+.guding{
+	width: 100%;
+	height: 40px;
+	background-color: rgba(0,0,0,0.8);
+	position: absolute;
+	top: 0px;
+}
+.index-3{
+	width: 90%;
+	height: 40px;
+	/* background-color: hotpink; */
+	position: relative;
+	top: 0;
+	z-index: 1;
+	margin: 0 auto;
+}
+#a1{
+	margin-left: 30px;
+}
+
+/* 一级导航a标签样式和鼠标hover效果 */
+
+.index-3 .text a,.index-3 .float-right a{
+	text-decoration: none;
+	color:#888788 ;
+	line-height: 40px;
+	margin: 0 10px;
+}
+.index-3 .text a:hover,.index-3 .float-right a:hover{
+	color: white;
+	text-shadow: 1px -1px 10px #FFFFFF;
+}
+/* 二级导航 */
+.erjidaohang{
+	width:100% ;
+	height: 50px;
+	background-color:#f2f1ed;
+	position: absolute;
+	top: 80px;
+}
+.erjidaohang a{
+	text-align: center;
+	line-height: 50px;
+	font-size: 16px;
+}
+
+.erjidaohang a{
+	width: auto;
+	height: 50px;
+	display: inline-block;	
+	position: relative;
+	top: 0px;
+	padding: 0 10px;
+	color: #000;
+	float: left;
+	border-right: #E5E3DD solid 1px;
+}
+.erjidaohang a:hover{
+	background-color: #353C42;
+	color:#FF902B ;
+}
+.erjidaohang #tubiao{
+	width: 32px;
+	height: 48px;
+	border: 1px solid #4b535d;
+	display: inline-block;
+	background-image: url(https://overwatch.nosdn.127.net/1/assets/img/logos/nav_logo_new.jpg);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	background-size: 53px 96px;
+	position: relative;
+	top: 0px;
+	
+}
+.erjidaohang #tubiao:after{
+	content: "";
+	background-image: url(https://overwatch.nosdn.127.net/1/assets/img/icons/menus/nav_arrow.png);
+	width: 14px;
+	height: 8px;
+	background-position: 0 0;
+	display: inline-block;
+	margin: 4px 0 0 8px;
+	-webkit-transform: rotate(0);
+	-ms-transform: rotate(0);
+	transform: rotate(0);
+	transition: transform ease .3s;
+}
+.erjidaohang #buy{
+	float: right;
+	width: auto;
+	height: 50px;
+	display: inline-block;	
+	position: relative;
+	top: 0px;
+	padding: 0 20px;
+	color: #FFFFFF;
+	background-color:#F89E35 ;
+}
+/* 中间守望先锋logo-img */
+.img-1{
+	width:600px ;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	margin-left: -300px;
+	top: 600px;
+}
+/* 按钮 */
+.anniu{
+	width:360px;
+	height: 42px;
+	position: absolute;
+	left: 50%;
+	margin-left: -180px;
+	top: 750px;
+}
+.anniu a{
+	display: inline-block;
+	width: 170px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	border-radius: 3px;
+	
+}
+.anniu a:nth-child(1){
+	background-color:#0CBDFF ;
+	color: #FFFFFF;
+	margin-right: 15px;
+}
+.anniu a:nth-child(1):hover{
+	background-color:#5c5cff ;
+}
+.anniu a:nth-child(2){
+	background-color:#FFB033 ;
+	color: #FFFFFF;
+}
+.anniu a:nth-child(2):hover{
+	background-color: #fff561;
+}
+/* 暂停图标 */
+.zanting a {
+	display: inline-block;
+	width: 70px;
+	height: 32px;
+	background-image: url(https://overwatch.nosdn.127.net/1/assets/img/icons/menus/video_control_icon.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position: absolute;
+	left: 0px;
+	top: 900px;
+	line-height: 32px;
+	color: #FFFFFF;
+}
+/* 视频下半部分布局尺寸 */
+.box-2{
+	width: 100%;
+	height:765px;	
+	position: absolute;
+	top: 1080px;
+	z-index: 1;
+	background-color: #f6f6f6;
+}
+.new{
+	width: 80%;
+	height: 50px;
+	font-size: 40px;
+	text-align: center;
+	margin: 0 auto;
+	/* background-color: #0CBDFF; */
+}
+.img-2{
+	width: 1186px;
+	height: 205px;
+	margin: 0 auto;
+	/* background-color: #888788; */
+	
+}
+.img-2-1,.img-2-2,.img-2-3{
+	width: 370px;
+	height: 205px;
+	background-color: #5C5CFF;
+	float: left;
+	margin-left: 20px;
+	background-position: center center;
+	position: relative;
+}
+.img-2-1{
+	background-image: url(https://overwatch.nosdn.127.net/a/images/2021/4/7/70999b22c655d3938823d33c5011b8e5.jpg);
+	background-repeat: no-repeat;
+}
+.img-2-2{
+	background-image: url(https://overwatch.nosdn.127.net/a/images/2021/1/22/18482a62aae3729b469f53b1c3be116f.jpg);
+	background-repeat: no-repeat;
+}
+.img-2-3{
+	background-image: url(https://overwatch.nosdn.127.net/a/images/2020/5/19/08ce03644e416d6185bfaefe92e4bb1c.jpg);
+	background-repeat: no-repeat;
+}
+.suoyou-new{
+	width: 60%;
+	height: 42px;
+	font-size: 20px;
+	text-align: center;
+	margin: 0 auto;
+	background-color: #f6f6f6;
+	margin-top: 20px;
+	padding-bottom:50px ;
+	position: relative;
+	top: 0px;
+	z-index: 1;
+}
+.suoyou-new a{
+	display: inline-block;
+	width:260px ;
+	height: 42px;
+	background-color: #0CBDFF;
+	color: #FFFFFF;
+	font-weight: 600;
+	line-height: 42px;
+	border-radius: 3px;
+}
+/* 新闻公告图片中文字 */
+.s1{
+	display: inline-block;
+	width: 370px;
+	height:54px ;
+	background-color: rgba(0,0,0,0.6);
+	position: absolute;
+	bottom: 0px;
+	text-align: left;
+	z-index: 1;
+	color:#FFFFFF;
+	font-size: 20px;
+	text-indent: 10px;
+	line-height: 62px;
+}
+.img-dangan{
+	width: 100%;
+	height:412px ;
+	/* background-image: url(https://blz.nosdn.127.net/1/tm/overwatch/events/2021archives/Archives21-HomeBanner-Desktop.jpg); */
+	background-repeat: no-repeat;
+	margin-top: -20px;
+	z-index: 0;
+	position: relative;
+}
+.img-dangan img{
+	width: 100%;
+	height:412px ;
+	/* background-image: url(https://blz.nosdn.127.net/1/tm/overwatch/events/2021archives/Archives21-HomeBanner-Desktop.jpg); */
+	background-repeat: no-repeat;
+	margin-top: 5px;
+	z-index: 0;
+}
+.wendang-1{
+	width: 576px;
+	height: 300px;
+	/* background-color: #5C5CFF; */
+	position: absolute;
+	left: 970px;
+    top: 80px;
+	z-index: 1;
+}
+.wendang-1 span{
+	font-size:48px ;
+	margin-bottom: 15px;
+	font-style: italic;
+}
+.wendang-1 h5{
+	font-size: 24px;
+	color: #008394;
+	margin-bottom: 10px;
+}
+.wendang-1 p{
+	font-size: 18px;
+}
+.liaojie{
+	width: 148px;
+	height: 38px;
+	background-color: #FFB033;
+	position: absolute;
+	bottom: 20px;
+	right: 431px;
+	z-index: 1;
+	text-align: center;
+	font-size: 18px;
+	line-height:38px ;
+	border-radius: 3px;
+
+}
+.box-3{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	position: absolute;
+	top: 764px;
+	/* background-color: #f616f6; */
+	z-index: 0;
+}
+
+
+.box-4{
+	width: 100%;
+	height: 1080px;
+	/* background-color: #f60a49; */
+	z-index: 1;
+	background-image: url(../img/background-image-2.jpg);
+	background-repeat: no-repeat;
+	
+}
+.box-4 div:nth-child(1){
+	width: 100%;
+	height: 76px;
+	/* background-color: #0CBDFF; */
+	font-size: 56px;
+	text-align: center;
+	position: relative;
+	top: 20px;
+	padding-top: 30px;
+}
+.box-4 div:nth-child(2){
+	width: 624px;
+	height: 76px;
+	margin: 0 auto;
+	/* background-color: #8cff8c; */
+	font-size: 24px;
+	line-height: 35px;
+	text-align: center;
+	position: relative;
+	top: 20px;
+	padding-top: 20px;
+}
+.box-4 div:nth-child(3){
+	width: 100%;
+	height: 200px;
+	position: relative;
+	top: 200px;
+	/* background-color: #32f60f; */
+	background-image: -webkit-linear-gradient(left,rgba(42,55,81,0),rgba(42,55,81,.8) 25%,rgba(42,55,81,.8) 75%,rgba(42,55,81,0));
+
+}
+.box-4 div:nth-child(4){
+	width: 1175px;
+	height: 345px;
+	/* background-color: #0CBDFF; */
+	margin: 0 auto;
+	position: relative;
+	top: 252px;
+}
+.ul-1 li{
+	float: left;
+}
+
+.ico{
+	display: inline-block;
+	width: 70px;
+	height: 84px;
+	margin: 3px 6px;
+	border: 3px solid #f0edf2;
+}
+/* .ul-1 li a span{
+	display: inline-block;
+	width: 746px;
+	height: 440px;
+	background-color: #0CBDFF; 
+} */
+.ul-1 a{
+	color: #000000;
+	text-align: center;
+	display: inline-block;
+	
+}
+.ul-1 li{
+	width:80px ;
+	height: 125px;
+	/* background-color: #008394; */
+	margin-top: 0px;
+	margin-right: 10px;
+	position: relative;
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(1) .ico{
+	background-image:url(https://overwatch.nosdn.127.net/2/heroes/Sigma/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(1):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(3):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(4):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(5):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(6):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(7):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(8):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(9):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(10):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(11):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(12):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(13):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(14):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(15):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(16):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(17):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(18):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(19):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(20):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(21):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(22):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(23):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(24):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(25):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(26):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(27):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(28):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(29):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(30):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(31):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(32):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(2) .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/wrecking-ball/icon-portrait.png);
+	background-size: auto 100%;
+	background-position: 50% 50%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(2):hover .ico{
+	width: 75px;
+	height: 89px;
+	margin: 3px 0px;
+	border: 3px solid #f0edf2;
+	background-color: #F7931E;
+}
+.ul-1 li:nth-child(3)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/dva/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(4)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/orisa/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(5)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/reinhardt/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(6)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/roadhog/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(7)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/winston/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(8)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/zarya/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(9)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/echo/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(10)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/ashe/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(11)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/assets/images/hero/doomfist/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(12)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/bastion/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(13)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/genji/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(14)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/hanzo/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(15)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/junkrat/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(16)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/mccree/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(17)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/frost/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(18)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/pharah/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(19)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/reaper/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(20)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/soldier-76/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(21)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/sombra/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(22)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/symmetra/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(23)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/torbjorn/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(24)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/tracer/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(25)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/widowmaker/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(26)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/assets/images/hero/baptiste/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(27)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/ana/icon-portrait.png);
+	
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+	
+}
+.ul-1 li:nth-child(27){
+	margin-left:300px ;
+}
+.ul-1 li:nth-child(28)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/brigitte/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(29)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/lucio/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(30)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/mercy/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(31)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/assets/images/hero/moira/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li:nth-child(32)  .ico{
+	background-image:url(https://overwatch.nosdn.127.net/1/images/heroes/zenyatta/icon-portrait.png);
+	background-position: 50% 50%;
+	background-size: auto 100%;
+	background-color: rgba(51,51,51,0.9); 
+	border-radius: 7px;
+	transform: skew(25rad);
+}
+.ul-1 li span{
+	display: inline-block;
+	width: 100px;
+	height: auto;
+	line-height: 20px;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	margin-left: -11px;
+	font-size: 16px;
+}
+
+.ul-1 li:nth-child(1):hovera .ul-1 li:nth-child(1) a {
+	background-color: #f7931e;
+	background-image:url(https://overwatch.nosdn.127.net/2/heroes/Sigma/icon-portrait.png);
+	background-position: 50% 50%;
+	width: 70px;
+	height: 84px;
+	margin: 2.4px 6px;
+	border: 3px solid #f0edf2;
+}
+
+
+
+
+
+
+
+
+
+.box-5{
+	width: 100%;
+	height: 280px;
+	/* background-color: #32f60f; */
+	background-image: url(../img/background-image-3.jpg);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+.footer-title{
+	width:240px ;
+	height: 80px;
+	font-size: 60px;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+.footer-text{
+	width:440px ;
+	height: 50px;
+	font-size: 25px;
+	margin: 0 auto;
+	padding-left: 60px;
+	padding-top: 20px;
+}
+.aniu-2{
+	width: 148px;
+	height: 38px;
+	border-color: #f29400;
+	background-color: #f29400;
+	text-align: center;
+	line-height:38px ;
+	font-weight: 600;
+	color: #F6F6F6;
+	margin: 0 auto;
+	font-size: 20px;
+	border-radius: 5px;
+}
+.aniu-2:hover {
+	background-color:#fe9800 ;
+	
+}
+.touxiang{
+	width: 680px;
+	height: 370px;
+	
+	background-image: url(https://overwatch.nosdn.127.net/1/assets/img/pages/home/brigitte-shoulder-flail.png);
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 1200px;
+	top: 990px;
+	z-index: 1;
+}
+
+
+
+.baidu{
+	margin: 0 auto;
+	position: absolute;
+	top: 9px;
+	left: 760px;
+	z-index: 2;
+}
+.baidu form input:nth-child(1){
+	width:200px ;
+	height: 20px;
+}
+.baidu form input:nth-child(2){
+	width: 76px;
+	height: 25px;
+}
+
+.box-6{
+	width: 100%;
+	height: 370px;
+	/* background-color: #1a13f6; */
+}
