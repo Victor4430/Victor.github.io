@@ -1,0 +1,20 @@
+#back{
+	/* border: white solid 1px; */
+	position: fixed;
+	top: 400px;
+	left: 20px;
+}
+
+#back a {
+	color: #00007f;
+}
+
+#back a:hover {
+	color: #FA8035;
+}
+
+#back ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
