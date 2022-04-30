@@ -1,0 +1,160 @@
+@font-face {
+	font-family: 'metroplayericon';
+	src: url('fonts/metroplayericon.eot?-1s7fzr');
+	src: url('fonts/metroplayericon.eot?#iefix-1s7fzr') format('embedded-opentype'), url('fonts/metroplayericon.woff?-1s7fzr') format('woff'), url('fonts/metroplayericon.ttf?-1s7fzr') format('truetype'), url('fonts/metroplayericon.svg?-1s7fzr#metroplayericon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="mticon-"],
+[class*=" mticon-"] {
+	font-family: 'metroplayericon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.mticon-list-ul:before {
+	content: "\f0ca";
+	color: aliceblue;
+}
+
+.mticon-cloud-download:before {
+	content: "\f0ed";
+	color: aliceblue;
+}
+
+.mticon-play:before {
+	content: "\e600";
+	color: aliceblue;
+}
+
+.mticon-pause:before {
+	content: "\e601";
+	color: aliceblue;
+}
+
+.mticon-stop:before {
+	content: "\e602";
+	color: aliceblue;
+}
+
+.mticon-backward:before {
+	content: "\e603";
+	color: aliceblue;
+}
+
+.mticon-forward:before {
+	content: "\e604";
+	color: aliceblue;
+}
+
+.mticon-play2:before {
+	content: "\e605";
+	color: aliceblue;
+}
+
+.mticon-pause2:before {
+	content: "\e606";
+	color: aliceblue;
+}
+
+.mticon-stop2:before {
+	content: "\e607";
+	color: aliceblue;
+}
+
+.mticon-backward2:before {
+	content: "\e608";
+	color: aliceblue;
+}
+
+.mticon-forward2:before {
+	content: "\e609";
+	color: aliceblue;
+}
+
+.mticon-first:before {
+	content: "\e60a";
+	color: aliceblue;
+}
+
+.mticon-last:before {
+	content: "\e60b";
+	color: aliceblue;
+}
+
+.mticon-previous:before {
+	content: "\e60c";
+	color: aliceblue;
+}
+
+.mticon-next:before {
+	content: "\e60d";
+	color: aliceblue;
+}
+
+.mticon-eject:before {
+	content: "\e60e";
+	color: aliceblue;
+}
+
+.mticon-volume-high:before {
+	content: "\e60f";
+	color: aliceblue;
+}
+
+.mticon-volume-medium:before {
+	content: "\e610";
+	color: aliceblue;
+}
+
+.mticon-volume-low:before {
+	content: "\e611";
+	color: aliceblue;
+}
+
+.mticon-volume-mute:before {
+	content: "\e612";
+	color: aliceblue;
+}
+
+.mticon-volume-mute2:before {
+	content: "\e613";
+	color: aliceblue;
+}
+
+.mticon-volume-increase:before {
+	content: "\e614";
+	color: aliceblue;
+}
+
+.mticon-volume-decrease:before {
+	content: "\e615";
+	color: aliceblue;
+}
+
+.mticon-loop:before {
+	content: "\e616";
+	color: aliceblue;
+}
+
+.mticon-loop2:before {
+	content: "\e617";
+	color: aliceblue;
+}
+
+.mticon-loop3:before {
+	content: "\e618";
+	color: aliceblue;
+}
+
+.mticon-shuffle:before {
+	content: "\e619";
+	color: aliceblue;
+}
