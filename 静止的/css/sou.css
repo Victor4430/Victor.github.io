@@ -832,7 +832,7 @@ a.quick_div_a {
     color: #777;
     left: 10px;
     top: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
 
 }
 
