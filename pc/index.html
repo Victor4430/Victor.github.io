@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" href="sir.ico">
+		<title>杨开群简历</title>
+		<style type="text/css">
+			body {
+				background-color: #6d6d6d;
+			}
+
+			img {
+				background-size: contain|cover;
+				margin-top: 100px;
+				margin-bottom: 100px;
+				width: 80%;
+				height: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<img src="./img/jianli_00.png">
+			<img src="./img/jianli_01.png">
+		</center>
+	</body>
+</html>
+<script type="text/javascript">
+	(function() {
+	const mydiv = document.createElement('div')
+	mydiv.style.width = 100 + "vw"
+	mydiv.style.height = 100 + "vh"
+	mydiv.style.position = "fixed"
+	mydiv.style.top = 0 +'px'
+	mydiv.style.left = 0 +'px'
+	mydiv.style.right = 0 +'px'
+	mydiv.style.bottom = 0 +'px'
+	mydiv.style.pointerEvents = "none"
+	mydiv.style.zIndex = "1000"
+	document.body.appendChild(mydiv)
+	
+	const canvas = document.createElement('canvas')
+	canvas.className ="canvas"
+	canvas.setAttribute("width",document.body.clientWidth)
+	canvas.setAttribute("height",720)
+	canvas.style.position = "absolute"
+	canvas.style.top = 0 +'px'
+	canvas.style.left = 0 +'px'
+	canvas.style.right = 0 +'px'
+	canvas.style.bottom = 0 +'px'
+	canvas.style.zIndex = "2000"
+	canvas.style.pointerEvents = "none"
+	mydiv.appendChild(canvas)
+	var arr = []
+	const ctx = canvas.getContext('2d')
+	
+	document.addEventListener('mousemove',function(e) {
+	   new dot(e.clientX,e.clientY,2,0,-1)
+	   new dot(e.clientX,e.clientY,2,0,1)
+	})
+	
+	
+	function getColor() {
+	    var colorarr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f']
+	    var color = "#"
+	    for (var i = 0; i < 6; i++) {
+	        color += colorarr[Math.floor(Math.random() * colorarr.length)]
+	    }
+	    return color
+	}
+	
+	function dot(x,y,r,dx,dy) {
+	    this._x = x,
+	    this._y = y,
+	    this.x = x
+	    this.y = y,
+	    this.r = r,
+	    this.dx = dx,
+	    this.dy = dy,
+	    this.color = getColor(),
+	    arr.push(this)
+	}
+	
+	dot.prototype.render = function() {
+	    ctx.beginPath()
+	    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false)
+	    ctx.fillStyle = this.color
+	    ctx.fill()
+	}
+	
+	dot.prototype.update = function() {
+	    this.x+=this.dx
+	    this.y+=this.dy
+	}
+	
+	dot.prototype.remove = function() {
+	    if(this.x - this._x>=25 || this.x - this.x <= -25 || this.y - this._y >=25 || this.y - this._y <=-25) {
+	        ctx.clearRect(0, 0, canvas.width, canvas.height)
+	    }
+	}
+	
+	setInterval(() => {
+	    ctx.clearRect(0, 0, canvas.width, canvas.height)
+	    for (var i = 0; i < arr.length; i++) {
+	        arr[i].render()
+	        arr[i].update()
+	        arr[i].remove()
+	    }
+	}, 20);
+	})(document);
+</script>
