@@ -1,4 +1,4 @@
-# 个人导航页——带搜索  
+# 杨晓东_个人导航
 
 用惯了各种导航首页，满屏幕尽是各种不厌其烦的广告和资讯；
 
@@ -29,7 +29,7 @@
 
 
 
-## 俺的示例页面 & 原作者源码：    
+## 示例页面 & 原作者源码：    
 
 + html+js+css版本：[https://demo443.com/](https://demo443.com/) 
 + html+js+css源码：[https://github.com/HolgerHuo/minimalist-search](https://github.com/HolgerHuo/minimalist-search)  
