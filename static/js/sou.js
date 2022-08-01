@@ -49,7 +49,7 @@ $(document).ready(function() {
 			explain: "Music",
 		},
 		'4': {
-			title: "Tool",
+			title: "Tool ",
 			url: "http://demo443.com/tool/",
 			img: "./static/icon/home.png",
 			explain: "Tools_page",
