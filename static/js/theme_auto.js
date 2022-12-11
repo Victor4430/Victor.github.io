@@ -61,4 +61,4 @@ if(Cookies.get('theme')!=="1"&&Cookies.get('theme')!=="0"){
             Cookies.set('theme',2, { expires: 1 });
         }
     });
-}
+};

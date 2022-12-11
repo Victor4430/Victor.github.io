@@ -32,4 +32,4 @@ document[_0xbcdf[13]][_0xbcdf[12]](_0xbcdf[8], function(_0x45a9x6) {
 });
 document[_0xbcdf[13]][_0xbcdf[12]](_0xbcdf[14], function(_0x45a9x6) {
 	isManualFocus = true
-})
+});

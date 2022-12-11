@@ -17,13 +17,33 @@ $(document).ready(function() {
 			img: "./static/icon/google_1.png",
 
 		},
-
 		'3': {
 			id: 3,
 			title: "Bing CN",
 			url: "https://cn.bing.com/search",
 			name: "q",
 			img: "./static/icon/bing.ico",
+		},
+		'4': {
+			id: 3,
+			title: "sogou",
+			url: "https://www.sogou.com/web",
+			name: "query",
+			img: "./static/icon/sougou.ico",
+		},
+		'5': {
+			id: 3,
+			title: "DuckGo",
+			url: "https://duckduckgo.com/",
+			name: "q",
+			img: "./static/icon/DuckDuckGo.png",
+		},
+		'6': {
+			id: 3,
+			title: "开发",
+			url: "https://kaifa.baidu.com/searchPage",
+			name: "wd",
+			img: "./static/icon/kaifa.png",
 		},
 	};
 
@@ -44,13 +64,13 @@ $(document).ready(function() {
 		},
 		'3': {
 			title: "Music",
-			url: "http://demo443.com/music/",
+			url: "./music/",
 			img: "./static/icon/music.png",
 			explain: "Music",
 		},
 		'4': {
 			title: "Tool ",
-			url: "http://demo443.com/tool/",
+			url: "./tool/",
 			img: "./static/icon/home.png",
 			explain: "Tools_page",
 		},
@@ -59,6 +79,24 @@ $(document).ready(function() {
 			url: "https://www.bilibili.com/",
 			img: "./static/icon/bilibili.png",
 			explain: "哔哩哔哩",
+		},
+		'6': {
+			title: "法律法规",
+			url: "./falv/",
+			img: "./static/icon/falv.png",
+			explain: "法律法规",
+		},
+		'7': {
+			title: "广告收入",
+			url: "./gg/",
+			img: "./static/icon/sao.png",
+			explain: "广告收入",
+		},
+		'8': {
+			title: "m3u8播放器",
+			url: "http://demo443.com/m3u8/",
+			img: "./static/icon/m3u8.png",
+			explain: "m3u8播放器",
 		},
 	};
 
