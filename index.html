@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" style="font-weight: bold;">
 	<!-- 灰色主题 -->
 	<!-- <html style="filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
 	-webkit-filter: grayscale(100%);"> -->
 	<head>
 		<meta charset="UTF-8">
-		<!--begin seo-->
-		<script async defer data-website-id="321054be-150e-4cdf-a192-237959fe72d9"
-			src="https://stats.dragon-fly.club/umami.js"></script>
 		<meta name="copyright" content="©️ 2022 Victor GPLv3.0">
-		<meta name="author" content="Victor" />
+		<meta name="author" content="Victor">
 		<title>杨晓东_个人导航</title>
 		<meta name="keywords"
 			content="编程,学习,导航,个人导航,杨晓东,晓东,python,笔记,博客,杨晓东个人导航,Victor,Victor's Blog,aggregator,index,homepage,start,开始界面,网站聚合,主页,网址大全,网址导航">
@@ -17,13 +14,16 @@
 			content="与其坐在副驾驶，不如自己手握方向盘。会敲点代码，未来也想做点什么了不起的事情。喜欢折腾，更喜欢研究，迷失在从无到有的创造感之中….，我是杨晓东，欢迎志同道合之人和我一起研究，一起折腾。">
 		<!-- / FB Open Graph -->
 		<meta property="og:type" content="article">
-		<meta property="og:url" content="https://demo520.com">
+		<meta property="og:url" content="https://demo443.com">
 		<meta property="og:title" content="杨晓东_个人导航">
 		<meta property="og:description" content="与其坐在副驾驶，不如自己手握方向盘。会敲点代码，未来也想做点什么了不起的事情。喜欢折腾，更喜欢研究，迷失在从无到有的创造感之中….">
 		<meta property="og:image" content="./static/images/avatar.png">
 		<meta property="og:site_name" content="杨晓东_个人导航">
 		<!-- / FB Open Graph end -->
 		<!--seo end-->
+		
+		<!-- Google 广告 -->
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7780137864654456" crossorigin="anonymous"></script>
 		<!--link external resources-->
 		<link rel="stylesheet" href="static/css/sou.css">
 		<link id="daily-theme" rel="stylesheet" href="static/css/sou.css"
@@ -31,9 +31,8 @@
 			data-original-media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
 		<link id="dark-theme" rel="stylesheet" href="static/css/sou_night.css" media="(prefers-color-scheme: dark)"
 			data-original-media="(prefers-color-scheme: dark)">
-		<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
-		<!--引用Google Fonts Josefin Sans-->
-		<link rel="manifest" href="static/manifest.json">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap">
+		<!-- 节日特效 -->
 		<!-- <script src='https://demo443.com/css_js/xuehua.js'></script> -->
 		<!-- <script src='./css_js/denglong.js'></script> -->
 		<!-- <script src='https://demo443.com/css_js/bolang.js'></script> -->
@@ -56,7 +55,6 @@
 			}
 
 			/* 快捷方式渐变色效果 */
-
 			.quick a:before {
 				content: '';
 				display: block;
@@ -76,58 +74,16 @@
 				-webkit-transition: all 0.8s;
 				z-index: 0;
 			}
-
 			.quick a:hover:before {
 				background-position: left bottom;
 			}
 		</style>
+		 <!--
+		 今日诗词V2 JS-SDK 1.2.2
+		 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com 
+		 -->
+		 <script type="text/javascript" src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8">
 		</script>
-		<!--load sw.js ©️holger-->
-		<script async>
-			'use strict';
-			'serviceWorker' in navigator && navigator.serviceWorker.register('service-worker.js').then(function(a) {
-				a.onupdatefound = function() {
-					var b = a.installing;
-					b.onstatechange = function() {
-						switch (b.state) {
-							case 'installed':
-								navigator.serviceWorker.controller ? console.log(
-									'New or updated content is available.') : console.log(
-									'Content is now available offline!');
-								break;
-							case 'redundant':
-								console.error('The installing service worker became redundant.');
-						}
-					}
-				}
-			}).catch(function(a) {
-				console.error('Error during service worker registration:', a)
-			});
-		</script>
-		<!--load sw.js end-->
-		<!-- analytics -->
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-2GP2P9TXKQ"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-
-			gtag('config', 'G-2GP2P9TXKQ');
-		</script>
-		<script async>
-			var _hmt = _hmt || [];
-			(function() {
-				var hm = document.createElement("script");
-				hm.src = "https://hm.baidu.com/hm.js?02764abec014df97eed8a885ec5204de";
-				var s = document.getElementsByTagName("script")[0];
-				s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
-		<!-- analytics end-->
 		<meta name="viewport"
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="Cache-Control" content="no-transform" />
@@ -156,35 +112,27 @@
 		<link rel="stylesheet" href="static/css/font_1230786_swt4kkie8ym/iconfont.css">
 		<link rel="stylesheet" href="static/css/font_1614281/iconfont.css">
 		<script async src="static/css/font_1230786_swt4kkie8ym/iconfont.js"></script>
-
+		<!-- 访问量统计  https://v6.51.la/user/application/create -->
+		<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JtS13yEa2YIo8egO&ck=JtS13yEa2YIo8egO"></script>
 	</head>
 	<body>
 		<div class="top-right theme-switch">
 			<a id="theme-switch">
-				<img id="theme-switch-icon" src="static/icon/icon-light.svg" width="20" height="20" title=""
-					aria-expanded="true">
+				<img id="theme-switch-icon" src="static/icon/icon-light.svg" width="20" height="20" title="" aria-expanded="true">
 			</a>
 		</div>
 		<!-- 侧栏 -->
 		<div id="menu"><i></i></div>
 		<div class="side closed">
-
 			<div class="tab-nav j-tab-nav">
-
 				<a href="javascript:void(0);" class="current">Sites</a>
-
 				<a href="javascript:void(0);">Settings</a>
-
 				<a href="javascript:void(0);">Backup</a>
-
 			</div>
-
 			<div class="tab-con">
-
 				<div class="j-tab-con">
 					<!--书签-->
 					<div class="tab-con-item" style="display:block;">
-
 						<div class="list">
 							<ul>
 								<!------>
@@ -504,10 +452,13 @@
 									<a rel="nofollow" href="https://www.aliyundrive.com/" target="_blank">
 										<i class="iconfont icon-baiduyun" style="color: #03ff13;"></i>阿里云盘</a>
 								</li>
-							
 								<li>
 									<a rel="nofollow" href="https://apkdl.in/" target="_blank">
 										<i class="iconfont icon-anzhuo" style="color:#03ff13;"></i>APK下载</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://pcmanager.microsoft.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#03ff13;"></i>微软管家</a>
 								</li>
 								<!------>
 								<li class="title"><i class="iconfont icon-ai-tool"></i>Spider</li>
@@ -953,12 +904,10 @@
 							</div>
 							<!--快捷方式设置 end-->
 						</div>
-
 					</div>
 					<!--设置 end-->
 					<!--我的-->
 					<div class="tab-con-item">
-
 						<div class="me">
 							<p><img src="static/icon/user.png"></p>
 						</div>
@@ -974,10 +923,7 @@
 					</div>
 					<!--我的 end-->
 				</div>
-
 			</div>
-
-
 		</div>
 		<!-- 侧栏 end -->
 		<!--和风天气插件-->
@@ -1012,7 +958,7 @@
 		<!--搜索框和书签 end-->
 		<div id="content">
 			<center>
-				<a id="time_new" href="#">time_new</a>
+				<a id="time_new" href="https://demo443.com">time_new</a>
 			</center>
 			<script>
 				var time_new = document.getElementById('time_new');
@@ -1059,16 +1005,17 @@
 						<ul class="search-engine-list">
 							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
 									src="static/icon/baidu.ico"></img>百度</li>
-							<li class="se-li" url="https://www.google.com/search" name="q"
-								img="static/icon/google_1.png"><img src="static/icon/google_1.png"></img>Google</li>
-							<li class="se-li" url="https://cn.bing.com/search" name="q" img="static/icon/bing.ico"><img
-									src="static/icon/bing.ico"></img>Bing CN</li>
-							<li class="se-li" url="https://www.dogedoge.com/results" name="q"
-								img="static/icon/doge_ico.png"><img src="static/icon/doge_ico.png"></img>多吉</li>
-							<li class="se-li" url="https://mijisou.com" name="q" img="static/icon/mijisou.png"><img
-									src="static/icon/mijisou.png"></img>秘迹</li>
-							<li class="se-li" url="https://seeres.com/search" name="q" img="static/icon/seeres.png"><img
-									src="static/icon/seeres.png"></img>seeres*</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							
 						</ul>
 					</div>
 					<div class="quick-div">
@@ -1103,12 +1050,32 @@
 									哔哩哔哩
 								</a>
 							</li>
+							<li class="quick" data-s="法律法规" target="_blank" title="哔哩哔哩">
+								<a target=_blank rel="nofollow" href="./falv/index.html">
+									<i style="background-image: url(./static/icon/falv.png);"></i>
+									法律法规
+								</a>
+							</li>
+							<li class="quick" data-s="广告收入" target="_blank" title="哔哩哔哩">
+								<a target=_blank rel="nofollow" href="./gg/">
+									<i style="background-image: url(./static/icon/sao.png);"></i>
+									广告收入
+								</a>
+							</li>
+							<li class="quick" data-s="m3u8在线播放" target="_blank" title="哔哩哔哩">
+								<a target=_blank rel="nofollow" href="http://demo443.com/m3u8/">
+									<i style="background-image: url(./static/icon/m3u8.png);"></i>
+									m3u8在线播放
+								</a>
+							</li>
 						</ul>
 					</div>
+					<!--今日诗词 placeholder copyright Victor-->
 					<div class="hitokoto">
 						<p id="hitokoto">😀 Loading...</p>——「<span id="from">😀 Loading...</span>」
 					</div>
 				</div>
+				<!--今日诗词 placeholder copyright Victor-->
 				<script async>
 					fetch('https://v1.hitokoto.cn')
 						.then(function(res) {
@@ -1124,7 +1091,7 @@
 							console.error(err);
 						})
 				</script>
-				<!--今日诗词 placeholder copyright holger-->
+				<!--今日诗词 placeholder copyright Victor-->
 				<script>
 					jinrishici.load(function(result) {
 						var telecopy = result.data.content;
@@ -1146,15 +1113,14 @@
 			<div class="foot">
 				Copyright © 2022 ☕杨晓东_个人导航 All Rights Reserved. designed and developed by yangkaiqun.
 				<p>
-					<pss><a href='http://i.holger.net.cn' target='_blank'> </a>&nbsp;&nbsp;<ping></ping>
+					<pss><a href='http://demo443.com' target='_blank'> </a>&nbsp;&nbsp;<ping></ping>
 					</pss>
 					<span id="busuanzi_container_site_pv">本站总访问量: <span id="busuanzi_value_site_pv"></span> 次</span>
 				</p>
 				<script async src="static/js/latency.js"></script>
-				<script src="static/js/defocus.js"></script>
 				<script async src="static/js/defocus.js"></script>
 			</div>
-			<!-- <script async src="./css_js/number.js"></script> -->
+			<!-- 不蒜子  网页访问量计数器 -->
 			<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 			
 	</body>
