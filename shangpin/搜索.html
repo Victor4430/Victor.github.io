@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 160px;
+            padding: 40px;
+            margin: 100px auto
+        }
+
+        #one {
+            width: 268px;
+            height: 33px;
+            float: left;
+            border: 0;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            background-color: rgb(245, 246, 247);
+            outline: none;
+        }
+
+        #search {
+            background-color: rgb(252, 85, 49);
+            color: white;
+            width: 70px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 13px;
+            border-radius: 20px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            float: left;
+        }
+
+        #show {
+            width: 270px;
+            height: 170px;
+            border: 1px solid rgba(77, 76, 76, 0.459);
+            display: none;
+            margin-top: 40px;
+            overflow: hidden;
+        }
+        #show div{
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-indent: 1em;
+            display: block;
+        }
+        #show div:hover{
+            background-color: rgb(240, 240, 245);
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="nav">
+            <input type="text" id="one" placeholder="请输入关键词" autocomplete="on">
+            <div id="search">搜索</div>
+        </div>
+        <div id="show">
+            <div></div>
+        </div>
+    </div>
+
+    <script>
+        let arr = ['蛋糕便宜卖','蛋糕便宜', '想吃水果', '2333','蛋糕00', '想吃水果', '2333','蛋糕00', '想吃水果', '2333','蛋糕11', '想吃水果', '2333','蛋糕22', '想吃水果', '2333', 'css精品课程','2个小朋友','这儿有2个面包','我们一起','乐队的夏天','天气真好'];
+        let one = document.getElementById("one");
+        let show = document.getElementById("show")
+
+        one.onfocus = function () {
+            show.style.display = "block";
+            one.style.border = "1px coral solid"
+            one.onkeyup = function () {
+                let str = '';
+                let tem=false;
+                arr.forEach((item) => {
+                    let index = item.indexOf(one.value);
+                    if (~index) {
+                        tem=true;
+                        str+='<div>'+item+'</div>';//每次都更新str的值，所以不用担心重复
+                    }
+                })
+                //很重要
+                if(one.value=='' || !tem){
+                    show.innerHTML='<div>'+'暂无结果'+'</div>';
+                }
+                else{
+                    show.innerHTML=str;
+                }
+            }
+
+        }
+        //onblur 的事件会在对象失去焦点时发生
+        one.onblur = function () {
+            show.style.display = "none"
+            one.style.border = "1px transparent solid"
+            show.innerHTML='';
+        }
+    </script>
+</body>
+
+</html>
