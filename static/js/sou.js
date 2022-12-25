@@ -93,6 +93,18 @@ $(document).ready(function() {
 			explain: "广告收入",
 		},
 		'8': {
+			title: "服务器",
+			url: "./servers/",
+			img: "./static/icon/servers.png",
+			explain: "服务器",
+		},
+		'9': {
+			title: "薅羊毛",
+			url: "./shangpin/",
+			img: "./static/icon/yang.png",
+			explain: "薅羊毛",
+		},
+		'10': {
 			title: "m3u8播放器",
 			url: "http://demo443.com/m3u8/",
 			img: "./static/icon/m3u8.png",
