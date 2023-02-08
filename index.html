@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en-US" style="font-weight: bold;">
+	<!-- 灰色主题 -->
+	<!-- <html style="filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+	-webkit-filter: grayscale(100%);"> -->
+	<head>
+		<title>杨晓东_个人导航</title>
+		<meta charset="UTF-8">
+		<meta name="copyright" content="©️ 2022 Victor GPLv3.0">
+		<meta name="author" content="Victor">
+		<!-- <meta http-equiv="refresh" content="120;url=#">	 -->
+		
+		<!-- 禁止页面缓存 达到每次访问都是最新页面-->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		
+		<!-- Cache-Control`作用于`HTTP1.1`
+		`Pragma`作用于`HTTP1.0`
+		`Expires`作用于`proxies -->
+		
+		
+		<meta name="keywords"
+			content="编程,学习,导航,个人导航,杨晓东,晓东,python,笔记,博客,杨晓东个人导航,Victor,Victor's Blog,aggregator,index,homepage,start,开始界面,网站聚合,主页,网址大全,网址导航">
+		<meta name="description"
+			content="与其坐在副驾驶，不如自己手握方向盘。会敲点代码，未来也想做点什么了不起的事情。喜欢折腾，更喜欢研究，迷失在从无到有的创造感之中….，我是杨晓东，欢迎志同道合之人和我一起研究，一起折腾。">
+		<!-- / FB Open Graph -->
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://demo443.com">
+		<meta property="og:title" content="杨晓东_个人导航">
+		<meta property="og:description" content="与其坐在副驾驶，不如自己手握方向盘。会敲点代码，未来也想做点什么了不起的事情。喜欢折腾，更喜欢研究，迷失在从无到有的创造感之中….">
+		<meta property="og:image" content="./static/images/avatar.png">
+		<meta property="og:site_name" content="杨晓东_个人导航">
+		<!-- / FB Open Graph end -->
+		<!--seo end-->
+		
+		<!-- Google 广告 -->
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7780137864654456" crossorigin="anonymous"></script>
+		
+		
+		<!-- ADXAD  成人网站广告？？？？？ -->
+		<!-- <script src="https://static.adxadserv.com/js/adp.js" data-adxad-pop id="63be0ce161d6e273a43d6127"></script> -->
+
+		
+		<!--link external resources-->
+		<link rel="stylesheet" href="static/css/sou.css">
+		<link id="daily-theme" rel="stylesheet" href="static/css/sou.css"
+			media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+			data-original-media="(prefers-color-scheme: no-preference), (prefers-color-scheme: light)">
+		<link id="dark-theme" rel="stylesheet" href="static/css/sou_night.css" media="(prefers-color-scheme: dark)"
+			data-original-media="(prefers-color-scheme: dark)">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap">
+		<!-- 节日特效 -->
+		<!-- <script src='https://demo443.com/css_js/xuehua.js'></script> -->
+		<!-- <script src='./css_js/denglong.js'></script> -->
+		<!-- <script src='https://demo443.com/css_js/bolang.js'></script> -->
+		<style>
+			#time_new {
+				position: relative;
+				width: inherit;
+				top: 100px;
+				font-family: '楷体';
+				font-weight: 100;
+				font-size: 28px;
+				font-style: normal;
+				text-align: center;
+				color: #8d8d8d;
+			}
+
+			/* 时间hover渐变色 */
+			#time_new:hover {
+				color: #0084ff;
+			}
+
+			/* 快捷方式渐变色效果 */
+			.quick a:before {
+				content: '';
+				display: block;
+				background: linear-gradient(to left, rgba(255, 255, 255, 0.1) 50%, rgba(84, 57, 235, 0.5) 50%);
+				box-shadow: 2px 4px 15px 3px rgba(40, 12, 196, 0.7);
+				background-size: 210% 100%;
+				background-position: right bottom;
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0px;
+				bottom: 0px;
+				right: 0px;
+				left: 0px;
+				border-radius: 50px;
+				transition: all 1s;
+				-webkit-transition: all 0.8s;
+				z-index: 0;
+			}
+			.quick a:hover:before {
+				background-position: left bottom;
+			}
+		</style>
+		 <!--
+		 今日诗词V2 JS-SDK 1.2.2
+		 今日诗词API 是一个可以免费调用的诗词接口：https://www.jinrishici.com 
+		 -->
+		 <script type="text/javascript" src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8">
+		</script>
+		<meta name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="Cache-Control" content="no-transform" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" href="./static/images/favicon.ico" sizes="192x192" />
+		<link rel="apple-touch-icon-precomposed" href="./static/images/favicon.ico" />
+		<meta name="msapplication-TileImage" content="./static/images/favicon.ico" />
+		<link rel="shortcut icon" href="./static/images/favicon.ico" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="full-screen" content="yes">
+		<!--UC强制全屏-->
+		<meta name="browsermode" content="application">
+		<!--UC应用模式-->
+		<meta name="x5-fullscreen" content="true">
+		<!--QQ强制全屏-->
+		<meta name="x5-page-mode" content="app">
+		<!--QQ应用模式-->
+		<script src="static/js/jquery-3.4.1.min.js"></script>
+		<script src="static/js/jQuery.rTabs.js"></script>
+		<script src="static/js/js.cookie.js"></script>
+		<script src="static/js/sou.js"></script>
+		<script async src="static/js/theme_auto.js"></script>
+		<script async src="static/js/theme_manual.js"></script>
+		<link rel="stylesheet" href="static/css/font_1230786_swt4kkie8ym/iconfont.css">
+		<link rel="stylesheet" href="static/css/font_1614281/iconfont.css">
+		<script async src="static/css/font_1230786_swt4kkie8ym/iconfont.js"></script>
+		<!-- 访问量统计  https://v6.51.la/user/application/create -->
+		<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JtS13yEa2YIo8egO&ck=JtS13yEa2YIo8egO"></script>
+	</head>
+	<body>
+		<div class="top-right theme-switch">
+			<a id="theme-switch">
+				<img id="theme-switch-icon" src="static/icon/icon-light.svg" width="20" height="20" title="" aria-expanded="true">
+			</a>
+		</div>
+		<!-- 侧栏 -->
+		<div id="menu"><i></i></div>
+		<div class="side closed">
+			<div class="tab-nav j-tab-nav">
+				<a href="javascript:void(0);" class="current">Sites</a>
+				<a href="javascript:void(0);">Settings</a>
+				<a href="javascript:void(0);">Backup</a>
+			</div>
+			<div class="tab-con">
+				<div class="j-tab-con">
+					<!--书签-->
+					<div class="tab-con-item" style="display:block;">
+						<div class="list">
+							<ul>
+								<!------>
+								<li class="title"><i class="iconfont icon-youxiang"></i>Emails</li>
+								<li>
+									<a rel="nofollow" href="https://mail.qq.com/" target="_blank">
+										<i class="iconfont icon-QQ" style="color: #f05;"></i>QQ邮箱</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">
+										<i class="iconfont icon-gmail" style="color: #f03;"></i>Gmail</a>
+								</li>
+								
+								<li>
+									<a rel="nofollow" href="https://mail.163.com/" target="_blank">
+										<i class="iconfont icon-wangyi" style="color: #03ff13;"></i>网易邮箱</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://mail.sina.com.cn/" target="_blank">
+										<i class="iconfont icon-xinlang" style="color: #e6162d;"></i>新浪邮箱</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://qiye.aliyun.com/" target="_blank">
+										<i class="iconfont icon-yunyouxiang" style="color: #f15534;"></i>阿里邮箱</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="./v/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i></i>国外站点</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="./file/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i></i>黑洞</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.google.com/adsense/new/u/0/pub-7780137864654456/sites/my-sites" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i></i>GA控制台</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://jinbao.pinduoduo.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i>多多进宝</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://qudao.720sy.com/#/home" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i>小游戏</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://user.51.la/i/product" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i>流量统计</a>
+								</li>
+								
+								<li>
+									<a rel="nofollow" href="https://www.3v.do/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f100ed;"></i>三维主机</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.szhot.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #19ff00;"></i>万维网</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://sso.qiniu.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f1e900;"></i>七牛云</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://ftp.8u.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #17f1ea;"></i>8uftp</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://putty.org/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #8af135;"></i>PuTTY</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.qweather.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #8af135;"></i>和风天气</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://map.qweather.com" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #8af135;"></i>气象图</a>
+								</li>
+								
+								<!------>
+								<li class="title"><i class="iconfont icon-msg"></i>Shortcut Tool</li>
+								<li>
+									<a rel="nofollow" href="https://translate.google.com.hk/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #0084ff;"></i>谷歌翻译</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://fanyi.youdao.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #0084ff;"></i>有道翻译</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #0084ff;"></i>Chrome</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.microsoft.com/zh-cn/edge/home" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #0084ff;"></i>Edge</a>
+								</li>
+								<li>
+									<a href="https://www.67tool.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #00f963;"></i>即时工具</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://ps.gaoding.com/#/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f15534;"></i>在线PS</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://huatu.98youxi.com/markdown/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ff2600;"></i>Markdown</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://huatu.98youxi.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #fdb90d;"></i>迅捷脑图</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://store.lizhi.io/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffff07;"></i>正版软件</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.cleverpdf.com/cn" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #dfe64c;"></i>PDF转换</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.aconvert.com/cn/document/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e230d9;"></i>文件转换</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.pptsupermarket.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #9f2017;"></i>PPT市场</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.dxzy163.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #00ffff;"></i>大学资源</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.cnki.net/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #adb246;"></i>中国知网</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://shenzjd.com/shenzjd/tupian/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #eadf43;"></i>九帝壁纸</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://bing.ioliu.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f5f539;"></i>必应壁纸</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://zh.z-lib.org/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #aaff00;"></i>PDF书籍</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.niuga.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #f13016;"></i>视频解析1</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://vip.aixc.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #5d92fc;"></i>视频解析2</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://airtest.netease.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #c518f4;"></i>图像自动化</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-msg"></i>Information</li>
+								<li>
+									<a href="https://www.gsxt.gov.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>企业信息</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://wenshu.court.gov.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>裁判文书</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://zxgk.court.gov.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>执行信息</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://cont.12315.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>合同示范</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://bzdt.ch.mnr.gov.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>标准地图</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://le.ouchn.cn/home" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>终身教育</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.docuchina.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>中国纪录片</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.stats.gov.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>国家统计局</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://yhssglxt.miit.gov.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>工信部申诉</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.nlc.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>数字图书部</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://privacy.aiuys.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>Privacy</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-msg"></i>Doc</li>
+								<li>
+									<a href="https://www.osgeo.cn/scrapy/intro/overview.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>Scrapy</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.numpy.org.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>NumPy</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.jianshu.com/p/a77b0bc736f2/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>Pandas</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.byhy.net/tut/auto/appium/01/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>Appium</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.mysqlab.net/docs/view/refman-5.1-zh/chapter/sql-syntax.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>MySQL</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.runoob.com/redis/redis-tutorial.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>Redis </a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.linuxcool.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffffff;"></i>Linux命令</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-msg"></i>Software</li>
+								<li>
+									<a rel="nofollow" href="https://www.bt.cn/new/index.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>宝塔面板</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.xp.cn/download.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>PHPstudy</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://www.google.cn/intl/zh-CN/chrome/dev/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>谷歌-DEV</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.todesk.com/download.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>远程协助</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.diskgenius.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>数据恢复</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.charlesproxy.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>Charles</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.51nwt.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>内网通讯</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.revouninstaller.com/revo-uninstaller-free-download/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #3af406;"></i>卸载工具</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://chromedriver.storage.googleapis.com/index.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>谷歌驱动</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.python.org/downloads/windows/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Py_IDLE</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.jetbrains.com/pycharm/download/#section=windows" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Pycharm</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.anaconda.com/products/distribution#Downloads" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Anaconda</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.dcloud.io/hbuilderx.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>HbuilderX</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://code.visualstudio.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Vscode</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.bazhuayu.com/download/windows" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>八爪鱼</a></li>
+								<li>
+									<a rel="nofollow" href="https://www.voidtools.com/zh-cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Everything</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://dm.airdisk.cc/download/c-3/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Airdisk</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.yishimei.cn/network/319.html" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>系统激活 </a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.wps.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>WPS </a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://files.demo443.com/tool/xiufu/Explorer.exe_All.rar"
+										target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>桌面修复 </a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://sparanoid.com/lab/7z/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>7-zip </a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://notepad-plus-plus.org/downloads/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Notepad++ </a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.typora.io/#windows" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>Typora</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.stellarplayer.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>恒星播放器</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://shurufa.sogou.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>搜狗输入法</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://pan.baidu.com" target="_blank">
+										<i class="iconfont icon-baiduyun" style="color: #03ff13;"></i>百度网盘</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.aliyundrive.com/" target="_blank">
+										<i class="iconfont icon-baiduyun" style="color: #03ff13;"></i>阿里云盘</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://apkdl.in/" target="_blank">
+										<i class="iconfont icon-anzhuo" style="color:#03ff13;"></i>APK下载</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://pcmanager.microsoft.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#03ff13;"></i>微软管家</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-ai-tool"></i>Spider</li>
+								<li>
+									<a rel="nofollow" href="http://www.spidertools.cn/#/" target="_blank">
+										<i class="iconfont icon-jshunxiao" style="color: #48c;"></i>爬虫工具库</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://httpbin.org/get" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>查看-UA</a>
+								</li>
+								<li>
+									<a href="https://zhimahttp.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #03ff13;"></i>IP代理</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://curlconverter.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>curl_转换</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://tool.chinaz.com/regex/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>正则_在线</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://javascriptobfuscator.com/Javascript-Obfuscator.aspx" target="_blank">
+										<i class="iconfont icon-jshunxiao" style="color: #48c;"></i>JS混淆器</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.dejs.vip/" target="_blank">
+										<i class="iconfont icon-jshunxiao" style="color: #48c;"></i>JS反混淆</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://captcha.run/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>打码_谷歌</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://encode.chahuo.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>加密解密1</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.158566.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>加密解密2</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://gitee.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>Gitee</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.ip138.com/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>IP查询</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://cubic-bezier.com" target="_blank">
+										<i class="iconfont icon-quxian" style="color: #f08;"></i>贝赛尔曲线</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://base64.us/" target="_blank">
+										<i class="iconfont icon-base64" style="color:#1d0;"></i>Base64</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.zoomeye.org/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>钟馗之眼</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://tools.miku.ac/" target="_blank">
+										<i class="iconfont icon-ai-tool"></i>Miku工具</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://ping.pe" target="_blank">
+										<i class="iconfont icon-wangluo1" style="color:#1d0;"></i>Ping.pe</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://ping.chinaz.com/" target="_blank">
+										<i class="iconfont icon-pingup" style="color:#2361ad;"></i>站长Ping</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://feedly.com" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #ffea01;"></i>Feedly</a>
+								</li>
+							
+								<!------>
+							
+								<li class="title"><i class="iconfont icon-shipin"></i>Media</li>
+								<li>
+									<a rel="nofollow" href="https://www.youtube.com/" target="_blank">
+										<i class="iconfont icon-youtube" style="color:#f03;"></i>Youtube</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://v.qq.com/" target="_blank">
+										<i class="iconfont icon-tengxunshipin" style="color:#2a0;"></i>腾讯视频</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.youku.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>优酷</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.iqiyi.com/" target="_blank">
+										<i class="iconfont icon-aiqiyi" style="color:#1d0;"></i>爱奇艺</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.zmz2019.com/" target="_blank">
+										<i class="iconfont icon-zimu" style="color: #09e;"></i>字幕组</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.acfun.cn/index.html" target="_blank">
+										<i class="iconfont icon-acfun" style="color:#f33;"></i>ACFUN</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.pptv.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>PPTV</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="http://www.le.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>乐视视频</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://tv.sohu.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>搜狐视频</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://www.yhdmz.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>樱花动漫</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://www.agemys.cc/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>AGE动漫</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://movie.douban.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>豆瓣电影</a>
+								</li>
+							
+								<li>
+									<a rel="nofollow" href="https://www.360kan.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>360影视</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://v.sogou.com/" target="_blank">
+										<i class="iconfont icon-youku" style="color:#09e;"></i>搜狗视频</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-msg"></i>SNS</li>
+								<li>
+									<a href="https://mast.dragon-fly.club" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color: #e6162d;"></i>Island 岛屿</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.weibo.com" target="_blank">
+										<i class="iconfont icon-weibo" style="color: #e6162d;"></i>微博</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.zhihu.com/" target="_blank">
+										<i class="iconfont icon-zhihu" style="color: #0084ff;"></i>知乎</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.douban.com/" target="_blank">
+										<i class="iconfont icon-douban" style="color: #00ee43;"></i>豆瓣</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.instagram.com" target="_blank">
+										<i class="iconfont icon-instagram" style="color: #ea00ff;"></i>Instagram</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.twitter.com" target="_blank">
+										<i class="iconfont icon-twitter" style="color: #00bcff;"></i>Twitter</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.facebook.com" target="_blank">
+										<i class="iconfont icon-facebook" style="color: #5585e6;"></i>Facebook</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-gouwuche"></i>Shopping</li>
+								<li>
+									<a rel="nofollow" href="https://www.taobao.com" target="_blank">
+										<i class="iconfont icon-taobao" style="color: #ff6019;"></i>淘宝网</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://temai.taobao.com/" target="_blank">
+										<i class="iconfont icon-temai" style="color: #ff6019;"></i>淘宝特卖</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.pinduoduo.com/" target="_blank">
+										<i class="iconfont icon-99" style="color: #f83e3e;"></i>拼多多</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.jd.com" target="_blank">
+										<i class="iconfont icon-jingdong" style="color: #e33333;"></i>京东</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.suning.com/" target="_blank">
+										<i class="iconfont icon-suning" style="color: #f90;"></i>苏宁易购</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://you.163.com/" target="_blank">
+										<i class="iconfont icon-yanxuan" style="color: #B4A078;"></i>网易严选</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.amazon.cn/" target="_blank">
+										<i class="iconfont icon-amazon" style="color: #fc9b18;"></i>亚马逊</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.dangdang.com/" target="_blank">
+										<i class="iconfont icon-dangdang" style="color: #ff2832;"></i>当当</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://wat.dyartstyle.com/" target="_blank">
+										<i class="iconfont icon-taobao" style="color: #ff6019;"></i>吾爱淘</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-sheji"></i>UX</li>
+								<li>
+									<a rel="nofollow" href="https://www.pinterest.com/" target="_blank">
+										<i class="iconfont icon-pinterest" style="color:#e02;"></i>Pinterest</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.behance.net/" target="_blank">
+										<i class="iconfont icon-behance" style="color:#56f;"></i>Behance</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.dribbble.com/" target="_blank">
+										<i class="iconfont icon-dribbble" style="color:#e48;"></i>Dribbble</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://huaban.com/" target="_blank">
+										<i class="iconfont icon-huaban" style="color:#f06;"></i>花瓣</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.zcool.com.cn/" target="_blank">
+										<i class="iconfont icon-zhanku" style="color:#f90;"></i>站酷</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.iconfont.cn/" target="_blank">
+										<i class="iconfont icon-iconfont" style="color: #ff6019;"></i>阿里图标</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.iconfinder.com/" target="_blank">
+										<i class="iconfont icon-eye"></i>IconFinder</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://uiiiuiii.com/" target="_blank">
+										<i class="iconfont icon-jiaocheng" style="color:#0aa;"></i>优设教程</a>
+								</li>
+								<!------>
+								<li class="title"><i class="iconfont icon-kongzhitai"></i>Dev</li>
+								<li>
+									<a rel="nofollow" href="http://www.w3school.com.cn/" target="_blank">
+										<i class="iconfont icon-h5" style="color:#c03;"></i>W3school</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://loseprivacy.cc/" target="_blank">
+										<i class="iconfont icon-github"></i>Github</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://go.bananapro.club/" target="_blank">
+										<i class="iconfont icon-theater-masks"></i>banana</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="http://www.4h44.com/index.php?e=index.login" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#f03;"></i>YunLi</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://qudao.720sy.com/#/login?redirect=/&params={}" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#f03;"></i>720GM</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.zzzmode.com/mytools/charles/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#f03;"></i>Charles-P</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://codepen.io/" target="_blank">
+										<i class="iconfont icon-codepen"></i>Codepen</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.52pojie.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#f03;"></i>吾爱破解</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://segmentfault.com/" target="_blank">
+										<i class="iconfont icon-msg" style="color:#096;"></i>SF思否</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://cdnjs.com/" target="_blank">
+										<i class="iconfont icon-cdnjs" style="color: #e52;"></i>CdnJs</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank">
+										<i class="iconfont icon-font-awesome" style="color: #4af;"></i>Font A.</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://msdn.itellyou.cn/" target="_blank">
+										<i class="iconfont icon-windows" style="color: #48c;"></i>MSDN下载</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://dash.cloudflare.com/" target="_blank">
+										<i class="iconfont icon-cloudflare" style="color: #f37f20;"></i>C. flare</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.swiper.com.cn/" target="_blank">
+										<i class="iconfont icon-S" style="color:#065fe3;"></i>Swiper</a>
+								</li>
+								<!---广告栏占用位置....--->
+								<li class="title"><i class="iconfont icon-kongzhitai"></i>Dev</li>
+								<li>
+									<a rel="nofollow" href="http://www.w3school.com.cn/" target="_blank">
+										<i class="iconfont icon-h5" style="color:#c03;"></i>W3school</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://loseprivacy.cc/" target="_blank">
+										<i class="iconfont icon-github"></i>Github</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://go.bananapro.club/" target="_blank">
+										<i class="iconfont icon-theater-masks"></i>banana</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.zzzmode.com/mytools/charles/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#f03;"></i>Charles-P</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://codepen.io/" target="_blank">
+										<i class="iconfont icon-codepen"></i>Codepen</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.52pojie.cn/" target="_blank">
+										<i class="iconfont icon-theater-masks" style="color:#f03;"></i>吾爱破解</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://segmentfault.com/" target="_blank">
+										<i class="iconfont icon-msg" style="color:#096;"></i>SF思否</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://cdnjs.com/" target="_blank">
+										<i class="iconfont icon-cdnjs" style="color: #e52;"></i>CdnJs</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank">
+										<i class="iconfont icon-font-awesome" style="color: #4af;"></i>Font A.</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://msdn.itellyou.cn/" target="_blank">
+										<i class="iconfont icon-windows" style="color: #48c;"></i>MSDN下载</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://dash.cloudflare.com/" target="_blank">
+										<i class="iconfont icon-cloudflare" style="color: #f37f20;"></i>C. flare</a>
+								</li>
+								<li>
+									<a rel="nofollow" href="https://www.swiper.com.cn/" target="_blank">
+										<i class="iconfont icon-S" style="color:#065fe3;"></i>Swiper</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+					<!--书签 end-->
+					<!--设置-->
+					<div class="tab-con-item">
+
+						<div class="set">
+							<!--搜索引擎设置-->
+							<div class="set_blocks">
+								<div class="set_blocks_title">
+									Search Engines
+								</div>
+								<div class="set_blocks_content">
+									<div class="se_list">
+										<table class="se_list_table">
+											<tr>
+												<td><span class="iconfont iconhome"></span></td>
+												<td>百度</td>
+												<td>
+													<button class="set_se_default" value="baidu"><span
+															class="iconfont iconstrore-add"></span></button>
+													&nbsp;
+													<button class="edit_se" value="baidu"><span
+															class="iconfont iconbook-edit"></span></button>
+													&nbsp;
+													<button class="delete_se" value="baidu"><span
+															class="iconfont icondelete"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td>Google</td>
+												<td>
+													<button class="set_se_default" value="google"><span
+															class="iconfont iconstrore-add"></span></button>
+													&nbsp;
+													<button class="edit_se" value="google"><span
+															class="iconfont iconbook-edit"></span></button>
+													&nbsp;
+													<button class="delete_se" value="google"><span
+															class="iconfont icondelete"></span></button>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="se_add_preinstall">
+										<button class="set_se_list_add"><span
+												class="icon iconfont icontianjia"></span>Add new</button>
+										<button class="set_se_list_preinstall"><span
+												class="icon iconfont iconjinggao"></span>Reset</button>
+									</div>
+									<div class="add_content se_add_content" style="display:none;">
+										<div class="from_items">
+											<p><b>Sequence:</b></p>
+											<input type="hidden" name="key_inhere">
+											<input type="number" name="key" placeholder="A valid number">
+										</div>
+										<div class="from_items">
+											<p><b>Name:</b></p>
+											<input type="text" name="title" placeholder="Name">
+										</div>
+										<div class="from_items">
+											<p><b>URL</b></p>
+											<input type="url" name="url" placeholder="Begin with https://">
+										</div>
+										<div class="from_items">
+											<p><b>Query</b></p>
+											<input type="text" name="name" placeholder="Queries after ?">
+										</div>
+										<div class="from_items">
+											<p><b>Icon</b></p>
+											<input type="text" name="img" placeholder="Img URL">
+										</div>
+										<div class="from_items button">
+											<button class="se_add_save">Save</button>
+											<button class="se_add_cancel">Cancel</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--搜索引擎设置 end-->
+							<!--快捷方式设置-->
+							<div class="set_blocks">
+								<div class="set_blocks_title">
+									Shortcuts
+								</div>
+								<div class="set_blocks_content">
+									<div class="quick_list">
+										<table class="quick_list_table">
+											<tr>
+												<td>1.&nbsp;</td>
+												<td>Victor's Blog</td>
+												<td>
+													<button class="edit_quick" value="1"><span
+															class="iconfont iconbook-edit"></span></button>
+													&nbsp;
+													<button class="delete_quick" value="1"><span
+															class="iconfont icondelete"></span></button>
+												</td>
+											</tr>
+											<tr>
+												<td>2.&nbsp;</td>
+												<td>Notre Monde</td>
+												<td>
+													<button class="edit_quick" value="2"><span
+															class="iconfont iconbook-edit"></span></button>
+													&nbsp;
+													<button class="delete_quick" value="2"><span
+															class="iconfont icondelete"></span></button>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="se_add_preinstall">
+										<button class="set_quick_list_add"><span
+												class="icon iconfont icontianjia"></span>Add new</button>
+										<button class="set_quick_list_preinstall"><span
+												class="icon iconfont iconjinggao"></span>Reset</button>
+									</div>
+									<div class="add_content quick_add_content" style="display:none;">
+										<div class="from_items">
+											<p><b>Sequence:</b></p>
+											<input type="hidden" name="key_inhere">
+											<input type="number" name="key" placeholder="A valid number">
+										</div>
+										<div class="from_items">
+											<p><b>Name:</b></p>
+											<input type="text" name="title" placeholder="Name">
+										</div>
+										<div class="from_items">
+											<p><b>URL:</b></p>
+											<input type="url" name="url" placeholder="Begin with https://">
+										</div>
+										<div class="from_items">
+											<p><b>Icon:</b></p>
+											<input type="text" name="img" placeholder="Img URL">
+										</div>
+										<div class="from_items button">
+											<button class="quick_add_save">Save</button>
+											<button class="quick_add_cancel">Cancel</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--快捷方式设置 end-->
+						</div>
+					</div>
+					<!--设置 end-->
+					<!--我的-->
+					<div class="tab-con-item">
+						<div class="me">
+							<p><img src="static/icon/user.png"></p>
+						</div>
+						<div class="my_data">
+							<hr>
+							<br>
+							<h3>Backup</h3>
+							<textarea id="data_txt"></textarea>
+							<br>
+							<button id="my_data_in">Import</button>
+							<button id="my_data_out">Export</button>
+						</div>
+					</div>
+					<!--我的 end-->
+				</div>
+			</div>
+		</div>
+		<!-- 侧栏 end -->
+		<!--和风天气插件-->
+		<div class="mywth" style="width: 320px;height: 40px;">
+			<div id="he-plugin-simple"></div>
+			<script async>
+				WIDGET = {
+					CONFIG: {
+						"modules": "01234",
+						"background": 5,
+						"tmpColor": "#a7a7a7",
+						"tmpSize": "18",
+						"cityColor": "#a7a7a7",
+						"citySize": "18",
+						"aqiSize": "18",
+						"weatherIconSize": "18",
+						"alertIconSize": "18",
+						"padding": "0px 5px 5px 0px",
+						"shadow": "2",
+						"language": "auto",
+						"borderRadius": 5,
+						"fixed": "false",
+						"vertical": "middle",
+						"horizontal": "left",
+						"key": "5e9773d40306432e915cb9093c9f6369"
+					}
+				}
+			</script>
+			<script async src="https://widget.heweather.net/simple/static/js/he-simple-common.js?v=1.1"></script>
+		</div>
+		<!--和风天气插件-->
+		<!--搜索框和书签 end-->
+		<div id="content">
+			<center>
+				<a id="time_new" href="https://demo443.com">time_new</a>
+			</center>
+			<script>
+				var time_new = document.getElementById('time_new');
+
+				function traceppp() {
+					time_new.innerText = getDate();
+				}
+
+				function getDate() {
+					var date = new Date();
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var dates = date.getDate();
+					var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+					var day = date.getDay();
+
+					var h = date.getHours();
+					h = h < 10 ? '0' + h : h;
+					var m = date.getMinutes();
+					m = m < 10 ? '0' + m : m;
+					var s = date.getSeconds();
+					s = s < 10 ? '0' + s : s;
+					return '今天是 ' + year + ' 年 ' + month + ' 月 ' + dates + ' 日 ' + arr[day] +
+						' ' + h + ':' + m + ':' + s;
+				}
+				traceppp();
+				setInterval(traceppp, 1000);
+			</script>
+			<div class="con">
+				<div class="shlogo"></div>
+				<div class="sou">
+					<form target="_blank" class="search" action="https://www.google.com/search">
+						<img class="se" src="static/icon/google_1.png" title="Switch"></img>
+						<input id="search_placeholder" class="wd" type="text" name="wd"
+							placeholder="My life is all about you~">
+						<button class="s">
+							<i style="font-size: 20px;" class="iconfont icon-sousuo"></i>
+						</button>
+					</form>
+					<div class="search-engine" style="display: none;">
+						<div class="search-engine-head">
+							<strong class="search-engine-tit">Select Search Engine</strong>
+						</div>
+						<ul class="search-engine-list">
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							<li class="se-li" url="https://www.baidu.com/s" name="wd" img="static/icon/baidu.ico"><img
+									src="static/icon/baidu.ico"></img>百度</li>
+							
+						</ul>
+					</div>
+					<div class="quick-div">
+						<ul class="quick-ul">
+							<li class="quick" data-s="Blog" target="_blank" title="Victor's Blog">
+								<a target=_blank href="https://demo520.com/">
+									<i style="background-image: url(./static/icon/blog.png);"></i>
+									Blog
+								</a>
+							</li>
+							<li class="quick" data-s="GitHub" target="_blank" title="GitHub">
+								<a target=_blank href="https://github.com/">
+									<i style="background-image: url(./static/icon/github.ico);"></i>
+									GitHub
+								</a>
+							</li>
+							<li class="quick" data-s="Music" target="_blank" title="Music">
+								<a target=_blank rel="nofollow" href="./music/">
+									<i style="background-image: url(./static/icon/music.png);"></i>
+									Music
+								</a>
+							</li>
+							<li class="quick" data-s="Tool" target="_blank" title="Tool">
+								<a rel="nofollow" href="./tool/">
+									<i style="background-image: url(./static/icon/home.png);"></i>
+									Tool
+								</a>
+							</li>
+							<li class="quick" data-s="哔哩哔哩" target="_blank" title="哔哩哔哩">
+								<a target=_blank rel="nofollow" href="https://www.bilibili.com/">
+									<i style="background-image: url(./static/icon/bilibili.png);"></i>
+									哔哩哔哩
+								</a>
+							</li>
+							<li class="quick" data-s="法律法规" target="_blank" title="法律法规">
+								<a target=_blank rel="nofollow" href="./falv/index.html">
+									<i style="background-image: url(./static/icon/falv.png);"></i>
+									法律法规
+								</a>
+							</li>
+							<li class="quick" data-s="广告屋" target="_blank" title="广告屋">
+								<a target=_blank rel="nofollow" href="./gg/">
+									<i style="background-image: url(./static/icon/sao.png);"></i>
+									广告屋
+								</a>
+							</li>
+							<li class="quick" data-s="服务器" target="_blank" title="服务器">
+								<a target=_blank rel="nofollow" href="./servers/">
+									<i style="background-image: url(./static/icon/servers.png);"></i>
+									服务器
+								</a>
+							</li>
+							<li class="quick" data-s="薅羊毛" target="_blank" title="薅羊毛">
+								<a target=_blank rel="nofollow" href="./shangpin/">
+									<i style="background-image: url(./static/icon/yang.png);"></i>
+									优惠券
+								</a>
+							</li>
+							<li class="quick" data-s="概率问题" target="_blank" title="概率问题">
+								<a target=_blank rel="nofollow" href="./caipiao/">
+									<i style="background-image: url(./static/icon/jiang.png);"></i>
+									概率问题
+								</a>
+							</li>
+							<li class="quick" data-s="m3u8在线播放" target="_blank" title="m3u8在线播放">
+								<a target=_blank rel="nofollow" href="http://demo443.com/m3u8/">
+									<i style="background-image: url(./static/icon/m3u8.png);"></i>
+									m3u8在线播放
+								</a>
+							</li>
+							
+							<li class="quick" data-s="传统文化" target="_blank" title="传统文化">
+								<a target=_blank rel="nofollow" href="https://cesuan.demo520.com/">
+									<i style="background-image: url(./static/icon/taijitu2.gif);"></i>
+									传统文化
+								</a>
+							</li>
+							
+							<li class="quick" data-s="小游戏" target="_blank" title="小游戏">
+								<a target=_blank rel="nofollow" href="http://open14275.720sy.com/">
+									<i style="background-image: url(./static/icon/720.png);"></i>
+									小游戏
+								</a>
+							</li>
+							
+							<li class="quick" data-s="装备变现" target="_blank" title="装备变现">
+								<a target=_blank rel="nofollow" href="http://www.5173.com/?recommenduserid=US23010884867192-0020">
+									<i style="background-image: url(./static/icon/jinbi.png);"></i>
+									装备变现
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!--今日诗词 placeholder copyright Victor-->
+					<div class="hitokoto">
+						<p id="hitokoto">😀 Loading...</p>——「<span id="from">😀 Loading...</span>」
+					</div>
+				</div>
+				<!--今日诗词 placeholder copyright Victor-->
+				<script async>
+					fetch('https://v1.hitokoto.cn')
+						.then(function(res) {
+							return res.json();
+						})
+						.then(function(data) {
+							var hitokoto = document.getElementById('hitokoto');
+							hitokoto.innerText = data.hitokoto;
+							var from = document.getElementById('from');
+							from.innerText = data.from;
+						})
+						.catch(function(err) {
+							console.error(err);
+						})
+				</script>
+				<!--今日诗词 placeholder copyright Victor-->
+				<script>
+					jinrishici.load(function(result) {
+						var telecopy = result.data.content;
+						var cursor = "|";
+						var teletype = document.getElementById("search_placeholder");
+						teletype.placeholder = cursor;
+						var counter = 0;
+						var timer = setInterval(function() {
+							teletype.placeholder = telecopy.substr(0, counter) + cursor;
+							counter++;
+							if (counter === telecopy.length + 1) {
+								clearInterval(timer);
+							}
+						}, 100);
+					});
+				</script>
+				<!--今日诗词 placeholder end-->
+			</div>
+			<div class="foot">
+				Copyright 2020-2023 ☕杨晓东_个人导航 All Rights Reserved. designed and developed by yangkaiqun.
+				<p>
+					<pss><a href='http://demo443.com' target='_blank'> </a>&nbsp;&nbsp;<ping></ping>
+					</pss>
+					<span id="busuanzi_container_site_pv">本站总访问量: <span id="busuanzi_value_site_pv"></span> 次</span>
+				</p>
+				<script async src="static/js/latency.js"></script>
+				<script async src="static/js/defocus.js"></script>
+			</div>
+			<!-- 不蒜子  网页访问量计数器 -->
+			<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+			
+	</body>
+</html>
