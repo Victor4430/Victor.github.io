@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+		<link rel="stylesheet" type="text/css" href="./css_js/amazeui.flat.min.css">
+		<link rel="stylesheet" type="text/css" href="./css_js/public.css">
+		<link rel="shortcut icon" href="./favicon.ico">
+		<meta http-equiv="Cache-Control" content="no-siteapp">
+		<title>M3U8在线播放器</title>
+		
+		
+		<!-- Google 广告 -->
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7780137864654456" crossorigin="anonymous"></script>
+		
+		
+		<meta name="keywords" content="M3U8在线播放,M3U8播放器,M3U8直播源,M3U8在线测试">
+		<meta name="description" content="M3U8在线播放器">
+		<link rel="stylesheet" type="text/css" href="./css_js/main.css">
+		<meta name="referrer" content="never">
+		<style>
+			.v2-x-web-address {
+				display: flex !important;
+				align-items: center !important;
+				border: 1px #eee solid !important;
+				padding: 0 4px !important;
+				background-color: #fff !important;
+				position: fixed !important;
+				left: 10px !important;
+				bottom: 10px !important;
+				z-index: 999999 !important;
+				font-size: 14px !important;
+				border-radius: 3px !important;
+				height: 30px !important;
+				margin: 0 !important;
+				line-height: 30px !important
+			}
+
+			.v2-x-web-address__ip {
+				flex: none !important;
+				margin: 0 6px 0 0 !important;
+				padding: 0 !important;
+				font-size: 14px !important;
+				text-decoration: none !important;
+				color: blue !important;
+				border: 0 !important
+			}
+
+			.v2-x-web-address__ip:hover {
+				color: red !important
+			}
+
+			.v2-x-web-address__code {
+				margin: 0 6px 0 0 !important;
+				padding: 0 !important;
+				font-size: 14px !important;
+				text-decoration: none !important;
+				border: 0 !important;
+				height: 22px !important;
+				width: 22px !important;
+				background: none !important
+			}
+
+			.v2-x-web-address__close {
+				cursor: pointer !important;
+				font-size: 14px !important;
+				border: 0 !important;
+				height: 18px !important;
+				width: 18px !important;
+				background: none !important;
+				margin: 0 !important;
+				padding: 0 !important
+			}
+		</style>
+		<style type="text/css">
+			.cyxy-trs-target.colored {
+				background-color: rgba(0, 185, 119, 0.05);
+			}
+
+			.cyxy-target-popup {
+				padding: 1.3rem 12px;
+				position: absolute;
+				display: -webkit-flex;
+				display: inline-flex;
+				flex-direction: row;
+				overflow: scroll;
+				vertical-align: middle;
+				z-index: 199099;
+				top: 1px;
+				left: 1px;
+				background: #fff;
+				opacity: 0.98;
+				/*margin: 0px 5%;*/
+				height: auto;
+				width: auto;
+				border: 1px solid #e6e6e6;
+				box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+				border-radius: 5px;
+				/*height: 7rem;*/
+			}
+
+			@media (max-width: 468px) {
+				.cyxy-target-popup {
+					/*width: 90%;*/
+					/*margin: 0px 5%;*/
+					left: 10%;
+					/*right: 5%;*/
+					/*width: 30rem;*/
+					/*height: 14.58rem;*/
+				}
+			}
+
+			#cyxy-popup-left-slide {
+				height: 22px;
+				display: inline;
+				vertical-align: middle;
+				margin-right: 14px;
+				cursor: pointer;
+			}
+
+			#cyxy-popup-right-slide {
+				height: 22px;
+				display: inline;
+				vertical-align: middle;
+				margin-left: 0px;
+				cursor: pointer;
+			}
+
+			#cyxy-popup-userinfo {
+				display: inline;
+			}
+
+			.cyxy-target-count {
+				display: inline;
+				vertical-align: middle;
+				font-size: 10px;
+			}
+
+			#cyxy-popup-avatar {
+				/*margin-right: 30px;*/
+				/*font-size: 14px;*/
+				display: inline;
+				height: 32px;
+				vertical-align: middle;
+				border-radius: 16px;
+			}
+
+			#cyxy-popup-name-time {
+				display: -webkit-flex;
+				display: inline-flex;
+				flex-direction: column;
+				/*align-items: center;*/
+				/*position: relative;*/
+				vertical-align: middle;
+				text-align: left;
+				margin-left: 6px;
+			}
+
+			#cyxy-popup-name {
+				/*vertical-align: middle;*/
+				/*display: flex;*/
+				font-size: 14px;
+				color: #333;
+				height: 18px;
+				overflow: hidden;
+				max-width: 84px;
+			}
+
+			#cyxy-popup-time {
+				/*margin-right: 30px;*/
+				/*font-size: 14px;*/
+				/*display: flex;*/
+				font-size: 12px;
+				margin-top: 4px;
+				color: #999;
+			}
+
+			.cyxy-footer {
+				display: none;
+				position: fixed;
+				bottom: 0px;
+				padding: 0px 0px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				opacity: 0.9;
+				border: 1px solid #e6e6e6;
+				box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.13);
+				border-radius: 2px;
+				z-index: 201712;
+				text-align: center;
+			}
+
+			.cyxy-footer-p {
+				padding: 12px 0px;
+				margin: 0px;
+				font-size: 12px;
+				color: #333;
+				background: #fff;
+				text-align: center;
+				line-height: 1.6;
+				font-weight: 200;
+			}
+
+			#cyxy-popup-favour {
+				text-align: center;
+				display: inline;
+				margin-right: 20px;
+				margin-left: 46px;
+				cursor: pointer;
+			}
+
+			#cyxy-popup-favour.commit {
+				/*padding: 2px 6px;*/
+				/*border: 1px solid #00B977;*/
+				/*border-radius: 4px;*/
+			}
+
+			#cyxy-popup-oppose {
+				text-align: center;
+				display: inline;
+				cursor: pointer;
+			}
+
+			#cyxy-popup-favour-img {
+				display: inline;
+				height: 20px;
+				/*width: 22px;*/
+				vertical-align: middle;
+			}
+
+			#cyxy-popup-favour-img.commit {
+				/*height: 22px;*/
+				/*vertical-align: middle;*/
+			}
+
+			#cyxy-popup-oppose-img {
+				display: inline;
+				height: 18px;
+				vertical-align: middle;
+			}
+
+			#cyxy-popup-favour-num {
+				font-size: 14px;
+				margin-left: 4px;
+				/*margin-left: 0.47rem;*/
+				color: #999999;
+			}
+
+			#cyxy-popup-oppose-num {
+				font-size: 14px;
+				margin-left: 4px;
+				/*margin-left: 0.47rem;*/
+				color: #999;
+			}
+
+			.caption-window.ytp-caption-window-bottom {
+				width: 800px;
+				/* height: 100px; */
+				/* margin-left: -400px; */
+			}
+
+			@media (max-width: 320px) {
+				#cyxy-popup-favour {
+					margin-right: 0.8rem;
+					margin-left: 1.5rem;
+				}
+
+				#cyxy-popup-left-slide {
+					margin-right: 0.8rem;
+				}
+
+				#cyxy-popup-right-slide {
+					margin-left: 1rem;
+				}
+			}
+
+			.login-hint-a {
+				display: block;
+				color: #999;
+				font-size: 10px;
+			}
+
+			.login-hint-a:visited {
+				color: #999;
+			}
+
+			.layui-m-layer {
+				color: #333;
+				position: relative;
+				z-index: 2147483647;
+			}
+
+			.layui-m-layer * {
+				-webkit-box-sizing: content-box;
+				-moz-box-sizing: content-box;
+				box-sizing: content-box;
+			}
+
+			.layui-m-layermain,
+			.layui-m-layershade {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+
+			.layui-m-layershade {
+				background-color: rgba(0, 0, 0, 0.7);
+				pointer-events: auto;
+			}
+
+			.layui-m-layermain {
+				display: table;
+				font-family: Helvetica, arial, sans-serif;
+				pointer-events: none;
+			}
+
+			.layui-m-layermain .layui-m-layersection {
+				display: table-cell;
+				vertical-align: middle;
+				text-align: center;
+			}
+
+			.layui-m-layerchild {
+				position: relative;
+				display: inline-block;
+				text-align: left;
+				background-color: #fff;
+				font-size: 14px;
+				border-radius: 5px;
+				box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+				pointer-events: auto;
+				-webkit-overflow-scrolling: touch;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+				-webkit-animation-duration: 0.2s;
+				animation-duration: 0.2s;
+			}
+
+			@-webkit-keyframes layui-m-anim-scale {
+				0% {
+					opacity: 0;
+					-webkit-transform: scale(0.5);
+					transform: scale(0.5);
+				}
+
+				100% {
+					opacity: 1;
+					-webkit-transform: scale(1);
+					transform: scale(1);
+				}
+			}
+
+			@keyframes layui-m-anim-scale {
+				0% {
+					opacity: 0;
+					-webkit-transform: scale(0.5);
+					transform: scale(0.5);
+				}
+
+				100% {
+					opacity: 1;
+					-webkit-transform: scale(1);
+					transform: scale(1);
+				}
+			}
+
+			.layui-m-anim-scale {
+				animation-name: layui-m-anim-scale;
+				-webkit-animation-name: layui-m-anim-scale;
+			}
+
+			@-webkit-keyframes layui-m-anim-up {
+				0% {
+					opacity: 0;
+					-webkit-transform: translateY(800px);
+					transform: translateY(800px);
+				}
+
+				100% {
+					opacity: 1;
+					-webkit-transform: translateY(0);
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes layui-m-anim-up {
+				0% {
+					opacity: 0;
+					-webkit-transform: translateY(800px);
+					transform: translateY(800px);
+				}
+
+				100% {
+					opacity: 1;
+					-webkit-transform: translateY(0);
+					transform: translateY(0);
+				}
+			}
+
+			.layui-m-anim-up {
+				-webkit-animation-name: layui-m-anim-up;
+				animation-name: layui-m-anim-up;
+			}
+
+			.layui-m-layer0 .layui-m-layerchild {
+				width: 90%;
+				max-width: 640px;
+			}
+
+			.layui-m-layer1 .layui-m-layerchild {
+				border: none;
+				border-radius: 0;
+			}
+
+			.layui-m-layer2 .layui-m-layerchild {
+				width: auto;
+				max-width: 260px;
+				min-width: 40px;
+				border: none;
+				background: 0 0;
+				box-shadow: none;
+				color: #fff;
+			}
+
+			.layui-m-layerchild h3 {
+				padding: 0 10px;
+				height: 60px;
+				line-height: 60px;
+				font-size: 16px;
+				font-weight: 400;
+				border-radius: 5px 5px 0 0;
+				text-align: center;
+			}
+
+			.layui-m-layerbtn span,
+			.layui-m-layerchild h3 {
+				margin: 0;
+				padding: 0;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+
+			.layui-m-layercont {
+				padding: 50px 30px;
+				line-height: 22px;
+				text-align: center;
+			}
+
+			.layui-m-layer1 .layui-m-layercont {
+				padding: 0;
+				text-align: left;
+			}
+
+			.layui-m-layer2 .layui-m-layercont {
+				text-align: center;
+				padding: 0;
+				line-height: 0;
+			}
+
+			.layui-m-layer2 .layui-m-layercont i {
+				width: 25px;
+				height: 25px;
+				margin-left: 8px;
+				display: inline-block;
+				background-color: #fff;
+				border-radius: 100%;
+				-webkit-animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+				animation: layui-m-anim-loading 1.4s infinite ease-in-out;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+
+			.layui-m-layerbtn,
+			.layui-m-layerbtn span {
+				position: relative;
+				text-align: center;
+				border-radius: 0 0 5px 5px;
+			}
+
+			.layui-m-layer2 .layui-m-layercont p {
+				margin-top: 20px;
+			}
+
+			@-webkit-keyframes layui-m-anim-loading {
+
+				0%,
+				100%,
+				80% {
+					transform: scale(0);
+					-webkit-transform: scale(0);
+				}
+
+				40% {
+					transform: scale(1);
+					-webkit-transform: scale(1);
+				}
+			}
+
+			@keyframes layui-m-anim-loading {
+
+				0%,
+				100%,
+				80% {
+					transform: scale(0);
+					-webkit-transform: scale(0);
+				}
+
+				40% {
+					transform: scale(1);
+					-webkit-transform: scale(1);
+				}
+			}
+
+			.layui-m-layer2 .layui-m-layercont i:first-child {
+				margin-left: 0;
+				-webkit-animation-delay: -0.32s;
+				animation-delay: -0.32s;
+			}
+
+			.layui-m-layer2 .layui-m-layercont i.layui-m-layerload {
+				-webkit-animation-delay: -0.16s;
+				animation-delay: -0.16s;
+			}
+
+			.layui-m-layer2 .layui-m-layercont>div {
+				line-height: 22px;
+				padding-top: 7px;
+				margin-bottom: 20px;
+				font-size: 14px;
+			}
+
+			.layui-m-layerbtn {
+				display: box;
+				display: -moz-box;
+				display: -webkit-box;
+				width: 100%;
+				height: 50px;
+				line-height: 50px;
+				font-size: 0;
+				border-top: 1px solid #d0d0d0;
+				background-color: #f2f2f2;
+			}
+
+			.layui-m-layerbtn span {
+				display: block;
+				-moz-box-flex: 1;
+				box-flex: 1;
+				-webkit-box-flex: 1;
+				font-size: 14px;
+				cursor: pointer;
+			}
+
+			.layui-m-layerbtn span[yes] {
+				color: #40affe;
+			}
+
+			.layui-m-layerbtn span[no] {
+				border-right: 1px solid #d0d0d0;
+				border-radius: 0 0 0 5px;
+			}
+
+			.layui-m-layerbtn span:active {
+				background-color: #f6f6f6;
+			}
+
+			.layui-m-layerend {
+				position: absolute;
+				right: 7px;
+				top: 10px;
+				width: 30px;
+				height: 30px;
+				border: 0;
+				font-weight: 400;
+				background: 0 0;
+				cursor: pointer;
+				-webkit-appearance: none;
+				font-size: 30px;
+			}
+
+			.layui-m-layerend::after,
+			.layui-m-layerend::before {
+				position: absolute;
+				left: 5px;
+				top: 15px;
+				content: "";
+				width: 18px;
+				height: 1px;
+				background-color: #999;
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				border-radius: 3px;
+			}
+
+			.layui-m-layerend::after {
+				transform: rotate(-45deg);
+				-webkit-transform: rotate(-45deg);
+			}
+
+			.layui-m-layer .layui-m-layer-footer {
+				position: fixed;
+				width: 95%;
+				max-width: 100%;
+				margin: 0 auto;
+				left: 0;
+				right: 0;
+				bottom: 10px;
+				background: 0 0;
+			}
+
+			.layui-m-layer-footer .layui-m-layercont {
+				padding: 20px;
+				border-radius: 5px 5px 0 0;
+				background-color: rgba(255, 255, 255, 0.8);
+			}
+
+			.layui-m-layer-footer .layui-m-layerbtn {
+				display: block;
+				height: auto;
+				background: 0 0;
+				border-top: none;
+			}
+
+			.layui-m-layer-footer .layui-m-layerbtn span {
+				background-color: rgba(255, 255, 255, 0.8);
+			}
+
+			.layui-m-layer-footer .layui-m-layerbtn span[no] {
+				color: #fd482c;
+				border-top: 1px solid #c2c2c2;
+				border-radius: 0 0 5px 5px;
+			}
+
+			.layui-m-layer-footer .layui-m-layerbtn span[yes] {
+				margin-top: 10px;
+				border-radius: 5px;
+			}
+
+			.layui-m-layer .layui-m-layer-msg {
+				width: auto;
+				max-width: 90%;
+				margin: 0 auto;
+				bottom: -150px;
+				background-color: rgba(0, 0, 0, 0.7);
+				color: #fff;
+			}
+
+			.layui-m-layer-msg .layui-m-layercont {
+				padding: 10px 20px;
+			}
+
+			.collection-success {
+				/*opacity: 0.6;*/
+				/*background: #EAEAEA;*/
+				color: #ffffff;
+			}
+
+			.collection-success:hover {
+				/*opacity: 0.45;*/
+				/*background: #000000;*/
+				color: #ffffff;
+			}
+
+			.layui-m-layercont .cyxy-trs-target {
+				display: none;
+			}
+
+			.collection-icon {
+				width: 12px;
+				height: 13px;
+				background: url("//staging.caiyunapp.com/imgs/layar-target.png") no-repeat;
+				display: inline-block;
+				background-size: cover;
+				background-position: center;
+			}
+
+			.collection-success>a {
+				margin-left: 12px;
+				vertical-align: middle;
+			}
+
+			.cy_free_box {
+				position: relative;
+			}
+
+			.cy_free_box img {
+				width: 100%;
+				cursor: pointer;
+				-moz-user-select: none;
+				/*火狐*/
+				-webkit-user-select: none;
+				/*webkit浏览器*/
+				-ms-user-select: none;
+				/*IE10*/
+				-khtml-user-select: none;
+				/*早期浏览器*/
+				user-select: none;
+			}
+
+			.layui-m-layer-cy_free_content {
+				background: inherit !important;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="am-topbar am-topbar-inverse">
+			<div class="am-container">
+
+				<div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
+					<ul class="am-nav am-nav-pills am-topbar-nav">
+						<li><a href="https://demo443.com/" target="_blank">首页</a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="am-container">
+			<div class="logo">m3u8在线播放器</div>
+			<div class="am-u-lg-6 input-div">
+				<form method="post" id="str-post" class="am-input-group am-input-group-primary">
+					<input type="text" name="url" placeholder="请输入m3u8播放地址" autocomplete="off"
+						class="am-form-field s-input">
+					<span class="am-input-group-btn">
+						<button class="am-btn am-btn-primary" type="submit">播放</button>
+					</span>
+				</form>
+			</div>
+			<video id="player" controls=""></video>
+
+			<div class="am-alert am-alert-secondary">
+				<p>M3U8文件格式
+					M3U8文件是指UTF-8编码格式的M3U8文件。M3U8文件是记录了一个索引纯文本文件，打开它时播放软件并不是播放它，而是根据它的索引找到对应的音视频文件的网络地址进行在线播放。<br>M3U8是一种播放多媒体列表的文件格式，它的设计初衷是为了播放音频文件，比如MP3，但是越来越多的软件现在用来播放视频文件列表，M3U8也可以指定在线流媒体音频源。很多播放器和软件都支持M3U8文件格式。
+				</p>
+			</div>
+		</div>
+		<footer>
+			<div class="am-container">
+				<p><span class="intro-siteinfo">♪(^∇^*) 一言加载中...</span><br>
+					资源来源于网络，如有侵权，请联系本人予以删除！
+					<br>
+					© 2020 - 2023
+				</p>
+			</div>
+		</footer>
+		<script src="./css_js/jquery.min.js"></script>
+		<script src="./css_js/amazeui.min.js"></script>
+		<script src="./css_js/public.js"></script>
+		<script src="./css_js/hls.min.js"></script>
+		<script src="./css_js/main.js"></script>
+	</body>
+</html>
