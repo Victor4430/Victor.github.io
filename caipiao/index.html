@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="shortcut icon" href="favicon.ico">
+		<meta name="description" content="失落时刻、、、" />
+		<meta name="keywords" content="杨晓东,轻松一刻,情绪回归,放松" />
+		<meta name="author" content="杨晓东" />
+		<meta name="copyright" content="©️ 2022 Victor GPLv3.0">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>彩票时刻-老杨工作室</title>
+		
+		
+		<!-- Google 广告 -->
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7780137864654456" crossorigin="anonymous"></script>
+		
+		
+		
+		<script src="js/jquery-3.6.1.min.js"></script>
+		<style type="text/css">
+			/* 兼容 */
+			#kaijiang{
+				text-decoration: none;
+				
+			}
+			
+			/* PC适配 */
+			@media only screen and (min-width: 800px) and (max-width: 3000px) {
+				#box {
+					width: auto;
+					height: auto;
+					display: flex;
+					flex-wrap: wrap;
+					width: auto;
+					height: auto;
+					/* background-color: lightgrey; */
+					justify-content: center;
+					text-align: center;
+					margin-top: 20px;
+				}
+				.nu1 {
+					/* background-color: #ca7c3b; */
+				}
+
+				.nu2 {
+					/* background-color: #aaff00; */
+				}
+
+				.blue {
+					background-color: #6c76ff;
+				}
+
+				.red {
+					background-color: #e66e56;
+				}
+				.number,
+				.desc,
+				button {
+					display: block;
+					width: 300px;
+					height: 40px;
+					margin: 20px;
+					text-align: center;
+				}
+				.desc,
+				button {
+					background-color: #aaff00;
+				}
+
+				span {
+					display: inline-block;
+					width: 35px;
+					height: 35px;
+					border: 1px solid #e4007e;
+					border-radius: 50%; //圆角百分比
+					text-align: center;
+					font-weight: bold;
+					font-size: 24px;
+					line-height: 35px;
+				}
+			}
+			/* 移动端适配 */
+			@media only screen and (min-width: 320px) and (max-width: 800px) {
+				#box {
+					width: auto;
+					height: auto;
+					display: flex;
+					flex-wrap: wrap;
+					width: auto;
+					height: auto;
+					/* background-color: lightgrey; */
+
+					justify-content: center;
+					text-align: center;
+					margin-top: 20px;
+				}
+
+				.nu1 {
+					/* background-color: #ca7c3b; */
+				}
+
+				.nu2 {
+					/* background-color: #aaff00; */
+				}
+
+				.blue {
+					background-color: #6c76ff;
+				}
+
+				.red {
+					background-color: #e66e56;
+				}
+
+				.number{
+					display: block;
+					width: 360px;
+					height: 45px;
+					margin: 8px;
+					text-align: center;
+				}
+
+				.desc{
+					display: block;
+					width: 360px;
+					height: 45px;
+					text-align: center;
+					background-color: #aaff00;
+					margin-top: 8px;
+				}
+				button {
+					display: block;
+					width: 360px;
+					height: 45px;
+					text-align: center;
+					background-color: #aaff00;
+					margin-top: 20px;
+				}
+				span {
+					display: inline-block;
+					width: 35px;
+					height: 35px;
+					border: 1px solid #e4007e;
+					border-radius: 50%; //圆角百分比
+					text-align: center;
+					font-weight: bold;
+					font-size: 24px;
+					line-height: 35px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<center>
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 大乐透号码 </div>
+				<br />
+				<div id="list_daletou_1" class="number" onclick="myFun(this)">
+					<span class="blue " id="num0_0">---</span>
+					<span class="blue " id="num0_1">---</span>
+					<span class="blue " id="num0_2">---</span>
+					<span class="blue " id="num0_3">---</span>
+					<span class="blue " id="num0_4">---</span>
+					<span class="red " id="num0_5">---</span>
+					<span class="red " id="num0_6">---</span>
+				</div>
+				<br />
+				<div id="list_daletou_2" class="number nu1" onclick="myFun(this)">
+					<span class="blue " id="num0_0">---</span>
+					<span class="blue " id="num0_1">---</span>
+					<span class="blue " id="num0_2">---</span>
+					<span class="blue " id="num0_3">---</span>
+					<span class="blue " id="num0_4">---</span>
+					<span class="red " id="num0_5">---</span>
+					<span class="red " id="num0_6">---</span>
+				</div>
+				<br />
+				<div id="list_daletou_3" class="number nu1" onclick="myFun(this)">
+					<span class="blue " id="num0_0">---</span>
+					<span class="blue " id="num0_1">---</span>
+					<span class="blue " id="num0_2">---</span>
+					<span class="blue " id="num0_3">---</span>
+					<span class="blue " id="num0_4">---</span>
+					<span class="red " id="num0_5">---</span>
+					<span class="red " id="num0_6">---</span>
+				</div>
+				<br />
+			</div>
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 双色球号码 </div>
+				<br />
+				<div id="list_shaungseqiu_0" class="number nu2" onclick="myFun(this)">
+					<span class="blue " id="num1_0">---</span>
+					<span class="blue " id="num1_1">---</span>
+					<span class="blue " id="num1_2">---</span>
+					<span class="blue " id="num1_3">---</span>
+					<span class="blue " id="num1_4">---</span>
+					<span class="blue " id="num1_5">---</span>
+					<span class="red " id="num1_6">---</span>
+				</div>
+				<br />
+				<div id="list_shaungseqiu_1" class="number nu2" onclick="myFun(this)">
+					<span class="blue " id="num1_0">---</span>
+					<span class="blue " id="num1_1">---</span>
+					<span class="blue " id="num1_2">---</span>
+					<span class="blue " id="num1_3">---</span>
+					<span class="blue " id="num1_4">---</span>
+					<span class="blue " id="num1_5">---</span>
+					<span class="red " id="num1_6">---</span>
+				</div>
+				<br />
+				<div id="list_shaungseqiu_2" class="number nu2" onclick="myFun(this)">
+					<span class="blue " id="num1_0">---</span>
+					<span class="blue " id="num1_1">---</span>
+					<span class="blue " id="num1_2">---</span>
+					<span class="blue " id="num1_3">---</span>
+					<span class="blue " id="num1_4">---</span>
+					<span class="blue " id="num1_5">---</span>
+					<span class="red " id="num1_6">---</span>
+				</div>
+				<br />
+			</div>
+			<br />
+			<button onclick="displayNum3()">大乐透 机选3组</button>
+			<button onclick="displayNum2()">双色球 机选3组</button>
+			<a id="kaijiang" href="https://m.500.com/info/kaijiang/" target="_blank"><button >彩票开奖查询</button></a>
+			<br />
+			<br />
+			<marquee behavior="behavior" direction="left">🍀 如果命中注定你会中彩票🍎，那你也得去买才行😄😄😄......   加油🤑  加油🤑  加油🤑  发财😎  发财😎  发财😎  ----来自老杨的心灵毒鸡汤😏😏😏😏😏😏</marquee>
+		</center>
+		<script type="text/javascript">
+			// 复制
+			/**
+			 * 返回当前元素的文本内容
+			 */
+			function selectText(obj) {
+				var res = $(obj).text();
+				// alert(res)
+				console.log(res);
+				return res;
+			}
+			/**
+			 * @param {String} text 需要复制的内容
+			 * @return {Boolean} 复制成功:true或者复制失败:false  执行完函数后，按ctrl + v试试
+			 */
+			function copyText(text) {
+				var textareaC = document.createElement('textarea');
+				textareaC.setAttribute('readonly', 'readonly'); //设置只读属性防止手机上弹出软键盘
+				textareaC.value = text;
+				document.body.appendChild(textareaC); //将textarea添加为body子元素
+				textareaC.select();
+				var res = document.execCommand('copy');
+				document.body.removeChild(textareaC); //移除DOM元素
+				console.log("复制成功");
+				return res;
+			}
+			function myFun(e) {
+				copyText(selectText(e));
+			}
+			// setInterval(displayNum3,1000);
+			// 大乐透前区
+			var list_daletou_1 = ['01', '02', '03', '04', '05', '06',
+				'07', '08', '09', 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+				20, 21, 22, 23, 24, 25, 26,
+				27, 28, 29, 30, 31, 32, 33, 34, 35
+			]
+			// var list_daletou_2 = ['01', '02', '03', '04', '05', '06',
+			// 	'07', '08', '09', 10, 11, 12
+			// ]
+			// 大乐透后区
+			var list_daletou_2 = ['01', '02', '03', '04', '05', '06',
+				'07', '08', '09', 10, 11, 12
+			]
+			// 双色球前区
+			var list_shaungseqiu_1 = ['01', '02', '03', '04', '05', '06',
+				'07', '08', '09', 10, 11, 12, 13, 14, 15, 16, 17, 18,
+				19, 20, 21, 22, 23, 24, 25,
+				26, 27, 28, 29, 30, 31, 32, 33
+			]
+			// 双色球后区
+			var list_shaungseqiu_2 = ['01', '02', '03', '04', '05', '06',
+				'07', '08', '09', 10, 11, 12, 13, 14, 15, 16
+			]
+			// 迭代器
+			function range(start, end) {
+				var arr = [];
+				for (var i = start; i < end; i++) {
+					arr.push(i);
+				}
+				return arr;
+			}
+			// 排序
+			function bubbleSort(arr) {
+				if (Array.isArray(arr)) {
+					for (var i = arr.length - 1; i > 0; i--) {
+						for (var j = 0; j < i; j++) {
+							if (arr[j] > arr[j + 1]) {
+								[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+							}
+						}
+					}
+					return arr;
+				}
+			}
+			//大乐透
+			function daletou() {
+				const aa = []
+				const bb = []
+				while (aa.length < 5) {
+					for (i in range(1, 5)) {
+						const a = list_daletou_1[Math.floor(Math.random() * list_daletou_1.length)]
+						if (aa.indexOf(a) === -1) {
+							aa.push(a);
+							break;
+						} else {
+							continue;
+						}
+					}
+				}
+				while (bb.length < 2) {
+					for (i in range(1, 2)) {
+						const b = list_daletou_2[Math.floor(Math.random() * list_daletou_2.length)]
+						if (bb.indexOf(b) === -1) {
+							bb.push(b);
+							break;
+
+						} else {
+							continue;
+						}
+					}
+				}
+				return bubbleSort(aa) + ',' + bubbleSort(bb)
+			}
+			//双色球
+			function shuangseqiu() {
+				const aa = []
+				const bb = []
+				while (aa.length < 6) {
+					for (i in range(1, 6)) {
+						const a = list_shaungseqiu_1[Math.floor(Math.random() * list_shaungseqiu_1.length)]
+						if (aa.indexOf(a) === -1) {
+							aa.push(a);
+							break;
+						} else {
+							continue;
+						}
+					}
+				}
+				const b = list_shaungseqiu_2[Math.floor(Math.random() * list_shaungseqiu_2.length)]
+				return bubbleSort(aa) + ',' + b
+			}
+			// 双色球按钮
+			function displayNum2() {
+				const a = 'num1_';
+				const li_st = shuangseqiu().split(",");
+				console.log('li_st：', li_st);
+				for (let i = 0; i < li_st.length; i++) {
+					console.log(a + i);
+					console.log('li_st[i]：', li_st[i]);
+					if (i < li_st.length) {
+						document.getElementById(a + i).innerHTML = li_st[i];
+					}
+				}
+				for (i in range(1, 3)) {
+					i++;
+					const a_2 = 'list_shaungseqiu_';
+					// console.log(i)
+					console.log('a_2 + i：', a_2 + i);
+					const span = document.getElementById(a_2 + i).getElementsByTagName("span");
+					// console.log(span);
+					const bn = shuangseqiu().split(",");
+					for (j = 0; j < span.length; j++) {
+						// console.log(span[j])
+						span[j].innerHTML = bn[j];
+						console.log('bn[j]：', bn[j])
+					}
+				}
+			}
+			// 大乐透按钮
+			function displayNum3() {
+				const a = 'num0_';
+				const li_st = daletou().split(",");
+				console.log('li_st：', li_st);
+				for (let i = 0; i < li_st.length; i++) {
+					console.log(a + i);
+					console.log('li_st[i]：', li_st[i]);
+					if (i < li_st.length) {
+						document.getElementById(a + i).innerHTML = li_st[i];
+					}
+				}
+				for (i in range(1, 4)) {
+					i++;
+					const a_1 = 'list_daletou_';
+					console.log('a_1 + i：', a_1 + i);
+					const span = document.getElementById(a_1 + i).getElementsByTagName("span");
+					// console.log(span);
+					const bn = daletou().split(",");
+					for (j = 0; j < span.length; j++) {
+						// console.log(span[j])
+						span[j].innerHTML = bn[j];
+						console.log('bn[j]：', bn[j])
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
