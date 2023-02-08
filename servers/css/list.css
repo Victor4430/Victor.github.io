@@ -1,0 +1,34 @@
+﻿.w_1200 { width:1200px; margin:0 auto; clear:both;}
+h3.paoti3{color:#111; font-size:48px; padding-top:75px; text-align:center;}
+h2.paoti3{color:#111; font-size:48px; padding-top:75px; text-align:center;}
+h2.paoti2{font-size:18px; color:#656565; padding:20px; text-align:center;}
+h4.paoti2{font-size:18px; color:#656565; padding:30px; text-align:center;}
+h2.paoti2_x{font-size:15px; color:#656565; padding:30px; text-align:center; font-size:14px; font-weight:400; }
+h4.paoti2_x{font-size:15px; color:#656565; padding:30px; text-align:center; font-size:14px; font-weight:400; }
+h4.paoti4{font-size:14px; color:#888686; text-align:center; font-weight:400; padding-bottom:20px; }
+h3.paoti4{font-size:14px; color:#888686; text-align:center; font-weight:400; padding-bottom:20px; }
+h3.paoti3 a{color:#333;}
+h3.paoti3 a:hover{text-decoration:none;}
+.all_100{width:100%; overflow:hidden;}
+/*虚拟主机、云主机*/
+/*虚拟、云主机list*/
+.yun_list_name{width:1200px; margin:0 auto; font-size:30px; font-weight:bold; height:70px; line-height:70px; text-align:center; border:1px solid #eee; background:#f8f8f8; border-radius:3px;}
+.yun_jiqi{width:1200px; margin:0 auto; overflow:hidden;padding:20px;}
+.yun_jiqi .yun_jiqi_right{float:right; margin-right:0;}
+.yun_list{width:285px; height:363px;overflow:hidden; float:left; margin-right:20px; background:#f8f8f8;}
+.yun_list .yun_cpbt{height:40px; line-height:40px; text-align:center; background:#058; display:block;color:#fff; font-size:16px; font-weight:bold;}
+.yun_list .yun_nr{padding:15px; font-size:12px;}
+.yun_list .yun_nr ul{overflow:hidden;vertical-align:bottom；}
+.yun_list .yun_nr ul li{height:28px; line-height:28px; overflow:hidden; }
+.yun_list .yun_nr ul li span{width:45px; text-align:right; display:block; float:left; font-size:12px;}
+.yun_list .yun_nr ul li font{display:block; float:left; font-size:12px;}
+.yun_list .yun_nr_width ul li span{width:70px; text-align:right; display:block; float:left;}
+.yun_list .jiage_bg{height:40px; line-height:40px; text-align:center; background:#ddd; display:block;color:#058; font-size:12px; font-weight:bold;}
+.yun_list .jiage_bg b{font-size:22px; margin:0 3px;}
+.yun_list .jiage_bg a{color:#058;}
+/*主机介绍*/
+.rows{width:1200px;margin:30px auto; overflow:hidden;}
+.col-md-6{width:580px; height:80px; float:left; margin-right:20px;}
+.col-md-6 img{float:left; margin-right:10px;}
+.col-md-6 h3{font-size:14px; font-weight:bold; height:33px; line-height:33px;}
+.col-md-6 p{line-height:25px;}
