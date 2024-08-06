@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>随机生成人名和手机号码</title>
+		
+		<link rel="shortcut icon" href="favicon.ico">
+		<!-- 禁止页面缓存 达到每次访问都是最新页面-->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<style>
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 16px;
+				background-color: #f5f5f5;
+			}
+
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			h1 {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.btn {
+				display: block;
+				margin: 20px auto;
+				padding: 10px 20px;
+				background-color: #007bff;
+				color: #fff;
+				border-radius: 5px;
+				text-align: center;
+				cursor: pointer;
+			}
+
+			.data-container {
+				margin-top: 20px;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.data-item {
+				background-color: #fff;
+				padding: 10px;
+				margin: 10px;
+				border-radius: 5px;
+				text-align: center;
+				box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			.copy-msg {
+				color: green;
+				font-weight: bold;
+				margin-top: 10px;
+				text-align: center;
+			}
+
+			@media (max-width: 768px) {
+				.data-container {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>随机生成人名和手机号码</h1>
+			<button class="btn" id="generate-btn">生成</button>
+			<div class="data-container"></div>
+		</div>
+
+		<script>
+			const firstNames = ['赵', '钱', '孙', '李', '周', '吴', '郑', '王', '冯', '王', '张', '刘', '陈', '杨',
+				'赵', '黄', '周', '吴', '徐', '孙', '胡', '朱', '高', '林', '何',
+				'郭', '马', '罗', '梁', '宋', '郑', '谢', '韩', '唐', '冯', '于', '董', '萧', '程', '曹', '袁', '邓',
+				'许', '傅', '沈', '曾', '彭', '吕', '苏', '卢', '蒋', '蔡', '贾', '丁', '魏', '薛', '叶', '阎', '余',
+				'潘', '杜', '戴', '夏', '钟', '汪', '田', '任', '姜', '范', '方', '石', '姚', '谭', '廖', '邹', '熊',
+				'金', '陆', '郝', '孔', '白', '崔', '康', '毛', '邱', '秦', '江', '史', '顾', '侯', '邵', '孟', '龙',
+				'万', '段', '漕', '钱', '汤', '尹', '黎', '易', '常', '武', '乔'
+			];
+			const lastNames = ['婷', '丽', '燕', '楠', '琳', '晨', '芳', '娜', '玲', '倩', '慧', '巧', '美', '娜',
+				'静', '淑', '惠', '珠', '翠', '雅', '芝', '玉', '萍', '红', '娥',
+				'玲', '芬', '芳', '燕', '彩', '春', '菊', '兰', '凤', '洁', '梅', '琳', '素', '云', '莲', '真', '环',
+				'雪', '荣', '爱', '妹', '霞', '香', '月', '莺', '媛', '艳', '瑞', '凡', '佳', '嘉', '琼', '勤', '珍',
+				'贞', '莉', '桂', '娣', '叶', '璧', '璐', '娅', '琦', '晶', '妍', '茜', '秋', '珊', '莎', '锦', '黛',
+				'青', '倩', '婷', '姣', '婉', '娴', '瑾', '颖', '露', '瑶', '怡', '婵', '雁', '蓓', '纨', '仪', '荷',
+				'丹', '蓉', '眉', '君', '琴', '蕊', '薇', '菁', '梦', '岚', '苑', '婕', '馨', '瑗', '琰', '韵', '融',
+				'园', '艺', '咏', '卿', '聪', '澜', '纯', '毓', '悦', '昭', '冰', '爽', '琬', '茗', '羽', '希', '宁',
+				'欣', '飘', '育', '滢', '馥', '筠', '柔', '竹', '霭', '凝', '晓', '欢', '霄', '枫', '芸', '菲', '寒',
+				'伊', '亚', '宜', '可', '姬', '舒', '影', '荔', '枝', '思', '丽'
+			];
+
+			function generateData() {
+				let dataContainer = document.querySelector('.data-container');
+				dataContainer.innerHTML = '';
+
+				for (let i = 0; i < 5; i++) {
+					let firstName = firstNames[Math.floor(Math.random() * 10)];
+					let lastName = lastNames[Math.floor(Math.random() * 10)];
+					let phoneNumber = generatePhoneNumber();
+
+					let dataItem = document.createElement('div');
+					dataItem.classList.add('data-item');
+					dataItem.innerHTML =
+						`<div>${firstName}${lastName}</div><div>${phoneNumber}</div><button class="copy-btn">复制</button>`;
+					dataContainer.appendChild(dataItem);
+				}
+
+				let copyBtns = document.querySelectorAll('.copy-btn');
+				copyBtns.forEach(btn => {
+					btn.addEventListener('click', () => {
+						let text = btn.parentNode.innerText;
+						let tempInput = document.createElement('input');
+						tempInput.value = text;
+
+						document.body.appendChild(tempInput);
+						tempInput.select();
+						document.execCommand('copy');
+						document.body.removeChild(tempInput);
+
+						let copyMsg = document.createElement('div');
+						copyMsg.classList.add('copy-msg');
+						copyMsg.innerText = '已复制到剪切板';
+						btn.parentNode.appendChild(copyMsg);
+						setTimeout(() => {
+							btn.parentNode.removeChild(copyMsg);
+						}, 2000);
+					});
+				});
+			}
+
+			function generatePhoneNumber() {
+			  const phonePrefixes = ['130', '131', '132', '155', '156', '186', '185', '134', '135', '136', '137', '138',
+					'139', '150', '151', '152', '157', '158', '159', '182', '183', '188', '187', '180', '133', '153', '189'];
+			  let prefix = phonePrefixes[Math.floor(Math.random() * phonePrefixes.length)];
+			  let suffix = '';
+			  for (let i = 0; i < 8; i++) {
+			    suffix += Math.floor(Math.random() * 10);
+			  }
+			  return prefix + suffix;
+			}
+
+
+			let generateBtn = document.querySelector('#generate-btn');
+			generateBtn.addEventListener('click', generateData);
+		</script>
+	</body>
+</html>

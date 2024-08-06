@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>文件下载和页面跳转</title>
+		
+		<link rel="shortcut icon" href="favicon.ico">
+		<!-- 禁止页面缓存 达到每次访问都是最新页面-->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<style>
+			/* 全局样式 */
+			body {
+				font-family: Arial, sans-serif;
+				background-color: #616161;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-height: 100vh;
+			}
+
+			/* 容器样式 */
+			.container {
+				background-color: #474747;
+				padding: 20px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				border-radius: 8px;
+				width: 90%;
+				max-width: 800px;
+				text-align: center;
+			}
+
+			/* 搜索框和搜索按钮样式 */
+			.search-container {
+				margin-bottom: 20px;
+				display: flex;
+				align-items: center;
+				position: relative;
+			}
+
+			.search-input-container {
+				position: relative;
+				flex: 1;
+			}
+
+			input[type="text"] {
+				padding: 10px;
+				width: 90%;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				font-size: 16px;
+				box-sizing: border-box;
+			}
+
+			.clear-btn {
+				position: absolute;
+				right: 5%;
+				top: 50%;
+				transform: translateY(-50%);
+				background: none;
+				border: none;
+				font-size: 10px;
+				color: #aaa;
+				cursor: pointer;
+			}
+
+			.clear-btn:hover {
+				color: #888;
+			}
+
+			button {
+				padding: 10px;
+				width: 100px;
+				border: none;
+				background-color: #1e90ff;
+				color: white;
+				border-radius: 4px;
+				cursor: pointer;
+				font-size: 16px;
+				margin-left: 10px;
+				transition: background-color 0.3s ease;
+			}
+
+			button:hover {
+				background-color: #4682b4;
+			}
+
+			/* 搜索结果列表样式 */
+			.search-results {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				text-align: left;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				background-color: #474747;
+				border-radius: 4px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+				max-height: 200px;
+				overflow-y: auto;
+				opacity: 0.8;
+			}
+
+			.search-results li {
+				background-color: #474747;
+				padding: 10px;
+				border-bottom: 1px solid #555;
+				cursor: pointer;
+				color: #d3d3d3;
+			}
+
+			.search-results li:hover {
+				background-color: #616161;
+			}
+
+			/* 闪烁效果 */
+			.flash {
+				animation: flash 2s ease;
+			}
+
+			@keyframes flash {
+				0% {
+					background-color: #474747;
+				}
+
+				25% {
+					background-color: #ff0000;
+				}
+
+				50% {
+					background-color: #474747;
+				}
+
+				75% {
+					background-color: #ff0000;
+				}
+
+				100% {
+					background-color: #474747;
+				}
+			}
+
+			/* 标题样式 */
+			h1,
+			h2 {
+				color: #ffffff;
+			}
+
+			h1 {
+				margin-bottom: 20px;
+			}
+
+			h2 {
+				margin-bottom: 15px;
+			}
+
+			/* 表格样式 */
+			table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+
+			th,
+			td {
+				padding: 12px;
+				border-bottom: 1px solid #555;
+			}
+
+			th {
+				background-color: #818181;
+				color: #fff;
+			}
+
+			/* 将文件名和页面名居左对齐 */
+			th:nth-child(1),
+			td:nth-child(1) {
+				text-align: left;
+			}
+
+			/* 将下载链接和跳转链接居右对齐 */
+			th:nth-child(2),
+			td:nth-child(2) {
+				text-align: right;
+			}
+
+			td {
+				color: #ffffff;
+			}
+
+			/* 鼠标悬停在表格行上的效果 */
+			tr:hover {
+				background-color: #818181;
+				transition: background-color 0.3s ease;
+			}
+
+			/* 链接样式 */
+			a {
+				text-decoration: none;
+				color: #1e90ff;
+				font-weight: bold;
+				transition: color 0.3s ease, transform 0.3s ease;
+			}
+
+			/* 鼠标悬停在链接上的效果 */
+			a:hover {
+				color: #ffa500;
+				transform: scale(1.1);
+			}
+
+			/* 媒体查询：针对宽度在600px及以上的设备 */
+			@media (min-width: 600px) {
+				.container {
+					padding: 40px;
+				}
+
+				h1 {
+					margin-bottom: 30px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- 标题 -->
+			<h1>黑白客资源中心</h1>
+			<!-- 搜索框和搜索按钮 -->
+			<div class="search-container">
+				<div class="search-input-container">
+					<input type="text" id="search" placeholder="输入关键字进行搜索">
+					<button id="clear-btn" class="clear-btn">&times;</button>
+				</div>
+				<button id="search-btn">搜索</button>
+				<ul id="search-results" class="search-results"></ul>
+			</div>
+
+			<h2>文件下载</h2>
+			<table id="file-table">
+				<thead>
+					<tr>
+						<th>文件名</th>
+						<th>下载链接</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>生成随机通讯录文件.vcf-.py</td>
+						<td><a href="./生成随机通讯录文件.vcf-.py" download>下载</a></td>
+					</tr>
+					<tr>
+						<td>随机通讯录.vcf</td>
+						<td><a href="./通讯录备份.vcf" download>下载</a></td>
+					</tr>
+					<tr>
+						<td>香蕉加速_PC</td>
+						<td><a href="./files/banana220920.zip" download>下载</a></td>
+					</tr>
+					<tr>
+						<td>香蕉加速_app</td>
+						<td><a href="./files/banana-speed-Android.apk" download>下载</a></td>
+					</tr>
+					<tr>
+						<td>python-3.10.10</td>
+						<td><a href="./files/python-3.10.10-amd64.exe" download>下载</a></td>
+					</tr>
+					<tr>
+						<td>示例文件2.txt</td>
+						<td><a href="./示例文件2.txt" download>下载</a></td>
+					</tr>
+					<!-- 这里可以添加更多的文件下载项 -->
+				</tbody>
+			</table>
+
+			<h2>页面跳转</h2>
+			<table id="page-table">
+				<thead>
+					<tr>
+						<th>页面名</th>
+						<th>跳转链接</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>随机生成人名和手机号码</td>
+					<td class="right-align"><a target="_blank" href="./phone.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面2</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面3</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面4</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面5</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面6</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面7</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面8</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面9</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面10</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面11</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面12</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面13</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面14</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面15</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面16</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面17</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面18</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面19</td>
+					<td class="right-align"><a target="_blank"  href="xo.html">跳转</a></td>
+				</tr>
+				<tr>
+					<td>隐藏页面20</td>
+					<td class="right-align"><a target="_blank"  href="xx.html">跳转</a></td>
+				</tr>
+					<!-- 这里可以添加更多的页面跳转项 -->
+				</tbody>
+			</table>
+		</div>
+
+		<script>
+			// 获取搜索框、搜索按钮、清除按钮和搜索结果列表
+			const searchInput = document.getElementById('search');
+			const searchButton = document.getElementById('search-btn');
+			const clearButton = document.getElementById('clear-btn');
+			const searchResults = document.getElementById('search-results');
+
+			// 获取表格的所有行
+			const fileTableRows = Array.from(document.querySelectorAll('#file-table tbody tr'));
+			const pageTableRows = Array.from(document.querySelectorAll('#page-table tbody tr'));
+
+			// 监听搜索框输入事件
+			searchInput.addEventListener('input', function() {
+				const query = searchInput.value.toLowerCase().trim();
+				const regex = new RegExp(query.split('').join('.*?'), 'i');
+				searchResults.innerHTML = '';
+
+				if (query) {
+					let found = false;
+
+					// 搜索文件表格
+					fileTableRows.forEach((row, index) => {
+						if (regex.test(row.cells[0].textContent)) {
+							const li = document.createElement('li');
+							li.textContent = `文件名: ${row.cells[0].textContent}`;
+							li.addEventListener('click', () => {
+								row.scrollIntoView({
+									behavior: 'smooth'
+								});
+								highlightRow(row);
+							});
+							searchResults.appendChild(li);
+							found = true;
+						}
+					});
+
+					// 搜索页面跳转表格
+					pageTableRows.forEach((row, index) => {
+						if (regex.test(row.cells[0].textContent)) {
+							const li = document.createElement('li');
+							li.textContent = `页面名: ${row.cells[0].textContent}`;
+							li.addEventListener('click', () => {
+								row.scrollIntoView({
+									behavior: 'smooth'
+								});
+								highlightRow(row);
+							});
+							searchResults.appendChild(li);
+							found = true;
+						}
+					});
+
+					if (!found) {
+						const li = document.createElement('li');
+						li.textContent = '没有找到匹配项';
+						searchResults.appendChild(li);
+					}
+				}
+			});
+
+			// 搜索按钮点击事件
+			searchButton.addEventListener('click', function() {
+				const query = searchInput.value.toLowerCase().trim();
+				const regex = new RegExp(query.split('').join('.*?'), 'i');
+				let found = false;
+
+				// 搜索文件表格
+				fileTableRows.forEach((row, index) => {
+					if (regex.test(row.cells[0].textContent)) {
+						row.scrollIntoView({
+							behavior: 'smooth'
+						});
+						highlightRow(row);
+						found = true;
+					}
+				});
+
+				// 搜索页面跳转表格
+				pageTableRows.forEach((row, index) => {
+					if (regex.test(row.cells[0].textContent)) {
+						row.scrollIntoView({
+							behavior: 'smooth'
+						});
+						highlightRow(row);
+						found = true;
+					}
+				});
+
+				if (!found) {
+					alert('没有找到匹配项');
+				}
+			});
+
+			// 清除按钮点击事件
+			clearButton.addEventListener('click', function() {
+				searchInput.value = '';
+				searchResults.innerHTML = '';
+				searchInput.focus();
+			});
+
+			// 高亮显示匹配的行
+			function highlightRow(row) {
+				row.classList.add('flash');
+				setTimeout(() => {
+					row.classList.remove('flash');
+				}, 2000);
+			}
+		</script>
+	</body>
+</html>
