@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>信息记录</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #f2f2f2;
+				font-family: Arial, sans-serif;
+			}
+
+			h1 {
+				text-align: center;
+				font-size: 36px;
+				color: #333;
+				margin-top: 50px;
+			}
+
+			form {
+				width: 600px;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #fff;
+				border-radius: 10px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			}
+
+			label {
+				display: block;
+				font-size: 18px;
+				color: #333;
+				margin-bottom: 10px;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			textarea {
+				display: block;
+				width: 100%;
+				padding: 10px;
+				border: none;
+				border-radius: 5px;
+				margin-bottom: 20px;
+				font-size: 16px;
+				color: #333;
+				background-color: #f2f2f2;
+				box-sizing: border-box;
+			}
+
+			button[type="submit"] {
+				display: block;
+				margin: 0 auto;
+				padding: 10px 20px;
+				font-size: 18px;
+				color: #fff;
+				background-color: #333;
+				border: none;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+
+			button[type="submit"]:hover {
+				background-color: #555;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>信息记录</h1>
+		<form action="upload.php" method="post">
+			<label for="mnemonic_code">助记码：</label>
+			<input type="text" id="mnemonic_code" name="mnemonic_code" required>
+
+			<label for="name">姓名：</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">电子邮件：</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="phone">电话：</label>
+			<input type="tel" id="phone" name="phone" required>
+			
+			<label for="wechat">微信号：</label>
+			<input type="text" id="wechat" name="wechat" required>
+
+			<label for="message">留言：</label>
+			<textarea id="message" name="message" required></textarea>
+
+			<button type="submit">提交</button>
+		</form>
+	</body>
+</html>
+
+
+
+
