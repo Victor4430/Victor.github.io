@@ -1,9 +1,9 @@
 <?php
 
 // 上传目录
-$dir_path = '../files/';
+$dir_path = './files/';
 // 记录日志的文件
-$log_path = '../log.txt';
+$log_path = './log.txt';
 // 禁止上传的文件后缀名
 $not_allow = ['asp', 'php'];
 // 文件名
