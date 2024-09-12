@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>☕经济舱-机车驿站</title>
+
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="favicon.ico">
+
+		<!-- 禁止页面缓存 达到每次访问都是最新页面-->
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<!-- Google 广告 -->
+		<script async
+			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7780137864654456"
+			crossorigin="anonymous"></script>
+
+		<style type="text/css">
+			/* 开发中提示 */
+			#ps {
+				margin-top: 20px;
+			}
+
+			/* 鼠标特效 */
+			canvas {
+				position: fixed;
+				top: 0;
+				left: 0;
+				pointer-events: none;
+			}
+
+
+			/* 底部导航栏 */
+			footer {
+				/* width: 100%; */
+				background-color: #48494a;
+				padding: 30px 0;
+				color: #ffffff;
+				font-size: 14px;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+			}
+
+			.row {
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+			}
+
+			.col-md-4 {
+				width: calc(33.33% - 20px);
+				margin-bottom: 20px;
+				padding: 0 10px;
+			}
+
+			.col-md-12 {
+				text-align: center;
+			}
+
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			a {
+				color: #ffffff;
+				text-decoration: none;
+				font-weight: bold;
+			}
+
+			a:hover {
+				color: #ffff00;
+			}
+
+
+
+
+			/* PC适配 */
+			@media only screen and (min-width: 800px) and (max-width: 3000px) {
+
+				/* body_css */
+				body {
+					background-color: #6d6e70;
+				}
+
+				/* 大盒子 */
+				#Big_Box {
+					position: relative;
+					width: 1500px;
+					height: auto;
+					top: 10px;
+					/* background-color: #6d6e70; */
+					margin: auto;
+
+				}
+
+				/* 顶部实时时间 */
+				#time_new {
+					text-decoration: none;
+					position: relative;
+					top: 20px;
+					width: inherit;
+					font-family: '楷体';
+					font-weight: 100;
+					font-size: 28px;
+					font-style: normal;
+					text-align: center;
+					color: #fff;
+				}
+
+				/* 时间hover变色 */
+				#time_new:hover {
+					color: #fff;
+				}
+
+				/* 标题<经济舱_机车驿站> */
+				#title {
+					width: 100%;
+					height: 30px;
+					text-align: center;
+					/* overflow: hidden; */
+					white-space: nowrap;
+					font-size: 24px;
+					color: #fff;
+					/* background: linear-gradient(to right, #f00, #ff702e, #ff0, #0f0, #0ff, #00f, #f0f, #f00); */
+					background-size: 200% auto;
+					animation: marquee 5s linear infinite;
+				}
+
+				@keyframes marquee {
+					0% {
+						background-position: 0 0;
+					}
+
+					100% {
+						background-position: -200% 0;
+					}
+				}
+
+				/* 导航栏css */
+				#nav {
+					width: 100%;
+					position: relative;
+					top: 10px;
+					/* background-color: #2af5ff; */
+					list-style: none;
+					display: flex;
+					justify-content: space-between;
+					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+				}
+
+				#nav div {
+					width: 100%;
+					height: 70px;
+					line-height: 70px;
+				}
+
+				#nav a {
+					text-align: center;
+					display: block;
+					width: 98%;
+					text-decoration: none;
+					font-size: 16px;
+					font-weight: 800;
+					/* padding: 5px 15px; */
+					border-radius: 3px;
+					transition: background-color 0.3s ease;
+					/* background-color: #757575; */
+					color: #ffffff;
+				}
+
+				#nav a:hover {
+					background-color: #fff;
+					color: #000000;
+					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+				}
+
+				/* 公告：流动文字 */
+				#hang {
+					position: relative;
+					top: 20px;
+					font-family: '楷体';
+					font-size: 20px;
+					color: #fff;
+				}
+
+				/* 首页图 */
+				#img_1 {
+					display: block;
+					margin: 0 auto;
+					width: 80%;
+					position: relative;
+					top: 20px;
+
+				}
+
+				.p {
+					color: #fff;
+				}
+
+			}
+
+			/* 移动端适配 */
+			@media only screen and (min-width: 320px) and (max-width: 800px) {
+
+				/* body_css */
+				body {
+					background-color: #6d6e70;
+				}
+
+				/* 大盒子 */
+				#Big_Box {
+					position: relative;
+					width: auto;
+					height: auto;
+					top: 10px;
+					/* background-color: #6d6e70; */
+					margin: auto;
+
+				}
+
+				/* 顶部实时时间 */
+				#time_new {
+					text-decoration: none;
+					position: relative;
+					top: 20px;
+					width: inherit;
+					font-family: '楷体';
+					font-weight: 100;
+					font-size: 28px;
+					font-style: normal;
+					text-align: center;
+					color: #fff;
+				}
+
+				/* 时间hover变色 */
+				#time_new:hover {
+					color: #fff;
+				}
+
+				/* 标题<经济舱_机车驿站> */
+				#title {
+					width: 100%;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+					/* overflow: hidden; */
+					white-space: nowrap;
+					font-size: 24px;
+					color: #fff;
+					background: linear-gradient(to right, #f00, #ff702e, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+					background-size: 200% auto;
+					animation: marquee 5s linear infinite;
+				}
+
+				@keyframes marquee {
+					0% {
+						background-position: 0 0;
+					}
+
+					100% {
+						background-position: -200% 0;
+					}
+				}
+
+				/* 导航栏css */
+				#nav {
+					width: 100%;
+					position: relative;
+					top: 10px;
+					/* background-color: #2af5ff; */
+					list-style: none;
+					display: flex;
+					justify-content: space-between;
+					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+				}
+
+				#nav div {
+					width: 100%;
+					height: 60px;
+					line-height: 60px;
+				}
+
+				#nav a {
+					text-align: center;
+					display: block;
+					width: 98%;
+					text-decoration: none;
+					font-size: 17px;
+					font-weight: 800;
+					font-family: "楷体";
+					/* padding: 5px 15px; */
+					border-radius: 3px;
+					transition: background-color 0.3s ease;
+					/* background-color: #757575; */
+					color: #ffffff;
+				}
+
+				#nav a:hover {
+					background-color: #fff;
+					color: #000000;
+					box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+				}
+
+				/* 公告：流动文字 */
+				#hang {
+					position: relative;
+					top: 20px;
+					font-family: '楷体';
+					font-size: 20px;
+					color: #fff;
+				}
+
+				/* 首页图 */
+				#img_1 {
+					display: block;
+					margin: 0 auto;
+					width: 100%;
+					position: relative;
+					top: 20px;
+				}
+
+				.p {
+					color: #fff;
+				}
+
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="content">
+			<center>
+				<a id="time_new" href="#">time_new</a>
+			</center>
+			<script>
+				var time_new = document.getElementById('time_new');
+
+				function traceppp() {
+					time_new.innerText = getDate();
+				}
+
+				function getDate() {
+					var date = new Date();
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var dates = date.getDate();
+					var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+					var day = date.getDay();
+
+					var h = date.getHours();
+					h = h < 10 ? '0' + h : h;
+					var m = date.getMinutes();
+					m = m < 10 ? '0' + m : m;
+					var s = date.getSeconds();
+					s = s < 10 ? '0' + s : s;
+					return '今天是 ' + year + ' 年 ' + month + ' 月 ' + dates + ' 日 ' + arr[day] +
+						' ' + h + ':' + m + ':' + s;
+				}
+				traceppp();
+				setInterval(traceppp, 1000);
+			</script>
+
+			<div id="Big_Box">
+				<div id="title">
+					<p>Welcome to 经济舱-机车驿站</p>
+				</div>
+
+				<div id="nav">
+					<div><a href="#">首页</a></div>
+					<div><a href="#">业务</a></div>
+					<div><a href="./huanjing/">环境</a></div>
+					<div><a href="https://www.kugou.com/" target=_blank>Music</a></div>
+					<div><a href="#">深夜站台</a></div>
+				</div>
+				<marquee id="hang" behavior="behavior" direction="left">
+					公告：《经济舱-机车驿站》 为车友们提供交流社区、旅游攻略、机车知识、机车商城和活动推荐等功能。车友们可以在这里分享经验、规划旅行、了解机车知识、购买配件和参加活动，让机车文化更加丰富多彩。
+				</marquee>
+				<div class="tupian">
+					<a href="#">
+						<img id="img_1" src="./img/00.jpg" alt="经济舱_机车驿站">
+					</a>
+					<a href="#">
+						<img id="img_1" src="./img/01.jpg" alt="经济舱_机车驿站">
+					</a>
+				</div>
+
+				<div id="ps">
+					开发ing..........
+				</div>
+				<br>
+				<br>
+
+
+				<div id="jianjie">
+
+
+					<p class="p">1. 车友社区：为喜爱机车的车友们提供一个交流、分享、互动的平台，可以发布自己的经验、疑问、故事等，与其他车友进行交流互动。</p>
+
+					<p class="p">2. 旅游攻略：提供各种机车旅游线路的攻略，包括路线规划、景点介绍、美食推荐等，帮助车友们更好地规划自己的旅行计划。</p>
+
+					<p class="p">3. 机车知识：提供机车相关的知识介绍，包括机车分类、维护保养、驾驶技巧等，帮助车友们更好地了解机车知识，提高驾驶技巧。</p>
+
+					<p class="p">4. 机车商城：提供各种机车相关的商品和配件，包括车衣、头盔、手套、鞋子等，为车友们提供便利购物的平台。</p>
+
+					<br>
+					<br>
+				</div>
+
+			</div>
+			<!-- 网站底部信息 -->
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<h3>备案信息</h3>
+							<p>备案号：开发中........</p>
+						</div>
+						<div class="col-md-4">
+							<h3>友情链接</h3>
+							<ul>
+								<li><a target="_blank" href="https://demo443.com">☕Victor's 导航</a></li>
+								<li><a target="_blank" href="https://demo443.com/shangpin/">☕大额优惠券</a></li>
+							</ul>
+						</div>
+						<div class="col-md-4">
+							<h3>联系我们</h3>
+							<p>电话：<a href="tel:18089653502">18089653502</p></a>
+							<p>电话：<a href="tel:17385722018">17385722018</p></a>
+							<p>Email：<a href="mailto:lzj155@foxmail.com">lzj155@foxmail.com</a></p>
+							<p>地址：<a target="_blank" href="https://surl.amap.com/ourtoT104K8"><经济舱-机车驿站></a></p>
+						</div>
+					</div>
+					<!-- 版权展示 -->
+					<div class="row">
+						<div class="col-md-12">
+							<p>Copyright 2023 ☕经济舱-机车驿站 All Rights Reserved. designed and developed by
+								机车驿站.com
+							</p>
+						</div>
+					</div>
+					<!-- 访问量展示 -->
+					<div class="row foot">
+						<p>
+							<pss><a href='https://demo443.com' target='_blank'> </a>&nbsp;&nbsp;<ping></ping>
+							</pss>
+							<span id="busuanzi_container_site_pv">本站总访问量: <span id="busuanzi_value_site_pv"></span>
+								次</span>
+						</p>
+						<script async src="static/js/latency.js"></script>
+						<script async src="static/js/defocus.js"></script>
+					</div>
+					<!-- 不蒜子  网页访问量计数器 -->
+					<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+				</div>
+			</footer>
+
+			<!-- 鼠标特效 -->
+			<canvas id="canvas"></canvas>
+
+			<script>
+				var canvas = document.getElementById("canvas");
+				var ctx = canvas.getContext("2d");
+
+				// 设置 canvas 的宽度和高度
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+
+				// 定义一个 Particle 类表示每个颗粒
+				function Particle(x, y, color) {
+					this.x = x;
+					this.y = y;
+					this.color = color;
+					this.radius = 4; // 修改粒子大小为 4
+					this.vx = Math.random() * 6 - 3;
+					this.vy = Math.random() * 6 - 3;
+					this.opacity = 1;
+					this.fade = Math.random() * 0.05 + 0.03;
+				}
+
+				// 定义一个数组来存储所有的颗粒
+				var particles = [];
+
+				// 监听鼠标点击事件
+				document.addEventListener("mousedown", function(event) {
+					if (event.button === 0) {
+						// 左键点击
+
+						// 获取鼠标点击位置
+						var x = event.clientX;
+						var y = event.clientY;
+
+						// 创建一些颗粒
+						for (var i = 0; i < 30; i++) {
+							var color = getRandomColor();
+							var particle = new Particle(x, y, color);
+							particles.push(particle);
+						}
+					}
+				});
+
+				// 渲染函数，每隔一段时间执行一次，用于更新屏幕上的颗粒
+				function render() {
+					// 清空画布
+					ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+					// 更新所有的颗粒
+					for (var i = 0; i < particles.length; i++) {
+						var particle = particles[i];
+
+						// 更新颗粒的位置
+						particle.x += particle.vx;
+						particle.y += particle.vy;
+
+						// 更新颗粒的透明度
+						particle.opacity -= particle.fade;
+
+						// 如果颗粒已经不可见，就从数组中删除它
+						if (particle.opacity <= 0) {
+							particles.splice(i, 1);
+							i--;
+							continue;
+						}
+
+						// 绘制颗粒
+						ctx.beginPath();
+						ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+						ctx.fillStyle = "rgba(" + particle.color + "," + particle.opacity + ")";
+						ctx.fill();
+					}
+
+					// 继续执行下一帧动画
+					requestAnimationFrame(render);
+				}
+
+				// 开始执行动画
+				requestAnimationFrame(render);
+
+				// 生成随机颜色
+				function getRandomColor() {
+					var r = Math.floor(Math.random() * 256);
+					var g = Math.floor(Math.random() * 256);
+					var b = Math.floor(Math.random() * 256);
+					return r + "," + g + "," + b;
+				}
+			</script>
+
+	</body>
+</html>
