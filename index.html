@@ -457,15 +457,27 @@
 				}
 
 				.content {
+
 					margin-left: 0;
 					/* 设置左边距为0 */
+					margin-Right: 0;
+					/* 设置右边距为0 */
 					padding: 10px;
 					/* 设置内边距 */
+					width: 104.5%;
+					/* 设置宽度 */
+					position: static;
+					/* 设置静态定位 */
+					text-align: center;
+					/* 文本居中 */
+					transform: none;
+					/* 移除transform效果 */
 				}
 
 				.header {
 					flex-direction: column;
 					/* 设置主轴方向为列 */
+					
 				}
 
 				.header .notice {
@@ -488,9 +500,10 @@
 					flex: 1 1 calc(50% - 10px);
 					/* 设置flex属性 */
 				}
-
+				
+				
 				.footer {
-					width: 100%;
+					width: 92%;
 					/* 设置宽度 */
 					position: static;
 					/* 设置静态定位 */
@@ -576,15 +589,16 @@
 				<nav>
 					<a href="#section1" target="_blank">搜索引擎</a> <!-- 导航链接 -->
 					<a href="#section2" target="_blank">置顶</a>
-					<a href="#section3" target="_blank">Emails</a>
+					<a href="#section3" target="_blank">邮箱</a>
 					<a href="#section4" target="_blank">常用</a>
-					<a href="#section5" target="_blank">Shortcut Tool</a>
-					<a href="#section6" target="_blank">Information</a>
-					<a href="#section7" target="_blank">Doc</a>
-					<a href="#section8" target="_blank">Software</a>
-					<a href="#section9" target="_blank">Spider</a>
-					<a href="#section10" target="_blank">Media</a>
-					<a href="#section99" target="_blank">今日诗词</a>
+					<a href="#section5" target="_blank">快捷工具</a>
+					<a href="#section6" target="_blank">公开信息</a>
+					<a href="#section7" target="_blank">文档</a>
+					<a href="#section8" target="_blank">软件</a>
+					<a href="#section9" target="_blank">爬虫</a>
+					<a href="#section10" target="_blank">媒体</a>
+					<a href="#section11" target="_blank">其他</a>
+					<a href="#section99" target="_blank">VPN</a>
 				</nav>
 			</div>
 		</div>
@@ -601,7 +615,7 @@
 					<div class="suggestions" id="suggestions"></div> <!-- 搜索建议 -->
 				</div>
 			</div>
-			<div id="section99" class="section">
+			<div id="section999" class="section">
 				<h2>&#127763;&#127763;&#127763;&#127763;</h2>
 				<div class="links">
 					<div class="hitokoto">
@@ -633,8 +647,8 @@
 								src="./ico/victor.png" alt="icon">Blog</a></div>
 					<div class="link-item"><a href="https://github.com/" target="_blank"><img width="20px"
 								src="./ico/github.ico" alt="icon">GitHub</a></div>
-					<div class="link-item"><a href="./music/" target="_blank"><img width="20px" src="./ico/music.png"
-								alt="icon">音乐空间</a></div>
+					<div class="link-item"><a href="https://www.kugou.com/" target="_blank"><img width="20px"
+								src="https://www.kugou.com/yy/static/images/play/logo.png" alt="icon">音乐空间</a></div>
 					<div class="link-item"><a href="./tool/" target="_blank"><img width="20px" src="./ico/tool.png"
 								alt="icon">Tool</a></div>
 					<div class="link-item"><a href="https://www.bilibili.com/" target="_blank"><img width="20px"
@@ -643,7 +657,7 @@
 								src="./ico/guohui.png" alt="icon">法律法规</a></div>
 					<div class="link-item"><a href="./gg/" target="_blank"><img width="20px" src="./ico/sao.png"
 								alt="icon">广告屋</a></div>
-					<div class="link-item"><a href="./servers/" target="_blank"><img width="20px"
+					<div class="link-item"><a href="https://MattKing.hkyun.vip" target="_blank"><img width="20px"
 								src="./ico/servers.png" alt="icon">服务器</a></div>
 					<div class="link-item"><a href="./shangpin/" target="_blank"><img width="20px"
 								src="./ico/shangpin.png" alt="icon">优惠券</a></div>
@@ -655,318 +669,389 @@
 								src="./ico/taijitu2.gif" alt="icon">奇门遁甲</a></div>
 					<div class="link-item"><a href="http://www.5173.com/?recommenduserid=US23010884867192-0020"
 							target="_blank"><img width="20px" src="./ico/jinbi.png" alt="icon">搬砖变现</a></div>
-					<div class="link-item"><a href="http://jc.demo443.com/" target="_blank"><img width="20px"
+					<div class="link-item"><a href="./jiche/" target="_blank"><img width="20px"
 								src="./ico/victor.png" alt="icon">机车驿站</a></div>
 				</div>
 			</div>
-			<div id="section3" class="section"> <!-- Emails部分 -->
-				<h2>Emails</h2>
+			<div id="section3" class="section"> <!-- 邮箱部分 -->
+				<h2>邮箱</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://mail.qq.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">QQ邮箱</a></div>
+								src="./ico/xixi.svg" alt="icon">QQ邮箱</a></div>
 					<div class="link-item"><a href="https://outlook.live.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">@outlook</a></div>
+								src="./ico/xixi.svg" alt="icon">@outlook</a></div>
 					<div class="link-item"><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Gmail</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Gmail</a></div>
 					<div class="link-item"><a href="https://mail.163.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">网易邮箱</a></div>
+								src="./ico/xixi.svg" alt="icon">网易邮箱</a></div>
 					<div class="link-item"><a href="https://mail.sina.com.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">新浪邮箱</a></div>
+								src="./ico/xixi.svg" alt="icon">新浪邮箱</a></div>
 					<div class="link-item"><a href="https://qiye.aliyun.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">阿里邮箱</a></div>
+								src="./ico/xixi.svg" alt="icon">阿里邮箱</a></div>
 				</div>
 			</div>
 			<div id="section4" class="section"> <!-- 常用部分 -->
 				<h2>常用</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://chat.openai.com/chat" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Openai</a></div>
+								src="./ico/xixi.svg" alt="icon">Openai</a></div>
 					<div class="link-item"><a href="https://poe.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">ChatGPT</a></div>
-					<div class="link-item"><a href="./v/" target="_blank"><img width="20px" src="./ico/favicon.png"
+								src="./ico/xixi.svg" alt="icon">Poe-ChatGPT</a></div>
+					<div class="link-item"><a href="./v/" target="_blank"><img width="20px" src="./ico/xixi.svg"
 								alt="icon">国外站点</a></div>
 					<div class="link-item"><a href="https://demo520.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Victor's</a></div>
-					<div class="link-item"><a href="./file/" target="_blank"><img width="20px" src="./ico/favicon.png"
+								src="./ico/xixi.svg" alt="icon">Victor's</a></div>
+					<div class="link-item"><a href="./file/" target="_blank"><img width="20px" src="./ico/xixi.svg"
 								alt="icon">文件_0</a></div>
-					<div class="link-item"><a href="./up/" target="_blank"><img width="20px" src="./ico/favicon.png"
+					<div class="link-item"><a href="./up/" target="_blank"><img width="20px" src="./ico/xixi.svg"
 								alt="icon">便签_1</a></div>
-					<div class="link-item"><a href="./up2/" target="_blank"><img width="20px" src="./ico/favicon.png"
+					<div class="link-item"><a href="./up2/" target="_blank"><img width="20px" src="./ico/xixi.svg"
 								alt="icon">便签_2</a></div>
-					<div class="link-item"><a href="./up1/" target="_blank"><img width="20px" src="./ico/favicon.png"
+					<div class="link-item"><a href="./up1/" target="_blank"><img width="20px" src="./ico/xixi.svg"
 								alt="icon">文件_2</a></div>
 					<div class="link-item"><a
 							href="https://www.google.com/adsense/new/u/0/pub-7780137864654456/sites/my-sites"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">GA控制台</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">GA控制台</a></div>
 					<div class="link-item"><a href="https://jinbao.pinduoduo.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">多多进宝</a></div>
-					<div class="link-item"><a href="https://qudao.720sy.com/#/home" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">小游戏</a></div>
+								src="./ico/xixi.svg" alt="icon">多多进宝</a></div>
 					<div class="link-item"><a href="https://www.3v.do/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">三维主机</a></div>
+								src="./ico/xixi.svg" alt="icon">三维主机</a></div>
 					<div class="link-item"><a href="https://www.szhot.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">万维网</a></div>
+								src="./ico/xixi.svg" alt="icon">万维网</a></div>
 					<div class="link-item"><a href="https://www.gname.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">万网</a></div>
+								src="./ico/xixi.svg" alt="icon">万网</a></div>
 					<div class="link-item"><a href="https://sso.qiniu.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">七牛云</a></div>
+								src="./ico/xixi.svg" alt="icon">七牛云</a></div>
 					<div class="link-item"><a href="http://ftp.8u.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">8uftp</a></div>
+								src="./ico/xixi.svg" alt="icon">8uftp</a></div>
 					<div class="link-item"><a href="https://putty.org/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">PuTTY</a></div>
+								src="./ico/xixi.svg" alt="icon">PuTTY</a></div>
 					<div class="link-item"><a href="https://up.woozooo.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">蓝奏云</a></div>
+								src="./ico/xixi.svg" alt="icon">蓝奏云</a></div>
 				</div>
 			</div>
-			<div id="section5" class="section"> <!-- Shortcut Tool部分 -->
-				<h2>Shortcut Tool</h2>
+			<div id="section5" class="section"> <!-- 快捷工具部分 -->
+				<h2>快捷工具</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://translate.google.com.hk/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">谷歌翻译</a></div>
+								src="./ico/xixi.svg" alt="icon">谷歌翻译</a></div>
 					<div class="link-item"><a href="https://fanyi.youdao.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">有道翻译</a></div>
+								src="./ico/xixi.svg" alt="icon">有道翻译</a></div>
 					<div class="link-item"><a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Chrome</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Chrome</a></div>
 					<div class="link-item"><a href="https://centbrowser.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">百分浏览器</a></div>
+								src="./ico/xixi.svg" alt="icon">百分浏览器</a></div>
 					<div class="link-item"><a href="https://www.microsoft.com/zh-cn/edge/home" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Edge</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Edge</a></div>
 					<div class="link-item"><a href="https://www.67tool.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">即时工具</a></div>
+								src="./ico/xixi.svg" alt="icon">即时工具</a></div>
 					<div class="link-item"><a href="https://ps.gaoding.com/#/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">在线PS</a></div>
+								src="./ico/xixi.svg" alt="icon">在线PS</a></div>
 					<div class="link-item"><a href="https://huatu.98youxi.com/markdown/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Markdown</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Markdown</a></div>
 					<div class="link-item"><a href="https://huatu.98youxi.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">迅捷脑图</a></div>
+								src="./ico/xixi.svg" alt="icon">迅捷脑图</a></div>
 					<div class="link-item"><a href="https://store.lizhi.io/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">正版软件</a></div>
+								src="./ico/xixi.svg" alt="icon">正版软件</a></div>
 					<div class="link-item"><a href="https://www.cleverpdf.com/cn" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">PDF转换</a></div>
+								src="./ico/xixi.svg" alt="icon">PDF转换</a></div>
 					<div class="link-item"><a href="https://www.aconvert.com/cn/document/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">文件转换</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">文件转换</a></div>
 					<div class="link-item"><a href="https://www.pptsupermarket.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">PPT市场</a></div>
+								src="./ico/xixi.svg" alt="icon">PPT市场</a></div>
 					<div class="link-item"><a href="https://www.cnki.net/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">中国知网</a></div>
+								src="./ico/xixi.svg" alt="icon">中国知网</a></div>
 					<div class="link-item"><a href="https://shenzjd.com/shenzjd/tupian/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">九帝壁纸</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">九帝壁纸</a></div>
 					<div class="link-item"><a href="https://bing.ioliu.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">必应壁纸</a></div>
+								src="./ico/xixi.svg" alt="icon">必应壁纸</a></div>
 					<div class="link-item"><a href="https://zh.z-lib.org/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">PDF书籍</a></div>
+								src="./ico/xixi.svg" alt="icon">PDF书籍</a></div>
 					<div class="link-item"><a href="http://www.niuga.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">视频解析1</a></div>
+								src="./ico/xixi.svg" alt="icon">视频解析1</a></div>
 					<div class="link-item"><a href="https://myhkw.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">明月浩空</a></div>
+								src="./ico/xixi.svg" alt="icon">明月浩空</a></div>
 					<div class="link-item"><a href="https://airtest.netease.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">图像自动化</a></div>
+								src="./ico/xixi.svg" alt="icon">图像自动化</a></div>
 				</div>
 			</div>
-			<div id="section6" class="section"> <!-- Information部分 -->
-				<h2>Information</h2>
+			<div id="section6" class="section"> <!-- 公开信息部分 -->
+				<h2>公开信息</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://www.gsxt.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">企业信息</a></div>
+								src="./ico/xixi.svg" alt="icon">企业信息</a></div>
 					<div class="link-item"><a href="https://wenshu.court.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">裁判文书</a></div>
+								src="./ico/xixi.svg" alt="icon">裁判文书</a></div>
 					<div class="link-item"><a href="http://zxgk.court.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">执行信息</a></div>
+								src="./ico/xixi.svg" alt="icon">执行信息</a></div>
 					<div class="link-item"><a href="https://cont.12315.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">合同示范</a></div>
+								src="./ico/xixi.svg" alt="icon">合同示范</a></div>
 					<div class="link-item"><a href="http://bzdt.ch.mnr.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">标准地图</a></div>
+								src="./ico/xixi.svg" alt="icon">标准地图</a></div>
 					<div class="link-item"><a href="https://le.ouchn.cn/home" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">终身教育</a></div>
+								src="./ico/xixi.svg" alt="icon">终身教育</a></div>
 					<div class="link-item"><a href="http://www.docuchina.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">中国纪录片</a></div>
+								src="./ico/xixi.svg" alt="icon">中国纪录片</a></div>
 					<div class="link-item"><a href="http://www.stats.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">国家统计局</a></div>
+								src="./ico/xixi.svg" alt="icon">国家统计局</a></div>
 					<div class="link-item"><a href="https://yhssglxt.miit.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">工信部申诉</a></div>
+								src="./ico/xixi.svg" alt="icon">工信部申诉</a></div>
 					<div class="link-item"><a href="http://www.nlc.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">数字图书部</a></div>
+								src="./ico/xixi.svg" alt="icon">数字图书部</a></div>
 					<div class="link-item"><a href="https://privacy.aiuys.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Privacy</a></div>
+								src="./ico/xixi.svg" alt="icon">Privacy</a></div>
 					<div class="link-item"><a href="https://cx.mem.gov.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">操作证查询</a></div>
+								src="./ico/xixi.svg" alt="icon">操作证查询</a></div>
 					<div class="link-item"><a href="http://zscx.osta.org.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">职业资格证</a></div>
+								src="./ico/xixi.svg" alt="icon">职业资格证</a></div>
 					<div class="link-item"><a href="http://www.ceac.org.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">CEAC</a></div>
+								src="./ico/xixi.svg" alt="icon">CEAC</a></div>
 					<div class="link-item"><a href="https://www.miiteec.org.cn/plus/list.php?tid=247"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">工业信息化</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">工业信息化</a></div>
 					<div class="link-item"><a href="https://www.ccopyright.com.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">中国版权</a></div>
+								src="./ico/xixi.svg" alt="icon">中国版权</a></div>
 					<div class="link-item"><a href="https://www.gzbqdj.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">贵州版权</a></div>
+								src="./ico/xixi.svg" alt="icon">贵州版权</a></div>
 				</div>
 			</div>
-			<div id="section7" class="section"> <!-- Doc部分 -->
-				<h2>Doc</h2>
+			<div id="section7" class="section"> <!-- 文档部分 -->
+				<h2>文档</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://www.osgeo.cn/scrapy/intro/overview.html"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">Scrapy</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">Scrapy</a></div>
 					<div class="link-item"><a href="https://www.numpy.org.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">NumPy</a></div>
+								src="./ico/xixi.svg" alt="icon">NumPy</a></div>
 					<div class="link-item"><a href="https://www.jianshu.com/p/a77b0bc736f2/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Pandas</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Pandas</a></div>
 					<div class="link-item"><a href="https://www.byhy.net/tut/auto/appium/01/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Appium</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Appium</a></div>
 					<div class="link-item"><a
 							href="http://www.mysqlab.net/docs/view/refman-5.1-zh/chapter/sql-syntax.html"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">MySQL</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">MySQL</a></div>
 					<div class="link-item"><a href="https://www.runoob.com/redis/redis-tutorial.html"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">Redis</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">Redis</a></div>
 					<div class="link-item"><a href="https://www.linuxcool.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Linux命令</a></div>
+								src="./ico/xixi.svg" alt="icon">Linux命令</a></div>
 				</div>
 			</div>
-			<div id="section8" class="section"> <!-- Software部分 -->
-				<h2>Software</h2>
+			<div id="section8" class="section"> <!-- 软件部分 -->
+				<h2>软件</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://github.com/Z-Siqi/Clash-for-Windows_Chinese"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">Clash</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">Clash</a></div>
 					<div class="link-item"><a href="https://biteb.app/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Biteb</a></div>
+								src="./ico/xixi.svg" alt="icon">Biteb</a></div>
 					<div class="link-item"><a href="https://xn--ehq00hgtfdmt.xyz/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">SanFen</a></div>
+								src="./ico/xixi.svg" alt="icon">SanFen</a></div>
 					<div class="link-item"><a href="https://www.bt.cn/new/index.html" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">宝塔面板</a></div>
+								src="./ico/xixi.svg" alt="icon">宝塔面板</a></div>
 					<div class="link-item"><a href="https://www.xp.cn/download.html" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">PHPstudy</a></div>
+								src="./ico/xixi.svg" alt="icon">PHPstudy</a></div>
 					<div class="link-item"><a href="https://www.google.cn/intl/zh-CN/chrome/dev/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">谷歌-DEV</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">谷歌-DEV</a></div>
 					<div class="link-item"><a href="https://www.todesk.com/download.html" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">远程协助</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">远程协助</a></div>
 					<div class="link-item"><a href="https://www.diskgenius.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">数据恢复</a></div>
+								src="./ico/xixi.svg" alt="icon">数据恢复</a></div>
 					<div class="link-item"><a href="https://www.charlesproxy.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Charles</a></div>
+								src="./ico/xixi.svg" alt="icon">Charles</a></div>
 					<div class="link-item"><a href="http://www.51nwt.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">内网通讯</a></div>
+								src="./ico/xixi.svg" alt="icon">内网通讯</a></div>
 					<div class="link-item"><a href="https://www.revouninstaller.com/revo-uninstaller-free-download/"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">卸载工具</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">卸载工具</a></div>
 					<div class="link-item"><a href="https://geekuninstaller.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Geek</a></div>
+								src="./ico/xixi.svg" alt="icon">Geek</a></div>
 					<div class="link-item"><a href="https://cidian.youdao.com/#/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">有道词典</a></div>
+								src="./ico/xixi.svg" alt="icon">有道词典</a></div>
 					<div class="link-item"><a href="http://chromedriver.storage.googleapis.com/index.html"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">谷歌驱动</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">谷歌驱动</a></div>
 					<div class="link-item"><a href="https://www.python.org/downloads/windows/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Py_IDLE</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Py_IDLE</a></div>
 					<div class="link-item"><a href="https://www.jetbrains.com/pycharm/download/#section=windows"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">Pycharm</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">Pycharm</a></div>
 					<div class="link-item"><a href="https://www.anaconda.com/products/distribution#Downloads"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">Anaconda</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">Anaconda</a></div>
 					<div class="link-item"><a href="https://www.dcloud.io/hbuilderx.html" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">HbuilderX</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">HbuilderX</a></div>
 					<div class="link-item"><a href="https://code.visualstudio.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Vscode</a></div>
+								src="./ico/xixi.svg" alt="icon">Vscode</a></div>
 					<div class="link-item"><a href="https://www.bazhuayu.com/download/windows" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">八爪鱼</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">八爪鱼</a></div>
 					<div class="link-item"><a href="https://www.voidtools.com/zh-cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Everything</a></div>
+								src="./ico/xixi.svg" alt="icon">Everything</a></div>
 					<div class="link-item"><a href="https://dm.airdisk.cc/download/c-3/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Airdisk</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Airdisk</a></div>
 					<div class="link-item"><a href="http://www.yishimei.cn/network/319.html" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">系统激活</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">系统激活</a></div>
 					<div class="link-item"><a href="https://www.wps.cn/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">WPS</a></div>
+								src="./ico/xixi.svg" alt="icon">WPS</a></div>
 					<div class="link-item"><a href="http://files.demo443.com/tool/xiufu/Explorer.exe_All.rar"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">桌面修复</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">桌面修复</a></div>
 					<div class="link-item"><a href="https://sparanoid.com/lab/7z/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">7-zip</a></div>
+								src="./ico/xixi.svg" alt="icon">7-zip</a></div>
 					<div class="link-item"><a href="https://notepad-plus-plus.org/downloads/" target="_blank"><img
-								width="20px" src="./ico/favicon.png" alt="icon">Notepad++</a></div>
+								width="20px" src="./ico/xixi.svg" alt="icon">Notepad++</a></div>
 					<div class="link-item"><a href="https://www.typora.io/#windows" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Typora</a></div>
+								src="./ico/xixi.svg" alt="icon">Typora</a></div>
 					<div class="link-item"><a href="https://www.stellarplayer.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">恒星播放器</a></div>
+								src="./ico/xixi.svg" alt="icon">恒星播放器</a></div>
 					<div class="link-item"><a href="https://shurufa.sogou.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">搜狗输入法</a></div>
+								src="./ico/xixi.svg" alt="icon">搜狗输入法</a></div>
 					<div class="link-item"><a href="https://pan.baidu.com" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">百度网盘</a></div>
+								src="./ico/xixi.svg" alt="icon">百度网盘</a></div>
 					<div class="link-item"><a href="https://www.aliyundrive.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">阿里云盘</a></div>
+								src="./ico/xixi.svg" alt="icon">阿里云盘</a></div>
 					<div class="link-item"><a href="https://apkdl.in/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">APK下载</a></div>
+								src="./ico/xixi.svg" alt="icon">APK下载</a></div>
 					<div class="link-item"><a href="https://pcmanager.microsoft.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">微软管家</a></div>
+								src="./ico/xixi.svg" alt="icon">微软管家</a></div>
 				</div>
 			</div>
-			<div id="section9" class="section"> <!-- Spider部分 -->
-				<h2>Spider</h2>
+			<div id="section9" class="section"> <!-- 爬虫部分 -->
+				<h2>爬虫</h2>
 				<div class="links">
 					<div class="link-item"><a href="http://www.spidertools.cn/#/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">爬虫工具库</a></div>
+								src="./ico/xixi.svg" alt="icon">爬虫工具库</a></div>
 					<div class="link-item"><a href="http://httpbin.org/get" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">查看-UA</a></div>
+								src="./ico/xixi.svg" alt="icon">查看-UA</a></div>
 					<div class="link-item"><a href="https://zhimahttp.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">IP代理</a></div>
+								src="./ico/xixi.svg" alt="icon">IP代理</a></div>
 					<div class="link-item"><a href="https://curlconverter.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">curl_转换</a></div>
+								src="./ico/xixi.svg" alt="icon">curl_转换</a></div>
 					<div class="link-item"><a href="https://tool.chinaz.com/regex/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">正则_在线</a></div>
+								src="./ico/xixi.svg" alt="icon">正则_在线</a></div>
 					<div class="link-item"><a href="https://javascriptobfuscator.com/Javascript-Obfuscator.aspx"
-							target="_blank"><img width="20px" src="./ico/favicon.png" alt="icon">JS混淆器</a></div>
+							target="_blank"><img width="20px" src="./ico/xixi.svg" alt="icon">JS混淆器</a></div>
 					<div class="link-item"><a href="https://www.dejs.vip/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">JS反混淆</a></div>
+								src="./ico/xixi.svg" alt="icon">JS反混淆</a></div>
 					<div class="link-item"><a href="https://captcha.run/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">打码_谷歌</a></div>
+								src="./ico/xixi.svg" alt="icon">打码_谷歌</a></div>
 					<div class="link-item"><a href="http://encode.chahuo.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">加密解密1</a></div>
+								src="./ico/xixi.svg" alt="icon">加密解密1</a></div>
 					<div class="link-item"><a href="http://www.158566.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">加密解密2</a></div>
+								src="./ico/xixi.svg" alt="icon">加密解密2</a></div>
 					<div class="link-item"><a href="https://gitee.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Gitee</a></div>
+								src="./ico/xixi.svg" alt="icon">Gitee</a></div>
 					<div class="link-item"><a href="https://www.ip138.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">IP查询</a></div>
+								src="./ico/xixi.svg" alt="icon">IP查询</a></div>
 					<div class="link-item"><a href="http://cubic-bezier.com" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">贝赛尔曲线</a></div>
+								src="./ico/xixi.svg" alt="icon">贝赛尔曲线</a></div>
 					<div class="link-item"><a href="https://base64.us/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Base64</a></div>
+								src="./ico/xixi.svg" alt="icon">Base64</a></div>
 					<div class="link-item"><a href="https://www.zoomeye.org/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">钟馗之眼</a></div>
+								src="./ico/xixi.svg" alt="icon">钟馗之眼</a></div>
 					<div class="link-item"><a href="https://tools.miku.ac/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Miku工具</a></div>
+								src="./ico/xixi.svg" alt="icon">Miku工具</a></div>
 					<div class="link-item"><a href="https://ping.pe" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Ping.pe</a></div>
+								src="./ico/xixi.svg" alt="icon">Ping.pe</a></div>
 					<div class="link-item"><a href="https://ping.chinaz.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">站长Ping</a></div>
+								src="./ico/xixi.svg" alt="icon">站长Ping</a></div>
 					<div class="link-item"><a href="https://feedly.com" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">Feedly</a></div>
+								src="./ico/xixi.svg" alt="icon">Feedly</a></div>
 				</div>
 			</div>
-			<div id="section10" class="section"> <!-- Media部分 -->
-				<h2>Media</h2>
+			<div id="section10" class="section"> <!-- 媒体部分 -->
+				<h2>媒体</h2>
 				<div class="links">
 					<div class="link-item"><a href="https://v.qq.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">腾讯视频</a></div>
+								src="./ico/xixi.svg" alt="icon">腾讯视频</a></div>
 					<div class="link-item"><a href="https://www.youku.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">优酷</a></div>
+								src="./ico/xixi.svg" alt="icon">优酷</a></div>
 					<div class="link-item"><a href="https://www.iqiyi.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">爱奇艺</a></div>
+								src="./ico/xixi.svg" alt="icon">爱奇艺</a></div>
 					<div class="link-item"><a href="http://www.zmz2019.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">字幕组</a></div>
+								src="./ico/xixi.svg" alt="icon">字幕组</a></div>
 					<div class="link-item"><a href="http://www.acfun.cn/index.html" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">ACFUN</a></div>
+								src="./ico/xixi.svg" alt="icon">ACFUN</a></div>
 					<div class="link-item"><a href="https://www.pptv.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">PPTV</a></div>
+								src="./ico/xixi.svg" alt="icon">PPTV</a></div>
 					<div class="link-item"><a href="http://www.le.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">乐视视频</a></div>
+								src="./ico/xixi.svg" alt="icon">乐视视频</a></div>
 					<div class="link-item"><a href="https://tv.sohu.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">搜狐视频</a></div>
+								src="./ico/xixi.svg" alt="icon">搜狐视频</a></div>
 					<div class="link-item"><a href="https://www.yhdmz.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">樱花动漫</a></div>
+								src="./ico/xixi.svg" alt="icon">樱花动漫</a></div>
 					<div class="link-item"><a href="https://www.agemys.cc/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">AGE动漫</a></div>
+								src="./ico/xixi.svg" alt="icon">AGE动漫</a></div>
 					<div class="link-item"><a href="https://movie.douban.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">豆瓣电影</a></div>
+								src="./ico/xixi.svg" alt="icon">豆瓣电影</a></div>
 					<div class="link-item"><a href="https://www.360kan.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">360影视</a></div>
+								src="./ico/xixi.svg" alt="icon">360影视</a></div>
 					<div class="link-item"><a href="https://v.sogou.com/" target="_blank"><img width="20px"
-								src="./ico/favicon.png" alt="icon">搜狗视频</a></div>
+								src="./ico/xixi.svg" alt="icon">搜狗视频</a></div>
+				</div>
+			</div>
+			<div id="section11" class="section"> <!-- 其他部分 -->
+				<h2>其他</h2>
+				<div class="links">
+					<div class="link-item"><a href="https://mast.dragon-fly.club" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Island 岛屿</a></div>
+					<div class="link-item"><a href="https://www.instagram.com" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Instagram</a></div>
+					<div class="link-item"><a href="https://www.twitter.com" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Twitter</a></div>
+					<div class="link-item"><a href="https://www.facebook.com" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Facebook</a></div>
+					<div class="link-item"><a href="https://www.amazon.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">亚马逊</a></div>
+					<div class="link-item"><a href="https://www.pinterest.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Pinterest</a></div>
+					<div class="link-item"><a href="https://www.behance.net/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Behance</a></div>
+					<div class="link-item"><a href="https://www.dribbble.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Dribbble</a></div>
+					<div class="link-item"><a href="https://huaban.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">花瓣</a></div>
+					<div class="link-item"><a href="https://www.zcool.com.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">站酷</a></div>
+					<div class="link-item"><a href="https://www.iconfinder.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">IconFinder</a></div>
+					<div class="link-item"><a href="https://uiiiuiii.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">优设教程</a></div>
+					<div class="link-item"><a href="http://www.w3school.com.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">W3school</a></div>
+					<div class="link-item"><a href="https://www.zzzmode.com/mytools/charles/" target="_blank"><img
+								width="20px" src="./ico/xixi.svg" alt="icon">Charles-P</a></div>
+					<div class="link-item"><a href="https://codepen.io/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Codepen</a></div>
+					<div class="link-item"><a href="https://www.52pojie.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">吾爱破解</a></div>
+					<div class="link-item"><a href="https://segmentfault.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">SF思否</a></div>
+					<div class="link-item"><a href="https://cdnjs.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">CdnJs</a></div>
+					<div class="link-item"><a href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank"><img
+								width="20px" src="./ico/xixi.svg" alt="icon">Font A.</a></div>
+					<div class="link-item"><a href="https://msdn.itellyou.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">MSDN下载</a></div>
+					<div class="link-item"><a href="https://dash.cloudflare.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">C.flare</a></div>
+					<div class="link-item"><a href="https://www.swiper.com.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">Swiper</a></div>
+					<div class="link-item"><a href="https://maker-cloud.cc/#/login" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">创客云</a></div>
+					<div class="link-item"><a href="http://www.huizhuanle.com/?user.html" target="_blank"><img
+								width="20px" src="./ico/xixi.svg" alt="icon">汇赚乐</a></div>
+					<div class="link-item"><a href="https://hitmoney.one/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">hitmoney</a></div>
+				</div>
+			</div>
+			<div id="section99" class="section"> <!-- VPN部分 -->
+				<h2>VPN</h2>
+				<div class="links">
+					
+					<div class="link-item"><a href="https://go.bananapro.club/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">香蕉加速</a></div>
+					<div class="link-item"><a href="https://a.banana-speed01.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">香蕉加速1</a></div>
+					<div class="link-item"><a href="https://banana-fast.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">香蕉加速2</a></div>
+					<div class="link-item"><a href="https://biteb.app/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">百特白</a></div>
+					<div class="link-item"><a href="https://xn--ehq00hgtfdmt.xyz/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">三分机场</a></div>
+					<div class="link-item"><a href="https://daishu02.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">袋鼠加速</a></div>
 				</div>
 			</div>
 
