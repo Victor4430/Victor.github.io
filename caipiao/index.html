@@ -11,23 +11,23 @@
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>彩票时刻-老杨工作室</title>
-		
+
 		<!-- 带有随机参数的时间戳 保证每次访问到此页面都是最新页面-->
 		<script>
 			const randomParam = new Date().getTime(); // 获取当前时间戳作为随机参数
 			const url = window.location.href;
-		
+
 			// 检查 URL 是否已经包含查询参数
 			if (url.indexOf('?v=') === -1) {
 				// 如果没有查询参数，添加随机参数
 				window.location.href = url + (url.indexOf('?') !== -1 ? '&v=' : '?v=') + randomParam;
 			}
 		</script>
-		
+
 		<script>
 			window.dataLayer = window.dataLayer || [];
 		</script>
-		
+
 		<!-- Google 广告 -->
 		<script async
 			src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7780137864654456"
@@ -72,11 +72,15 @@
 				}
 
 				.blue {
-					background-color: #e66e56;
+					background-color: #6c76ff;
 				}
 
 				.red {
-					background-color: #6c76ff;
+					background-color: #e66e56;
+				}
+
+				.yellow {
+					background-color: #eeee00;
 				}
 
 				.number,
@@ -142,11 +146,27 @@
 				}
 
 				.blue {
-					background-color: #e66e56;
+					background-color: #6c76ff;
 				}
 
 				.red {
-					background-color: #6c76ff;
+					background-color: #e66e56;
+				}
+
+				.yellow {
+					background-color: #eeee00;
+				}
+
+				#list_kuai_le_0 {
+					margin-bottom: 25px;
+				}
+
+				#list_kuai_le_1 {
+					margin-bottom: 25px;
+				}
+
+				#list_kuai_le_2 {
+					margin-bottom: 25px;
 				}
 
 				.number {
@@ -229,7 +249,7 @@
 				<br />
 			</div>
 			<!-- 大乐透机选按钮 -->
-			<button onclick="displayNum3()">点击生成</button>
+			<button onclick="displayNum1()">点击生成</button>
 			<div id="box">
 				<div class="desc" style="line-height: 40px;"> 双色球号码 </div>
 				<br />
@@ -300,9 +320,213 @@
 				<br />
 			</div>
 
-			<!-- 福彩D机选按钮 -->
+			<!-- 福彩3D机选按钮 -->
 			<button onclick="fucai3D()">点击生成</button>
-			
+
+			<!-- 排列三区域 -->
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 排列三号码 </div>
+				<br />
+				<div id="list_pailie3_0" class="number nu3" onclick="copyToClipboard('pailie3', 0)">
+					<!-- 这里放排列三号码的 span 元素 -->
+					<span class="yellow" id="num2_0">---</span>
+					<span class="yellow" id="num2_1">---</span>
+					<span class="yellow" id="num2_2">---</span>
+				</div>
+				<br />
+				<div id="list_pailie3_1" class="number nu3" onclick="copyToClipboard('pailie3', 1)">
+					<!-- 这里放排列三号码的 span 元素 -->
+					<span class="yellow" id="num2_0">---</span>
+					<span class="yellow" id="num2_1">---</span>
+					<span class="yellow" id="num2_2">---</span>
+				</div>
+				<br />
+				<div id="list_pailie3_2" class="number nu3" onclick="copyToClipboard('pailie3', 2)">
+					<!-- 这里放排列三号码的 span 元素 -->
+					<span class="yellow" id="num2_0">---</span>
+					<span class="yellow" id="num2_1">---</span>
+					<span class="yellow" id="num2_2">---</span>
+				</div>
+				<br />
+			</div>
+			<!-- 排列三机选按钮 -->
+			<button onclick="displayNum3()">点击生成</button>
+
+			<!-- 排列五区域 -->
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 排列五号码 </div>
+				<br />
+				<div id="list_pailie5_0" class="number nu4" onclick="copyToClipboard('pailie5', 0)">
+					<!-- 这里放排列五号码的 span 元素 -->
+					<span class="yellow" id="num3_0">---</span>
+					<span class="yellow" id="num3_1">---</span>
+					<span class="yellow" id="num3_2">---</span>
+					<span class="yellow" id="num3_3">---</span>
+					<span class="yellow" id="num3_4">---</span>
+				</div>
+				<br />
+				<div id="list_pailie5_1" class="number nu4" onclick="copyToClipboard('pailie5', 1)">
+					<!-- 这里放排列五号码的 span 元素 -->
+					<span class="yellow" id="num3_0">---</span>
+					<span class="yellow" id="num3_1">---</span>
+					<span class="yellow" id="num3_2">---</span>
+					<span class="yellow" id="num3_3">---</span>
+					<span class="yellow" id="num3_4">---</span>
+				</div>
+				<br />
+				<div id="list_pailie5_2" class="number nu4" onclick="copyToClipboard('pailie5', 2)">
+					<!-- 这里放排列五号码的 span 元素 -->
+					<span class="yellow" id="num3_0">---</span>
+					<span class="yellow" id="num3_1">---</span>
+					<span class="yellow" id="num3_2">---</span>
+					<span class="yellow" id="num3_3">---</span>
+					<span class="yellow" id="num3_4">---</span>
+				</div>
+				<br />
+			</div>
+			<!-- 排列五机选按钮 -->
+			<button onclick="displayNum9()">点击生成</button>
+
+			<!-- 快乐8区域 -->
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 快乐8号码-选10 </div>
+				<br />
+				<div id="list_kuai_le_0" class="number nu4" onclick="copyToClipboard('kuai_le', 0)">
+					<!-- 这里放快乐8号码的 span 元素 -->
+					<span class="red" id="num4_0">---</span>
+					<span class="red" id="num4_1">---</span>
+					<span class="red" id="num4_2">---</span>
+					<span class="red" id="num4_3">---</span>
+					<span class="red" id="num4_4">---</span>
+					<span class="red" id="num4_5">---</span>
+					<span class="red" id="num4_6">---</span>
+					<span class="red" id="num4_7">---</span>
+					<span class="red" id="num4_8">---</span>
+					<span class="red" id="num4_9">---</span>
+				</div>
+				<br />
+				<div id="list_kuai_le_1" class="number nu4" onclick="copyToClipboard('kuai_le', 1)">
+					<!-- 这里放快乐8号码的 span 元素 -->
+					<span class="red" id="num4_0">---</span>
+					<span class="red" id="num4_1">---</span>
+					<span class="red" id="num4_2">---</span>
+					<span class="red" id="num4_3">---</span>
+					<span class="red" id="num4_4">---</span>
+					<span class="red" id="num4_5">---</span>
+					<span class="red" id="num4_6">---</span>
+					<span class="red" id="num4_7">---</span>
+					<span class="red" id="num4_8">---</span>
+					<span class="red" id="num4_9">---</span>
+				</div>
+				<br />
+				<div id="list_kuai_le_2" class="number nu4" onclick="copyToClipboard('kuai_le', 2)">
+					<!-- 这里放快乐8号码的 span 元素 -->
+					<span class="red" id="num4_0">---</span>
+					<span class="red" id="num4_1">---</span>
+					<span class="red" id="num4_2">---</span>
+					<span class="red" id="num4_3">---</span>
+					<span class="red" id="num4_4">---</span>
+					<span class="red" id="num4_5">---</span>
+					<span class="red" id="num4_6">---</span>
+					<span class="red" id="num4_7">---</span>
+					<span class="red" id="num4_8">---</span>
+					<span class="red" id="num4_9">---</span>
+				</div>
+				<br />
+			</div>
+			<!-- 快乐8机选按钮 -->
+			<button onclick="displayNum11()">点击生成</button>
+
+			<!-- 七星彩区域 -->
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 七星彩号码 </div>
+				<br />
+				<div id="list_qixingcai_0" class="number nu4" onclick="copyToClipboard('qixingcai', 0)">
+					<!-- 这里放七星彩号码的 span 元素 -->
+					<span class="red" id="num7_0">---</span>
+					<span class="red" id="num7_1">---</span>
+					<span class="red" id="num7_2">---</span>
+					<span class="red" id="num7_3">---</span>
+					<span class="red" id="num7_4">---</span>
+					<span class="red" id="num7_5">---</span>
+					<span class="blue" id="num7_6">---</span>
+				</div>
+				<br />
+				<div id="list_qixingcai_1" class="number nu4" onclick="copyToClipboard('qixingcai', 1)">
+					<!-- 这里放七星彩号码的 span 元素 -->
+					<span class="red" id="num7_0">---</span>
+					<span class="red" id="num7_1">---</span>
+					<span class="red" id="num7_2">---</span>
+					<span class="red" id="num7_3">---</span>
+					<span class="red" id="num7_4">---</span>
+					<span class="red" id="num7_5">---</span>
+					<span class="blue" id="num7_6">---</span>
+				</div>
+				<br />
+				<div id="list_qixingcai_2" class="number nu4" onclick="copyToClipboard('qixingcai', 2)">
+					<!-- 这里放七星彩号码的 span 元素 -->
+					<span class="red" id="num7_0">---</span>
+					<span class="red" id="num7_1">---</span>
+					<span class="red" id="num7_2">---</span>
+					<span class="red" id="num7_3">---</span>
+					<span class="red" id="num7_4">---</span>
+					<span class="red" id="num7_5">---</span>
+					<span class="blue" id="num7_6">---</span>
+				</div>
+				<br />
+			</div>
+			<!-- 七星彩机选按钮 -->
+			<button onclick="displayNum7()">点击生成</button>
+
+
+
+
+
+
+			<!-- 七乐彩区域 -->
+			<div id="box">
+				<div class="desc" style="line-height: 40px;"> 七乐彩号码 </div>
+				<br />
+				<div id="list_qilecai_0" class="number nu4" onclick="copyToClipboard('qilecai', 0)">
+					<!-- 这里放七乐彩号码的 span 元素 -->
+					<span class="red" id="num5_0">---</span>
+					<span class="red" id="num5_1">---</span>
+					<span class="red" id="num5_2">---</span>
+					<span class="red" id="num5_3">---</span>
+					<span class="red" id="num5_4">---</span>
+					<span class="red" id="num5_5">---</span>
+					<span class="red" id="num5_6">---</span>
+					<span class="blue" id="num5_7">---</span>
+				</div>
+				<br />
+				<div id="list_qilecai_1" class="number nu4" onclick="copyToClipboard('qilecai', 1)">
+					<!-- 这里放七乐彩号码的 span 元素 -->
+					<span class="red" id="num5_0">---</span>
+					<span class="red" id="num5_1">---</span>
+					<span class="red" id="num5_2">---</span>
+					<span class="red" id="num5_3">---</span>
+					<span class="red" id="num5_4">---</span>
+					<span class="red" id="num5_5">---</span>
+					<span class="red" id="num5_6">---</span>
+					<span class="blue" id="num5_7">---</span>
+				</div>
+				<br />
+				<div id="list_qilecai_2" class="number nu4" onclick="copyToClipboard('qilecai', 2)">
+					<!-- 这里放七乐彩号码的 span 元素 -->
+					<span class="red" id="num5_0">---</span>
+					<span class="red" id="num5_1">---</span>
+					<span class="red" id="num5_2">---</span>
+					<span class="red" id="num5_3">---</span>
+					<span class="red" id="num5_4">---</span>
+					<span class="red" id="num5_5">---</span>
+					<span class="red" id="num5_6">---</span>
+					<span class="blue" id="num5_7">---</span>
+				</div>
+				<br />
+			</div>
+			<!-- 七乐彩机选按钮 -->
+			<button onclick="displayNum13()">点击生成</button>
+
 			<a id="kaijiang" href="https://m.500.com/info/kaijiang/" target="_blank"><button
 					id="kaijiang_0">彩票开奖查询</button></a>
 			<br />
@@ -311,58 +535,50 @@
 				发财😎 ----来自老杨的心灵毒鸡汤😏😏😏😏😏😏</marquee>
 		</center>
 		<script type="text/javascript">
-			
-			
-			
-			
-
 			// 复制
 			function copyToClipboard(type, index) {
-			    let container;
-			    let copiedText = '';
-			    
-			    if (type === 'shuangseqiu') {
-			        container = document.getElementById(`list_shaungseqiu_${index}`);
-			        copiedText = '双色球：';
-			        const spans = container.getElementsByTagName('span');
-			        for (let i = 0; i < 6; i++) {
-			            copiedText += spans[i].innerText + '-';
-			        }
-			        copiedText = copiedText.slice(0, -1) + '_'; // 去除末尾的多余连字符，添加下划线
-			        copiedText += spans[6].innerText;
-			    } else if (type === 'daletou') {
-			        container = document.getElementById(`list_daletou_${index}`);
-			        copiedText = '大乐透：';
-			        const spans = container.getElementsByTagName('span');
-			        for (let i = 0; i < 5; i++) {
-			            copiedText += spans[i].innerText + '-';
-			        }
-			        copiedText = copiedText.slice(0, -1) + '_'; // 去除末尾的多余连字符，添加下划线
-			        copiedText += spans[5].innerText + '-';
-			        copiedText += spans[6].innerText;
-			    } else if (type === 'fucai3d') {
-			        container = document.getElementById(`list_fucai3d_${index}`);
-			        copiedText = '福彩3D：';
-			        const spans = container.getElementsByTagName('span');
-			        for (let i = 0; i < 3; i++) {
-			            copiedText += spans[i].innerText + '-';
-			        }
-			        copiedText = copiedText.slice(0, -1); // 去除末尾的多余连字符
-			    } else {
-			        console.error('Invalid lottery type!');
-			        return;
-			    }
-			
-			    const textarea = document.createElement('textarea');
-			    textarea.value = copiedText.trim();
-			    document.body.appendChild(textarea);
-			    textarea.select();
-			    document.execCommand('copy');
-			    document.body.removeChild(textarea);
+				let container;
+				let copiedText = '';
+
+				if (type === 'shuangseqiu') {
+					container = document.getElementById(`list_shaungseqiu_${index}`);
+					copiedText = '双色球：';
+					const spans = container.getElementsByTagName('span');
+					for (let i = 0; i < 6; i++) {
+						copiedText += spans[i].innerText + '-';
+					}
+					copiedText = copiedText.slice(0, -1) + '_'; // 去除末尾的多余连字符，添加下划线
+					copiedText += spans[6].innerText;
+				} else if (type === 'daletou') {
+					container = document.getElementById(`list_daletou_${index}`);
+					copiedText = '大乐透：';
+					const spans = container.getElementsByTagName('span');
+					for (let i = 0; i < 5; i++) {
+						copiedText += spans[i].innerText + '-';
+					}
+					copiedText = copiedText.slice(0, -1) + '_'; // 去除末尾的多余连字符，添加下划线
+					copiedText += spans[5].innerText + '-';
+					copiedText += spans[6].innerText;
+				} else if (type === 'fucai3d') {
+					container = document.getElementById(`list_fucai3d_${index}`);
+					copiedText = '福彩3D：';
+					const spans = container.getElementsByTagName('span');
+					for (let i = 0; i < 3; i++) {
+						copiedText += spans[i].innerText + '-';
+					}
+					copiedText = copiedText.slice(0, -1); // 去除末尾的多余连字符
+				} else {
+					console.error('Invalid lottery type!');
+					return;
+				}
+
+				const textarea = document.createElement('textarea');
+				textarea.value = copiedText.trim();
+				document.body.appendChild(textarea);
+				textarea.select();
+				document.execCommand('copy');
+				document.body.removeChild(textarea);
 			}
-
-
-
 
 
 
@@ -392,10 +608,10 @@
 			]
 			// 福彩3D号码备选
 			var list_fucai3d = [
-				'0','1', '2', '3', '4', '5', '6', '7', '8', '9'
+				'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
 			]
-			
-			
+
+
 
 			// 迭代器
 			function range(start, end) {
@@ -427,12 +643,12 @@
 						if (aa.indexOf(a) === -1) {
 							aa.push(a);
 							break;
-						} 
+						}
 						aa.push(a);
 					}
 				}
-				
-				return bubbleSort(aa) 
+
+				return bubbleSort(aa)
 			}
 			// 福彩3D按钮
 			function fucai3D() {
@@ -460,11 +676,9 @@
 					}
 				}
 			}
-			
-			
-			
-			
-			
+
+
+
 			//大乐透
 			function daletou() {
 				const aa = []
@@ -544,7 +758,7 @@
 				//copyToClipboard(formattedSSQ);
 			}
 			// 大乐透按钮
-			function displayNum3() {
+			function displayNum1() {
 				const a = 'num0_';
 				const li_st = daletou().split(",");
 				console.log('li_st：', li_st);
@@ -567,6 +781,140 @@
 						span[j].innerHTML = bn[j];
 						console.log('bn[j]：', bn[j])
 					}
+				}
+			}
+
+			// 生成排列三号码的函数
+			function displayNum3() {
+				for (let i = 0; i < 3; i++) {
+					const list = document.getElementById(`list_pailie3_${i}`);
+					list.querySelectorAll('span').forEach(span => {
+						span.textContent = Math.floor(Math.random() * 10); // 生成0到9的随机数
+					});
+				}
+			}
+
+			// 生成排列五号码的函数
+			function displayNum9() {
+				for (let i = 0; i < 3; i++) {
+					const list = document.getElementById(`list_pailie5_${i}`);
+					list.querySelectorAll('span').forEach(span => {
+						span.textContent = Math.floor(Math.random() * 10); // 生成0到9的随机数
+					});
+				}
+			}
+
+
+			// 生成快乐8号码的函数
+			function displayNum11() {
+				// 遍历三个列表
+				for (let i = 0; i < 3; i++) {
+					// 获取当前列表的元素
+					const list = document.getElementById(`list_kuai_le_${i}`);
+					// 创建一个空集合用于存储生成的号码，确保唯一性
+					let uniqueNumbers = new Set();
+
+					// 生成10个唯一的号码
+					while (uniqueNumbers.size < 10) {
+						// 生成1到80的随机数
+						let randomNumber = Math.floor(Math.random() * 80) + 1;
+						// 将生成的随机数转化为两位数的格式（例如'01', '02', ..., '80'）
+						let formattedNumber = randomNumber < 10 ? '0' + randomNumber : randomNumber.toString();
+						// 添加到集合中，集合会自动去重
+						uniqueNumbers.add(formattedNumber);
+					}
+
+					// 将唯一号码转化为数组
+					let numbers = Array.from(uniqueNumbers);
+					// 对数组进行排序
+					numbers.sort((a, b) => a - b);
+
+					// 获取列表中的所有 span 元素
+					let spans = list.querySelectorAll('span');
+
+					// 将排序后的号码展示到列表中
+					list.querySelectorAll('span').forEach((span, index) => {
+						span.textContent = numbers[index];
+					});
+				}
+			}
+
+
+
+			// 生成七星彩号码的函数
+			function displayNum7() {
+				// 遍历三个列表
+				for (let i = 0; i < 3; i++) {
+					// 获取当前列表的元素
+					const list = document.getElementById(`list_qixingcai_${i}`);
+					// 创建一个空数组用于存储生成的号码
+					let numbers = [];
+
+					// 生成7个号码
+					for (let j = 0; j < 7; j++) {
+						// 生成1到9的随机数
+						let randomNumber = Math.floor(Math.random() * 9) + 1;
+						// 添加到数组中
+						numbers.push(randomNumber);
+					}
+
+					// 获取列表中的所有 span 元素
+					let spans = list.querySelectorAll('span');
+
+					// 将生成的号码展示到列表中
+					for (let index = 0; index < 7; index++) {
+						spans[index].textContent = numbers[index];
+					}
+				}
+			}
+
+
+
+
+
+			// 生成七乐彩号码的函数
+			function displayNum13() {
+				// 遍历三个列表
+				for (let i = 0; i < 3; i++) {
+					// 获取当前列表的元素
+					const list = document.getElementById(`list_qilecai_${i}`);
+					// 创建一个空集合用于存储前7个唯一的号码
+					let uniqueNumbers = new Set();
+
+					// 生成7个唯一的号码
+					while (uniqueNumbers.size < 7) {
+						// 生成1到30的随机数
+						let randomNumber = Math.floor(Math.random() * 30) + 1;
+						// 将生成的随机数转化为两位数的格式（例如'01', '02', ..., '30'）
+						let formattedNumber = randomNumber < 10 ? '0' + randomNumber : randomNumber.toString();
+						// 添加到集合中，集合会自动去重
+						uniqueNumbers.add(formattedNumber);
+					}
+
+					// 将前7个唯一号码转化为数组
+					let numbers = Array.from(uniqueNumbers);
+					// 对前7个号码进行排序
+					numbers.sort((a, b) => a - b);
+
+					// 生成第8个唯一的随机号码，确保与前7个号码不同
+					let lastNumber;
+					do {
+						lastNumber = Math.floor(Math.random() * 30) + 1;
+						lastNumber = lastNumber < 10 ? '0' + lastNumber : lastNumber.toString();
+					} while (uniqueNumbers.has(lastNumber));
+
+					// 将第8个号码添加到数组
+					numbers.push(lastNumber);
+
+					// 获取列表中的所有 span 元素
+					let spans = list.querySelectorAll('span');
+
+					// 将前7个排序后的号码展示到列表中
+					for (let index = 0; index < 7; index++) {
+						spans[index].textContent = numbers[index];
+					}
+					// 将第8个随机号码展示到最后一个 span 元素中
+					spans[7].textContent = numbers[7];
 				}
 			}
 		</script>
