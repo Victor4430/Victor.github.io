@@ -11,6 +11,18 @@
 		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta http-equiv="Expires" content="0" />
+		
+		<!-- 带有随机参数的时间戳 保证每次访问到此页面都是最新页面-->
+		<script>
+			const randomParam = new Date().getTime(); // 获取当前时间戳作为随机参数
+			const url = window.location.href;
+		
+			// 检查 URL 是否已经包含查询参数
+			if (url.indexOf('?v=') === -1) {
+				// 如果没有查询参数，添加随机参数
+				window.location.href = url + (url.indexOf('?') !== -1 ? '&v=' : '?v=') + randomParam;
+			}
+		</script>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，用于响应式设计 -->
 
@@ -435,7 +447,7 @@
 				}
 
 				.datetime {
-					font-size: 20px;
+					font-size: 30px;
 					/* 设置字体大小 */
 				}
 
@@ -477,7 +489,7 @@
 				.header {
 					flex-direction: column;
 					/* 设置主轴方向为列 */
-					
+
 				}
 
 				.header .notice {
@@ -500,8 +512,8 @@
 					flex: 1 1 calc(50% - 10px);
 					/* 设置flex属性 */
 				}
-				
-				
+
+
 				.footer {
 					width: 92%;
 					/* 设置宽度 */
@@ -583,14 +595,14 @@
 			</div>
 			<div>
 				<div class="logo-container"> <!-- logo容器 -->
-					<img src="./favicon.png" width="50px" height="50px" alt="logo"> <!-- logo图片 -->
+					<img src="./favicon.png" width="50px" height="50px" alt="logo" onclick="location.reload();"> <!-- logo图片 -->
 					<h1>Victor's</h1> <!-- 标题 -->
 				</div>
 				<nav>
 					<a href="#section1" target="_blank">搜索引擎</a> <!-- 导航链接 -->
 					<a href="#section2" target="_blank">置顶</a>
-					<a href="#section3" target="_blank">邮箱</a>
 					<a href="#section4" target="_blank">常用</a>
+					<a href="#section3" target="_blank">邮箱</a>
 					<a href="#section5" target="_blank">快捷工具</a>
 					<a href="#section6" target="_blank">公开信息</a>
 					<a href="#section7" target="_blank">文档</a>
@@ -616,7 +628,7 @@
 				</div>
 			</div>
 			<div id="section999" class="section">
-				<h2>&#127763;&#127763;&#127763;&#127763;</h2>
+				<h2  onclick="location.reload();">&#127763;&#127763;&#127763;&#127763;</h2>
 				<div class="links">
 					<div class="hitokoto">
 						<p id="hitokoto">😀 Loading...</p>——「<span id="from">😀 Loading...</span>」 <!-- 一言加载 -->
@@ -669,30 +681,15 @@
 								src="./ico/taijitu2.gif" alt="icon">奇门遁甲</a></div>
 					<div class="link-item"><a href="http://www.5173.com/?recommenduserid=US23010884867192-0020"
 							target="_blank"><img width="20px" src="./ico/jinbi.png" alt="icon">搬砖变现</a></div>
-					<div class="link-item"><a href="./jiche/" target="_blank"><img width="20px"
-								src="./ico/victor.png" alt="icon">机车驿站</a></div>
-				</div>
-			</div>
-			<div id="section3" class="section"> <!-- 邮箱部分 -->
-				<h2>邮箱</h2>
-				<div class="links">
-					<div class="link-item"><a href="https://mail.qq.com/" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">QQ邮箱</a></div>
-					<div class="link-item"><a href="https://outlook.live.com/" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">@outlook</a></div>
-					<div class="link-item"><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img
-								width="20px" src="./ico/xixi.svg" alt="icon">Gmail</a></div>
-					<div class="link-item"><a href="https://mail.163.com/" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">网易邮箱</a></div>
-					<div class="link-item"><a href="https://mail.sina.com.cn/" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">新浪邮箱</a></div>
-					<div class="link-item"><a href="https://qiye.aliyun.com/" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">阿里邮箱</a></div>
+					<div class="link-item"><a href="./jiche/" target="_blank"><img width="20px" src="./ico/victor.png"
+								alt="icon">机车驿站</a></div>
 				</div>
 			</div>
 			<div id="section4" class="section"> <!-- 常用部分 -->
 				<h2>常用</h2>
 				<div class="links">
+					<div class="link-item"><a href="https://www.tiktok.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">TikTok</a></div>
 					<div class="link-item"><a href="https://chat.openai.com/chat" target="_blank"><img width="20px"
 								src="./ico/xixi.svg" alt="icon">Openai</a></div>
 					<div class="link-item"><a href="https://poe.com/" target="_blank"><img width="20px"
@@ -730,6 +727,24 @@
 								src="./ico/xixi.svg" alt="icon">蓝奏云</a></div>
 				</div>
 			</div>
+			<div id="section3" class="section"> <!-- 邮箱部分 -->
+				<h2>邮箱</h2>
+				<div class="links">
+					<div class="link-item"><a href="https://mail.qq.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">QQ邮箱</a></div>
+					<div class="link-item"><a href="https://outlook.live.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">@outlook</a></div>
+					<div class="link-item"><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img
+								width="20px" src="./ico/xixi.svg" alt="icon">Gmail</a></div>
+					<div class="link-item"><a href="https://mail.163.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">网易邮箱</a></div>
+					<div class="link-item"><a href="https://mail.sina.com.cn/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">新浪邮箱</a></div>
+					<div class="link-item"><a href="https://qiye.aliyun.com/" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">阿里邮箱</a></div>
+				</div>
+			</div>
+
 			<div id="section5" class="section"> <!-- 快捷工具部分 -->
 				<h2>快捷工具</h2>
 				<div class="links">
@@ -1039,7 +1054,7 @@
 			<div id="section99" class="section"> <!-- VPN部分 -->
 				<h2>VPN</h2>
 				<div class="links">
-					
+
 					<div class="link-item"><a href="https://go.bananapro.club/" target="_blank"><img width="20px"
 								src="./ico/xixi.svg" alt="icon">香蕉加速</a></div>
 					<div class="link-item"><a href="https://a.banana-speed01.com/" target="_blank"><img width="20px"
@@ -1052,10 +1067,12 @@
 								src="./ico/xixi.svg" alt="icon">三分机场</a></div>
 					<div class="link-item"><a href="https://daishu02.com/" target="_blank"><img width="20px"
 								src="./ico/xixi.svg" alt="icon">袋鼠加速</a></div>
-					<div class="link-item"><a href="https://clashxhub.com/clash-backup-download/" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">Clash</a></div>
-					<div class="link-item"><a href="https://getsurfboard.com/docs/installation" target="_blank"><img width="20px"
-								src="./ico/xixi.svg" alt="icon">Surfboard</a></div>
+					<div class="link-item"><a href="https://portalr.xlcc.live/user" target="_blank"><img width="20px"
+								src="./ico/xixi.svg" alt="icon">飞鸟加速</a></div>
+					<div class="link-item"><a href="https://clashxhub.com/clash-backup-download/" target="_blank"><img
+								width="20px" src="./ico/xixi.svg" alt="icon">Clash</a></div>
+					<div class="link-item"><a href="https://getsurfboard.com/docs/installation" target="_blank"><img
+								width="20px" src="./ico/xixi.svg" alt="icon">Surfboard</a></div>
 					<div class="link-item"><a href="https://www.shadowrocket.vip/" target="_blank"><img width="20px"
 								src="./ico/xixi.svg" alt="icon">Shadowrocket</a></div>
 				</div>
@@ -1094,10 +1111,10 @@
 					});
 				</script>
 				<p>Copyright 2020-2024 ☕Victor's 导航 All Rights Reserved. designed and developed by yangkaiqun.</p>
-				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52032102000646"
+				<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52132102000646"
 					style="color:#999999;">
 					<span>
-						<img src="./beian.png">贵公网安备 52032102000646号
+						<img src="./beian.png">贵公网安备 52132102000646号
 					</span>
 				</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1106,6 +1123,9 @@
 						黔ICP备2023005153号
 					</span>
 				</a>
+				</br>
+				<p><a href="mailto:lzj155@foxmail.com?subject=关于demo443网站问题反馈:&body=你好，我想反馈以下问题:">联系站长</a></p>
+
 				<p>
 					<pss><a href='http://demo443.com' target='_blank'> </a>&nbsp;&nbsp;<ping></ping>
 					</pss>
