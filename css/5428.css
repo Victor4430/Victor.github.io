@@ -1,0 +1,452 @@
+.Two {
+	line-height: 1rem
+}
+
+.Two .input {
+	background: -webkit-gradient(linear, left top, left bottom, from(#fffbf2), to(#ffeecd));
+	background: -webkit-linear-gradient(top, #fffbf2, #ffeecd);
+	background: -o-linear-gradient(top, #fffbf2 0, #ffeecd 100%);
+	background: linear-gradient(180deg, #fffbf2, #ffeecd);
+	border-radius: .375rem;
+	margin-top: 3rem;
+	padding: 2rem 1rem 1rem;
+	text-align: left
+}
+
+.Two .input>taro-view-core {
+	text-align: center
+}
+
+.Two .flex {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-ms-flex-direction: row;
+	gap: .5rem
+}
+
+.Two .text taro-text-core {
+	font-size: .8rem
+}
+
+.Two .text .weui-input {
+	color: #b49c6b;
+	font-size: .8rem;
+	height: 1rem;
+	line-height: 1rem;
+	text-align: left
+}
+
+.Two .text .weui-input::-webkit-input-placeholder {
+	color: #bc9f8a
+}
+
+.Two .text .weui-input::-moz-placeholder {
+	color: #bc9f8a
+}
+
+.Two .text .weui-input:-ms-input-placeholder {
+	color: #bc9f8a
+}
+
+.Two .text .weui-input::-ms-input-placeholder {
+	color: #bc9f8a
+}
+
+.Two .text .weui-input::placeholder {
+	color: #bc9f8a
+}
+
+.Two hr {
+	background: #e1d2af;
+	height: .025rem;
+	margin: .5rem auto
+}
+
+.Two .getNow {
+	background: #df8a33;
+	border-radius: 1.2rem;
+	color: #fff;
+	font-size: .8rem;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	margin: 0;
+	padding: 0 .6rem;
+	text-align: center;
+	width: 50%
+}
+
+.Two taro-button-core.submit {
+	background: #df8a33;
+	border-radius: 1.2rem;
+	color: #fff;
+	font-size: 1rem;
+	height: 2rem;
+	line-height: 2rem;
+	margin: 1.5rem .5rem;
+	text-align: center
+}
+
+.Two taro-picker-core {
+	line-height: 1.2rem;
+	text-align: left;
+	width: 100%
+}
+
+.Two .picker {
+	font-size: .8rem
+}
+
+.Three .input {
+	background: -webkit-gradient(linear, left top, left bottom, from(#fffbf2), to(#ffeecd));
+	background: -webkit-linear-gradient(top, #fffbf2, #ffeecd);
+	background: -o-linear-gradient(top, #fffbf2 0, #ffeecd 100%);
+	background: linear-gradient(180deg, #fffbf2, #ffeecd);
+	border-radius: .375rem;
+	margin-top: 2rem;
+	overflow: hidden;
+	padding: 1rem;
+	text-align: left
+}
+
+.Three .input .left {
+	float: left;
+	width: 73%
+}
+
+.Three .input .left>hr {
+	background-color: #e1dbc5;
+	height: .025rem;
+	width: 100%
+}
+
+.Three .input taro-view-core {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	text-align: left;
+	width: 100%
+}
+
+.Three .input>taro-button-core {
+	background: #df8a33;
+	border-radius: 3rem;
+	color: #fff;
+	float: right;
+	font-family: FZLanTingHei-M-GBK;
+	font-size: 1rem;
+	height: 3rem;
+	line-height: 2rem;
+	margin: 0;
+	padding: .5rem;
+	text-align: center;
+	width: 3rem
+}
+
+.Three .result {
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	background: #fff;
+	border: .05rem solid #c28238;
+	border-collapse: collapse;
+	border-radius: .25rem;
+	height: 12rem;
+	margin-top: 1rem;
+	position: relative;
+	text-align: center
+}
+
+.Three .result>div {
+	border-bottom: .025rem solid #c28238;
+	border-collapse: collapse;
+	border-right: .025rem solid #c28238;
+	border-spacing: 0;
+	height: 5rem;
+	overflow: hidden;
+	padding: .5rem 0;
+	position: absolute;
+	width: 33.2%
+}
+
+.Three .result>div:nth-child(1) {
+	border-bottom: none;
+	bottom: 0;
+	left: 0
+}
+
+.Three .result>div:nth-child(2) {
+	left: 0
+}
+
+.Three .result>div:nth-child(3) {
+	left: 33.5%
+}
+
+.Three .result>div:nth-child(4) {
+	border-right: none;
+	right: 0
+}
+
+.Three .result>div:nth-child(5) {
+	border-bottom: none;
+	border-right: none;
+	bottom: 0;
+	right: 0
+}
+
+.Three .result>div:last-child {
+	border-bottom: none;
+	bottom: 0;
+	left: 33.5%
+}
+
+.Three .result>div>div {
+	display: inline-block;
+	font-size: 1rem;
+	line-height: 1.4rem;
+	margin: 0;
+	overflow: hidden;
+	width: 50%
+}
+
+.Three .result .xing {
+	color: #c68200
+}
+
+.Three .result .shen {
+	color: #0d34ff
+}
+
+.Three .result .zhi {
+	color: #02c22c
+}
+
+.Three .result .qin {
+	color: #b00dfd
+}
+
+.Three .result .zhushi {
+	color: #ff1414
+}
+
+.Three .result .ri {
+	color: #ff1414;
+	width: 25%
+}
+
+.Three .result .shi {
+	color: #ff1414;
+	width: 25%
+}
+
+.Three .result .gong {
+	color: #0a0a0a;
+	display: inline-block;
+	float: right
+}
+
+.Three .result .w15 {
+	color: #ff1414;
+	left: 33%;
+	position: absolute;
+	width: 25%
+}
+
+.Three .result .w35 {
+	width: 35%
+}
+
+* {
+	border: 0;
+	font-size: .8rem;
+	margin: 0;
+	padding: 0
+}
+
+div {
+	overflow: hidden
+}
+
+body {
+	color: #b49c6b;
+	line-height: 1.2rem
+}
+
+taro-input-core {
+	background: none;
+	border: 0;
+	color: #bc9f8a;
+	height: .375rem;
+	line-height: 1.5rem
+}
+
+.weui {
+	font-size: 1rem
+}
+
+.weui-picker__item {
+	font-size: 1rem
+}
+
+.bg {
+	background: #f1dfaf url(/images/bg.png) no-repeat;
+	background-size: 100% auto;
+	gap: 1rem;
+	min-height: 20rem;
+	min-width: 7.5rem;
+	padding: 2rem 1rem
+}
+
+.headImg {
+	-ms-flex-pack: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	text-align: center
+}
+
+.headImg img {
+	width: 10rem
+}
+
+.step {
+	text-align: center
+}
+
+.step taro-button-core {
+	background: -webkit-gradient(linear, left top, left bottom, from(#fffbf2), to(#ffeecd));
+	background: -webkit-linear-gradient(top, #fffbf2, #ffeecd);
+	background: -o-linear-gradient(top, #fffbf2 0, #ffeecd 100%);
+	background: linear-gradient(180deg, #fffbf2, #ffeecd);
+	border-radius: .375rem;
+	color: #9c5c2e;
+	font-size: 1rem;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 1rem auto;
+	text-align: center;
+	width: 90%
+}
+
+.One {
+	margin-top: 3rem
+}
+
+.base-info {
+	line-height: 1.2rem;
+	margin: 1.5rem auto;
+	width: 90%
+}
+
+.base-info .title {
+	font-size: .7rem;
+	margin-bottom: .25rem;
+	text-align: center
+}
+
+.base-info taro-text-core {
+	color: #a06700
+}
+
+.weixin {
+	-ms-flex-pack: justify;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	background: #fff;
+	border-radius: .25rem;
+	color: #9c824e;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	font-size: .7rem;
+	gap: .7rem;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	padding: .6rem
+}
+
+.weixin .weixin-flex {
+	position: relative;
+	width: 50%
+}
+
+.weixin .weixin-line {
+	background-color: #e4dcca;
+	height: 1.7rem;
+	width: .05rem
+}
+
+.weixin .title {
+	color: #a85b00;
+	font-size: .8rem
+}
+
+.weixin taro-button-core {
+	background: #c28238;
+	border: none;
+	border-radius: 1.6rem;
+	color: #fff;
+	font-size: .5rem;
+	height: 1.4rem;
+	line-height: 1.4rem;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 2.6rem
+}
+
+.blog-link {
+	background: #fff;
+	border-radius: .25rem;
+	color: #9c824e;
+	font-size: .7rem;
+	line-height: 1.8rem;
+	margin-bottom: 1rem;
+	padding: .6rem
+}
+
+.blog-link>hr {
+	background-color: #e1dbc5;
+	height: .025rem;
+	width: 100%
+}
+
+.blog-link>taro-view-core {
+	-ms-flex-pack: justify;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	gap: .5rem;
+	-webkit-justify-content: space-between;
+	justify-content: space-between
+}
+
+.blog-link>taro-view-core>taro-view-core:last-child {
+	margin-right: .5rem;
+	position: relative;
+	text-decoration: underline
+}
+
+.blog-link>taro-view-core>taro-view-core:last-child::after {
+	border-style: solid;
+	border-width: .1rem .1rem 0 0;
+	content: " ";
+	height: .4rem;
+	margin-top: -.2rem;
+	position: absolute;
+	right: -.5rem;
+	top: 50%;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: .4rem
+}
