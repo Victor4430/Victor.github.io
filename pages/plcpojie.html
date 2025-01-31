@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>PLC密码破解</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<!-- 带有随机参数的时间戳 保证每次访问到此页面都是最新页面-->
+		<script>
+			const randomParam = new Date().getTime(); // 获取当前时间戳作为随机参数
+			const url = window.location.href;
+
+			// 检查 URL 是否已经包含查询参数
+			if (url.indexOf('?v=') === -1) {
+				// 如果没有查询参数，添加随机参数
+				window.location.href = url + (url.indexOf('?') !== -1 ? '&v=' : '?v=') + randomParam;
+			}
+		</script>
+
+		<style>
+			body {
+				background-color: #d3d3d3;
+				/* 设置页面背景颜色 */
+			}
+
+			/* 排盘盒子展示 */
+			#DB {
+				background-color: #c8c8c8;
+				/* 设置排盘盒子的背景颜色 */
+				max-width: 470px;
+				/* 设置最大宽度 */
+				height: auto;
+				/* 设置高度为自适应 */
+				margin: 0 auto;
+				/* 设置左右外边距为自动，实现水平居中 */
+			}
+
+			/* 定义容器的样式 */
+			.container {
+				display: grid;
+				/* 使用网格布局 */
+				grid-template-columns: repeat(3, 1fr);
+				/* 设置3列，每列宽度相等 */
+				grid-template-rows: repeat(2, 1fr);
+				/* 设置2行，每行高度相等 */
+				grid-gap: 3px;
+				/* 设置网格之间的间隔 */
+			}
+
+			/* 定义盒子的样式 */
+			.box {
+				border: 1px solid black;
+				/* 设置边框 */
+				padding: 10px;
+				/* 设置内边距 */
+				position: relative;
+				/* 设置相对定位 */
+				display: flex;
+				/* 使用弹性布局 */
+				flex-direction: column;
+				/* 设置弹性布局方向为垂直 */
+				justify-content: flex-start;
+				/* 设置内容对齐方式为顶部对齐 */
+			}
+
+			/* 预留位置的样式，可通过调整 top 和 left 来改变位置 */
+			.reserved-position {
+				width: 50px;
+				/* 设置宽度 */
+				height: 21px;
+				/* 设置高度 */
+				margin: 0;
+				/* 设置外边距 */
+				font-size: 25px;
+				/* 设置字体大小 */
+				position: relative;
+				/* 设置相对定位 */
+				white-space: normal;
+				/* 允许换行 */
+				word-wrap: break-word;
+				/* 允许长单词或URL地址换行到下一行 */
+			}
+
+			/* 预留1 -> 装六神  */
+			.reserved-position:nth-child(1) {
+				top: 10px;
+				/* 设置距离顶部的距离 */
+				left: 0px;
+				/* 设置距离左边的距离 */
+				color: #f3e954;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留2 -> 起五星  */
+			.reserved-position:nth-child(2) {
+				top: -11px;
+				/* 设置距离顶部的距离 */
+				left: 70px;
+				/* 设置距离左边的距离 */
+				color: #4199c8;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留3 -> 排地支  */
+			.reserved-position:nth-child(3) {
+				top: 25px;
+				/* 设置距离顶部的距离 */
+				left: 25px;
+				/* 设置距离左边的距离 */
+				color: #00bc00;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留4 -> 定六亲  */
+			.reserved-position:nth-child(4) {
+				top: 5px;
+				/* 设置距离顶部的距离 */
+				left: 70px;
+				/* 设置距离左边的距离 */
+				color: #9000d8;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留5 -> 月上起日  */
+			.reserved-position:nth-child(5) {
+				top: 45px;
+				/* 设置距离顶部的距离 */
+				left: 5px;
+				/* 设置距离左边的距离 */
+				color: #fff;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留6 -> 为六宫  */
+			.reserved-position:nth-child(6) {
+				top: 25px;
+				/* 设置距离顶部的距离 */
+				left: 70px;
+				/* 设置距离左边的距离 */
+				color: #000;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留7 -> 现五行  */
+			.reserved-position:nth-child(7) {
+				top: -30px;
+				/* 设置距离顶部的距离 */
+				left: 22px;
+				/* 设置距离左边的距离 */
+				color: #aa7556;
+				/* 设置文本颜色 */
+				font-size: 20px;
+				/* 设置字体大小 */
+			}
+
+			/* 预留8 -> 日上起时  */
+			.reserved-position:nth-child(8) {
+				top: -18px;
+				/* 设置距离顶部的距离 */
+				left: 35px;
+				/* 设置距离左边的距离 */
+				color: #fff;
+				/* 设置文本颜色 */
+			}
+
+			/* 时间展示部分样式 */
+			#content {
+				font-size: 20px;
+				text-align: center;
+				/* 设置文本居中 */
+			}
+
+			#content span {
+
+				/* 设置字体大小 */
+				color: #333;
+				/* 设置文本颜色 */
+			}
+
+			/* 按钮样式 */
+			button {
+				font-size: 30px;
+				/* 设置字体大小 */
+				text-align: center;
+				/* 设置文本居中 */
+				display: block;
+				/* 设置为块级元素 */
+				margin: 10px auto;
+				/* 设置外边距，实现水平居中 */
+				padding: 15px 80px;
+				/* 设置内边距 */
+				background-color: #ccc;
+				/* 设置背景颜色 */
+				border: none;
+				/* 去除边框 */
+				border-radius: 5px;
+				/* 设置圆角 */
+				cursor: pointer;
+				/* 设置鼠标指针为手形 */
+			}
+
+			/* 以下是可用于调整按钮大小的CSS属性，可根据需要修改具体数值 */
+			button.small {
+				padding: 5px 10px;
+				/* 减小内边距，使按钮变小 */
+				font-size: 12px;
+				/* 减小字体大小 */
+			}
+
+			button.large {
+				padding: 15px 30px;
+				/* 增大内边距，使按钮变大 */
+				font-size: 20px;
+				/* 增大字体大小 */
+			}
+
+			/* 以此类推，调整其他预留位置的位置 */
+			h1 {
+				font-size: 50px;
+				text-align: center;
+				/* 设置标题居中 */
+			}
+
+			#shichen12 {
+				text-align: center;
+			}
+
+			.em {
+				text-align: center;
+			}
+
+
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<div>
+			<h1>PLC密码破解</h1>
+		</div>
+		<!-- 排盘展示盒子 -->
+		<div id="DB">
+			
+			<div id="shichen12">
+				<br />
+				<br />
+				<br />
+				<h2> 你好 </h2>
+				<h2> 有PLC密码破解需求的请联系站长面谈 </h2>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+			</div>
+
+			<div id="zhifu" style="text-align:center;">
+				<a href="#">
+					<img id="img_1" src="./img/zhifu1.jpg" alt="经济舱_机车驿站_支付二维码">
+				</a>
+				<br />
+				<br />
+				<a href="#">
+					<img id="img_2" src="./img/zhifu2.jpg" alt="经济舱_机车驿站_支付二维码">
+				</a>
+			</div>
+
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<p class="em">Copyright 2024 ☕Victor's PLC密码破解 All Rights Reserved. designed and developed by yangxiaodong.
+			</p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p class="em"><a href="mailto:lzj155@foxmail.com?subject=PLC密码破解需求:&body=你好，我想咨询PLC密码破解:">联系站长</a></p>
+
+			<br />
+			<br />
+		</div>
+
+	</body>
+
+</html>
