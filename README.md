@@ -31,7 +31,7 @@
 
 ## 示例页面 & 原作者源码：    
 
-+ html+js+css版本：[https://demo443.com/](https://demo443.com/) 
++ html+js+css版本：[https://demo520.com/](https://demo520.com/) 
 + html+js+css源码：[https://github.com/HolgerHuo/minimalist-search](https://github.com/HolgerHuo/minimalist-search)  
 
 
