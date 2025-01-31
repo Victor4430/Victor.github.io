@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>排盘</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<!-- 带有随机参数的时间戳 保证每次访问到此页面都是最新页面-->
+		<script>
+			const randomParam = new Date().getTime(); // 获取当前时间戳作为随机参数
+			const url = window.location.href;
+
+			// 检查 URL 是否已经包含查询参数
+			if (url.indexOf('?v=') === -1) {
+				// 如果没有查询参数，添加随机参数
+				window.location.href = url + (url.indexOf('?') !== -1 ? '&v=' : '?v=') + randomParam;
+			}
+		</script>
+
+		<style>
+			body {
+				background-color: #d3d3d3;
+				/* 设置页面背景颜色 */
+			}
+
+			/* 排盘盒子展示 */
+			#DB {
+				background-color: #c8c8c8;
+				/* 设置排盘盒子的背景颜色 */
+				max-width: 470px;
+				/* 设置最大宽度 */
+				height: auto;
+				/* 设置高度为自适应 */
+				margin: 0 auto;
+				/* 设置左右外边距为自动，实现水平居中 */
+			}
+
+			/* 定义容器的样式 */
+			.container {
+				display: grid;
+				/* 使用网格布局 */
+				grid-template-columns: repeat(3, 1fr);
+				/* 设置3列，每列宽度相等 */
+				grid-template-rows: repeat(2, 1fr);
+				/* 设置2行，每行高度相等 */
+				grid-gap: 3px;
+				/* 设置网格之间的间隔 */
+			}
+
+			/* 定义盒子的样式 */
+			.box {
+				border: 1px solid black;
+				/* 设置边框 */
+				padding: 10px;
+				/* 设置内边距 */
+				position: relative;
+				/* 设置相对定位 */
+				display: flex;
+				/* 使用弹性布局 */
+				flex-direction: column;
+				/* 设置弹性布局方向为垂直 */
+				justify-content: flex-start;
+				/* 设置内容对齐方式为顶部对齐 */
+			}
+
+			/* 预留位置的样式，可通过调整 top 和 left 来改变位置 */
+			.reserved-position {
+				width: 50px;
+				/* 设置宽度 */
+				height: 21px;
+				/* 设置高度 */
+				margin: 0;
+				/* 设置外边距 */
+				font-size: 25px;
+				/* 设置字体大小 */
+				position: relative;
+				/* 设置相对定位 */
+				white-space: normal;
+				/* 允许换行 */
+				word-wrap: break-word;
+				/* 允许长单词或URL地址换行到下一行 */
+			}
+
+			/* 预留1 -> 装六神  */
+			.reserved-position:nth-child(1) {
+				top: 10px;
+				/* 设置距离顶部的距离 */
+				left: 0px;
+				/* 设置距离左边的距离 */
+				color: #f3e954;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留2 -> 起五星  */
+			.reserved-position:nth-child(2) {
+				top: -11px;
+				/* 设置距离顶部的距离 */
+				left: 70px;
+				/* 设置距离左边的距离 */
+				color: #4199c8;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留3 -> 排地支  */
+			.reserved-position:nth-child(3) {
+				top: 25px;
+				/* 设置距离顶部的距离 */
+				left: 25px;
+				/* 设置距离左边的距离 */
+				color: #00bc00;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留4 -> 定六亲  */
+			.reserved-position:nth-child(4) {
+				top: 5px;
+				/* 设置距离顶部的距离 */
+				left: 70px;
+				/* 设置距离左边的距离 */
+				color: #9000d8;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留5 -> 月上起日  */
+			.reserved-position:nth-child(5) {
+				top: 45px;
+				/* 设置距离顶部的距离 */
+				left: 5px;
+				/* 设置距离左边的距离 */
+				color: #fff;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留6 -> 为六宫  */
+			.reserved-position:nth-child(6) {
+				top: 25px;
+				/* 设置距离顶部的距离 */
+				left: 70px;
+				/* 设置距离左边的距离 */
+				color: #000;
+				/* 设置文本颜色 */
+			}
+
+			/* 预留7 -> 现五行  */
+			.reserved-position:nth-child(7) {
+				top: -30px;
+				/* 设置距离顶部的距离 */
+				left: 22px;
+				/* 设置距离左边的距离 */
+				color: #aa7556;
+				/* 设置文本颜色 */
+				font-size: 20px;
+				/* 设置字体大小 */
+			}
+
+			/* 预留8 -> 日上起时  */
+			.reserved-position:nth-child(8) {
+				top: -18px;
+				/* 设置距离顶部的距离 */
+				left: 35px;
+				/* 设置距离左边的距离 */
+				color: #fff;
+				/* 设置文本颜色 */
+			}
+
+			/* 时间展示部分样式 */
+			#content {
+				font-size: 20px;
+				text-align: center;
+				/* 设置文本居中 */
+			}
+
+			#content span {
+
+				/* 设置字体大小 */
+				color: #333;
+				/* 设置文本颜色 */
+			}
+
+			/* 按钮样式 */
+			button {
+				font-size: 30px;
+				/* 设置字体大小 */
+				text-align: center;
+				/* 设置文本居中 */
+				display: block;
+				/* 设置为块级元素 */
+				margin: 10px auto;
+				/* 设置外边距，实现水平居中 */
+				padding: 15px 80px;
+				/* 设置内边距 */
+				background-color: #ccc;
+				/* 设置背景颜色 */
+				border: none;
+				/* 去除边框 */
+				border-radius: 5px;
+				/* 设置圆角 */
+				cursor: pointer;
+				/* 设置鼠标指针为手形 */
+			}
+
+			/* 以下是可用于调整按钮大小的CSS属性，可根据需要修改具体数值 */
+			button.small {
+				padding: 5px 10px;
+				/* 减小内边距，使按钮变小 */
+				font-size: 12px;
+				/* 减小字体大小 */
+			}
+
+			button.large {
+				padding: 15px 30px;
+				/* 增大内边距，使按钮变大 */
+				font-size: 20px;
+				/* 增大字体大小 */
+			}
+
+			/* 以此类推，调整其他预留位置的位置 */
+			h1 {
+				font-size: 50px;
+				text-align: center;
+				/* 设置标题居中 */
+			}
+
+			#shichen12 {
+				text-align: center;
+			}
+
+			.em {
+				text-align: center;
+			}
+
+
+			}
+		</style>
+		<script>
+			// 日时起课类
+			class riShiQiKe {
+
+				constructor() {
+					console.log("类名：riShiQiKe  日时起课  初始化 ............. ")
+					// 在这里可以初始化一些需要用到的属性等，目前暂未用到，可根据后续需求添加
+				}
+				//获取api时间
+				getData() {
+					console.log("类名：riShiQiKe  函数：获取api时间 ")
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = () => {
+						if (xhr.readyState === 4 && xhr.status === 200) {
+							var responseData = JSON.parse(xhr.responseText);
+							var date = responseData.result.data.date;
+							var time = new Date().toLocaleTimeString();
+							// 获取lunarYear并去掉"年"字
+							var lunarYear = responseData.result.data.lunarYear.replace('年', '');
+							var animalsYear = responseData.result.data.animalsYear;
+							var lunarDate = responseData.result.data.lunar;
+
+							// 在“月”字后面加上空格
+							var formattedLunarDate = lunarDate.replace(/月/g, '月 ');
+							// 构建新的农历日期显示内容，去掉了lunarYear中的"年"字
+							var combinedLunarDate = lunarYear + animalsYear + '年' + " " + formattedLunarDate;
+							var lunarHour = this.getLunarHour(new Date());
+
+							document.getElementById("date-display").innerHTML = date;
+							document.getElementById("time-display").innerHTML = time;
+							document.getElementById("lunar-date-display").innerHTML = combinedLunarDate;
+							document.getElementById("lunar-hour-display").innerHTML = lunarHour;
+						} else if (xhr.readyState === 4 && xhr.status !== 200) {
+							document.getElementById("date-display").innerHTML = "请求失败";
+							document.getElementById("time-display").innerHTML = "请求失败";
+							document.getElementById("lunar-date-display").innerHTML = "请求失败";
+							document.getElementById("lunar-hour-display").innerHTML = "请求失败";
+						}
+					};
+					xhr.open("GET", "gt.php", true);
+					xhr.send();
+				}
+				//十二时辰转换
+				getLunarHour(date) {
+					console.log("类名：riShiQiKe  函数：十二时辰转换 ")
+					// 这里简单根据当前时间的小时数来判断大致的12时辰范围，实际应用中可根据更精确的农历算法来确定
+					var hours = date.getHours();
+					if (hours >= 23 || hours < 1) {
+						return "子时";
+					} else if (hours >= 1 && hours < 3) {
+						return "丑时";
+					} else if (hours >= 3 && hours < 5) {
+						return "寅时";
+					} else if (hours >= 5 && hours < 7) {
+						return "卯时";
+					} else if (hours >= 7 && hours < 9) {
+						return "辰时";
+					} else if (hours >= 9 && hours < 11) {
+						return "巳时";
+					} else if (hours >= 11 && hours < 13) {
+						return "午时";
+					} else if (hours >= 13 && hours < 15) {
+						return "未时";
+					} else if (hours >= 15 && hours < 17) {
+						return "申时";
+					} else if (hours >= 17 && hours < 19) {
+						return "酉时";
+					} else if (hours >= 19 && hours < 21) {
+						return "戌时";
+					} else if (hours >= 21 && hours < 23) {
+						return "亥时";
+					}
+				}
+				// 月上起日函数，用于根据页面上显示的农历日期，按照特定规则在对应的六宫位置展示 <p class="reserved-position">日</p>
+				yueShangQiRi() {
+					console.log("类名：riShiQiKe  函数：月上起日 ")
+					// 从页面上获取展示农历日期的元素，其id为 "lunar-date-display"
+					var lunarDateDisplay = document.getElementById("lunar-date-display");
+
+					// 判断是否成功获取到了展示农历日期的元素，如果获取到了则进行后续操作
+					if (lunarDateDisplay) {
+						// 获取展示农历日期元素中的文本内容，即完整的农历日期信息，例如 "甲午龙年 六月 初一"
+						var lunarDateText = lunarDateDisplay.innerHTML;
+
+						// 提取出农历日期中的日子部分，假设页面上展示的农历日期格式为 "甲午龙年 六月 初一"，通过split(' ')方法以空格为分隔符将字符串拆分成数组，然后使用pop()方法获取数组的最后一个元素，即 "初一"
+						var lunarDayText = lunarDateText.split(' ').pop();
+						console.log("提取出农历日期中的日子部分：" + lunarDayText)
+
+						// 将提取到的农历日子部分的文本内容（例如 "初一"）通过正则表达式匹配其中的数字部分，并将其转换为整数类型，以便后续进行计算和比较操作
+						var matchResult = szzh(lunarDayText);
+
+						// 定义一个包含六个宫殿名称的数组，与排盘展示中的六宫相对应，用于后续根据农历日子确定对应的宫殿
+						const palaceNames = ["大安", "留连", "速喜", "赤口", "小吉", "空亡"];
+						// 初始化宫殿索引为0，用于在循环中确定当前对应的宫殿位置，从第一个宫殿（索引为0）开始
+						let palaceIndex = 0;
+						// 初始化日子索引为1，用于在循环中与农历日子进行比较，从初一（对应索引为1）开始计数
+						let dayIndex = 1;
+
+						// 通过循环，根据农历日子的数值，按照规则确定对应的宫殿索引
+						while (dayIndex < matchResult) {
+							// 每次循环将宫殿索引向后移动一位（循环到最后一个宫殿后会回到第一个宫殿重新循环），通过取余操作确保索引始终在0到5之间，对应六个宫殿
+							palaceIndex = (palaceIndex + 1) % 6;
+							// 日子索引自增1，用于与农历日子进行比较，直到达到或超过农历日子的数值
+							dayIndex++;
+						}
+
+						// 根据确定好的宫殿索引，从palaceNames数组中获取对应的宫殿名称，作为目标宫殿名称，用于后续在页面上找到对应的宫殿元素
+						const targetPalaceName = palaceNames[palaceIndex];
+						console.log("函数：月上起日    对应的目标宫殿序号: " + palaceIndex)
+
+						// 使用document.querySelectorAll('.box')获取页面上所有class为 "box" 的元素，这些元素对应排盘展示中的各个宫殿盒子
+						const boxes = document.querySelectorAll('.box');
+
+						// 遍历获取到的所有 "box" 元素，逐个检查每个元素是否为目标宫殿对应的元素
+						boxes.forEach((box) => {
+							// 在每个 "box" 元素内部，通过querySelector('.reserved-position:nth-child(6)')找到其中表示宫殿名称的元素（对应每个盒子里预留6的位置，即显示宫殿名称的地方），并获取其文本内容
+							const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+							// console.log("当前的宫殿：" + palaceTitle)
+
+
+							// 将获取到的当前 "box" 元素中的宫殿名称与目标宫殿名称进行比较，如果两者相等，说明找到了目标宫殿对应的元素
+							if (palaceTitle === targetPalaceName) {
+								console.log("目标宫殿对应的box元素: " + palaceTitle)
+								// 在找到目标宫殿对应的 "box" 元素内部，通过querySelector('.reserved-position:nth-child(5)')找到每个盒子里预留5的位置（对应用于月上起日展示的位置）的元素
+								const reservedPosition5 = box.querySelector('.reserved-position:nth-child(5)');
+								// console.log(" 元素内部： " + reservedPosition5)
+
+								// 判断是否成功获取到了预留5位置的元素，如果获取到了则进行后续操作
+								if (reservedPosition5) {
+									// 将 <p class="reserved-position">日</p> 添加到预留5位置的元素的innerHTML中，从而实现在对应的六宫位置展示 "日" 的效果
+									reservedPosition5.innerHTML = '日';
+									return palaceTitle;
+								}
+							}
+						});
+					}
+				}
+
+				// 日上起时
+				riShangQiShi() {
+					console.log("类名：riShiQiKe  函数：日上起时 ");
+					let shiChenDict = {
+						"子时": 1,
+						"丑时": 2,
+						"寅时": 3,
+						"卯时": 4,
+						"辰时": 5,
+						"巳时": 6,
+						"午时": 7,
+						"未时": 8,
+						"申时": 9,
+						"酉时": 10,
+						"戌时": 11,
+						"亥时": 12
+					};
+					// 先获取“日”所在的宫位
+					const dayPalaceName = getDayPalaceName();
+					console.log("先获取“日”所在的宫位名字：" + dayPalaceName);
+
+					// 获取显示农历时辰的元素
+					const lunarHourDisplay = document.getElementById("lunar-hour-display");
+					console.log("获取显示农历时辰：" + dayPalaceName);
+					if (lunarHourDisplay) {
+						const lunarHour = lunarHourDisplay.textContent;
+
+						const palaceNames = ["大安", "留连", "速喜", "赤口", "小吉", "空亡"];
+
+						// 根据“日”所在宫位和当前时辰确定“时”所在的宫位索引
+						const dayPalaceIndex = palaceNames.indexOf(dayPalaceName);
+						const currentHourNumber = shiChenDict[lunarHour];
+						const targetPalaceIndex = (dayPalaceIndex + currentHourNumber - 1) % 6;
+
+						const boxes = document.querySelectorAll('.box');
+						boxes.forEach((box) => {
+							const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+							if (palaceTitle === palaceNames[targetPalaceIndex]) {
+								const reservedPosition8 = box.querySelector('.reserved-position:nth-child(8)');
+								if (reservedPosition8) {
+									reservedPosition8.innerHTML = '时';
+								}
+							}
+						});
+					}
+				}
+
+				// 排地支
+				paiDiZhi() {
+					console.log("类名：riShiQiKe  函数：排地支 ");
+
+					// 获取当前“时”对应的六宫名称
+					const currentPalaceName = getCurrentPalaceForShi();
+					// console.log("排地支     获取当前“时” 所在的宫位  ：" + currentPalaceName)
+					// 获取当前时辰（取一个字）
+					const currentLunarHour = document.getElementById("lunar-hour-display").textContent[0];
+
+					// 存储所有字典的数组，每个字典表示不同组合下的地支对应关系
+					const allDicts = [{
+							'大安': '子',
+							'留连': '寅',
+							'速喜': '辰',
+							'赤口': '午',
+							'小吉': '申',
+							'空亡': '戌'
+						},
+						{
+							'大安': '丑',
+							'留连': '卯',
+							'速喜': '巳',
+							'赤口': '未',
+							'小吉': '酉',
+							'空亡': '亥'
+						},
+						{
+							'大安': '寅',
+							'留连': '辰',
+							'速喜': '午',
+							'赤口': '申',
+							'小吉': '戌',
+							'空亡': '子'
+						},
+						{
+							'大安': '卯',
+							'留连': '巳',
+							'速喜': '未',
+							'赤口': '酉',
+							'小吉': '亥',
+							'空亡': '丑'
+						},
+						{
+							'大安': '辰',
+							'留连': '午',
+							'速喜': '申',
+							'赤口': '戌',
+							'小吉': '子',
+							'空亡': '寅'
+						},
+						{
+							'大安': '巳',
+							'留连': '未',
+							'速喜': '酉',
+							'赤口': '亥',
+							'小吉': '丑',
+							'空亡': '卯'
+						},
+						{
+							'大安': '午',
+							'留连': '申',
+							'速喜': '戌',
+							'赤口': '子',
+							'小吉': '寅',
+							'空亡': '辰'
+						},
+						{
+							'大安': '未',
+							'留连': '酉',
+							'速喜': '亥',
+							'赤口': '丑',
+							'小吉': '卯',
+							'空亡': '巳'
+						},
+						{
+							'大安': '申',
+							'留连': '戌',
+							'速喜': '子',
+							'赤口': '寅',
+							'小吉': '辰',
+							'空亡': '午'
+						},
+						{
+							'大安': '酉',
+							'留连': '亥',
+							'速喜': '丑',
+							'赤口': '卯',
+							'小吉': '巳',
+							'空亡': '未'
+						},
+						{
+							'大安': '戌',
+							'留连': '子',
+							'速喜': '寅',
+							'赤口': '辰',
+							'小吉': '午',
+							'空亡': '申'
+						},
+						{
+							'大安': '亥',
+							'留连': '丑',
+							'速喜': '卯',
+							'赤口': '巳',
+							'小吉': '未',
+							'空亡': '酉'
+						}
+					];
+
+					let dictToUse;
+					// 调试输出，先将对象属性值转换为字符串再拼接
+					// console.log("22222222222" + String(allDicts[0]["大安"]));
+					// 遍历所有字典，查找同时包含当前宫位和时辰的字典
+					for (let i = 0; i < allDicts.length; i++) {
+						// console.log("000000000" + allDicts[i][currentPalaceName]);
+						// console.log("11111111111" + currentLunarHour);
+
+						// console.log("11111111111" + allDicts[i][currentLunarHour]);
+						if (allDicts[i][currentPalaceName] === currentLunarHour) {
+							// console.log("000000000" + currentPalaceName);
+							// console.log("11111111111" + allDicts[i][currentPalaceName]);
+							dictToUse = allDicts[i];
+							break;
+						}
+					}
+
+					if (!dictToUse) {
+						console.log("未找到匹配的字典，请检查！");
+						return;
+					}
+
+					// 获取所有符合条件的.box元素
+					const boxes = document.querySelectorAll('.box');
+
+					// 遍历所有box元素，将对应字典中的剩余地支添加至其他宫位
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+						const reservedPosition3 = box.querySelector('.reserved-position:nth-child(3)');
+						if (reservedPosition3) {
+							// 先清空原有内容（如果有）
+							reservedPosition3.innerHTML = "";
+
+							// 添加对应字典中该宫位的地支
+							reservedPosition3.innerHTML += dictToUse[palaceTitle];
+						}
+					});
+				};
+
+
+				//函数 现五行
+				xianWuXing() {
+					console.log("类名：riShiQiKe  函数：现五行 ");
+
+					const boxes = document.querySelectorAll('.box');
+					const wuxing = {
+						"寅": "木",
+						"卯": "木",
+						"巳": "火",
+						"午": "火",
+						"辰": "土",
+						"戌": "土",
+						"丑": "土",
+						"未": "土",
+						"申": "金",
+						"酉": "金",
+						"亥": "水",
+						"子": "水"
+					};
+
+					boxes.forEach((box) => {
+						const reservedPosition7 = box.querySelector('.reserved-position:nth-child(7)');
+						if (reservedPosition7) {
+							const reservedPosition3 = box.querySelector('.reserved-position:nth-child(3)')
+								.textContent.trim();
+							if (wuxing[reservedPosition3]) {
+								reservedPosition7.innerHTML = "(" + wuxing[reservedPosition3] + ")";
+							}
+						}
+					});
+				}
+
+
+
+
+				// 定六亲
+				dingLiuQing() {
+					console.log("类名：riShiQiKe  函数：定六亲 ");
+
+					// 获取当前“时”对应的六宫名称
+					const currentPalaceName = getCurrentPalaceForShi();
+					// console.log("函数：定六亲  取当前“时”对应的六宫名称: " + currentPalaceName)
+					// 获取当前时辰（取一个字）
+					const currentLunarHour = document.getElementById("lunar-hour-display").textContent[0];
+					// console.log("函数：定六亲  获取当前时辰（取一个字）: " + currentLunarHour)
+
+					// 定义liuqin字典数组，其中每个对象包含了不同地支与六亲关系的对应设置，用于后续根据“时”所在宫位的地支查找对应的六亲关系
+					const allDicts = [{
+							"寅": "自身",
+							"辰": "兄弟",
+							"午": "子孙",
+							"申": "官鬼",
+							"戌": "妻财",
+							"子": "父母"
+						},
+						{
+							"卯": "自身",
+							"未": "兄弟",
+							"巳": "子孙",
+							"酉": "官鬼",
+							"丑": "妻财",
+							"亥": "父母"
+						},
+						{
+							"辰": "自身",
+							"戌": "兄弟",
+							"申": "子孙",
+							"寅": "官鬼",
+							"子": "妻财",
+							"午": "父母"
+						},
+						{
+							"巳": "自身",
+							"丑": "子孙",
+							"亥": "官鬼",
+							"酉": "妻财",
+							"卯": "父母",
+							"未": "兄弟"
+						},
+						{
+							"辰": "子孙",
+							"午": "自身",
+							"子": "官鬼",
+							"申": "妻财",
+							"寅": "父母",
+							"戌": "兄弟"
+						},
+						{
+							"酉": "子孙",
+							"未": "自身",
+							"卯": "官鬼",
+							"亥": "妻财",
+							"巳": "父母",
+							"丑": "兄弟"
+						},
+						{
+							"子": "子孙",
+							"申": "自身",
+							"午": "官鬼",
+							"寅": "妻财",
+							"辰": "父母",
+							"戌": "兄弟"
+						},
+						{
+							"亥": "子孙",
+							"酉": "自身",
+							"巳": "官鬼",
+							"卯": "妻财",
+							"未": "父母",
+							"丑": "兄弟"
+						},
+						{
+							"申": "子孙",
+							"寅": "官鬼",
+							"戌": "自身",
+							"子": "妻财",
+							"午": "父母",
+							"辰": "兄弟"
+						},
+						{
+							"卯": "子孙",
+							"亥": "自身",
+							"未": "官鬼",
+							"巳": "妻财",
+							"酉": "父母",
+							"丑": "兄弟"
+						},
+						{
+							"子": "自身",
+							"寅": "子孙",
+							"戌": "官鬼",
+							"午": "妻财",
+							"申": "父母",
+							"辰": "兄弟"
+						},
+						{
+							"酉": "子孙",
+							"丑": "自身",
+							"卯": "官鬼",
+							"亥": "妻财",
+							"巳": "父母",
+							"未": "兄弟"
+						}
+					];
+
+					let dictToUse;
+					// 调试输出，先将对象属性值转换为字符串再拼接
+					// console.log("22222222222" + String(allDicts[0]["大安"]));
+					// 遍历所有字典，查找同时包含当前宫位和时辰的字典
+					for (let i = 0; i < allDicts.length; i++) {
+						// console.log("000000000" + allDicts[i][currentLunarHour]);
+						// console.log("11111111111" + currentLunarHour);
+
+						// console.log("11111111111" + allDicts[i][currentLunarHour]);
+						if (allDicts[i][currentLunarHour] === '自身') {
+							// console.log("000000000" + currentPalaceName);
+							// console.log("定六亲00000000000000000000" + allDicts[i][currentLunarHour]);
+							dictToUse = allDicts[i];
+							console.log(dictToUse);
+							break;
+						}
+					}
+
+					if (!dictToUse) {
+						console.log("未找到匹配的字典，请检查！");
+						return;
+					}
+
+					// 获取所有符合条件的.box元素
+					const boxes = document.querySelectorAll('.box');
+
+					// 遍历所有box元素，将对应字典中的剩余地支添加至其他宫位
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(3)').textContent;
+						const reservedPosition3 = box.querySelector('.reserved-position:nth-child(4)');
+						if (reservedPosition3) {
+							// 先清空原有内容（如果有）
+							reservedPosition3.innerHTML = "";
+
+							// 添加对应字典中该宫位的地支
+							reservedPosition3.innerHTML = dictToUse[palaceTitle];
+						}
+					});
+				};
+
+				// 装六神
+				zhuangLiuShen() {
+					console.log("类名：riShiQiKe  函数：装六神 ");
+
+					// 创建一个字典，用于存储不同地支对应的六神与宫位的映射字典
+					const liuShenDict = {
+						"子": {
+							"大安": "青龙",
+							"留连": "朱雀",
+							"速喜": "勾陈",
+							"赤口": "白虎",
+							"小吉": "玄武",
+							"空亡": "腾蛇"
+						},
+						"丑": {
+							"留连": "青龙",
+							"速喜": "朱雀",
+							"赤口": "勾陈",
+							"小吉": "白虎",
+							"空亡": "玄武",
+							"大安": "腾蛇"
+						},
+						"寅": {
+							"速喜": "青龙",
+							"赤口": "朱雀",
+							"小吉": "勾陈",
+							"空亡": "白虎",
+							"大安": "玄武",
+							"留连": "腾蛇"
+						},
+						"卯": {
+							"赤口": "青龙",
+							"小吉": "朱雀",
+							"空亡": "勾陈",
+							"大安": "白虎",
+							"留连": "玄武",
+							"速喜": "腾蛇"
+						},
+						"辰": {
+							"小吉": "青龙",
+							"空亡": "朱雀",
+							"大安": "勾陈",
+							"留连": "白虎",
+							"速喜": "玄武",
+							"赤口": "腾蛇"
+						},
+						"巳": {
+							"空亡": "青龙",
+							"大安": "朱雀",
+							"留连": "勾陈",
+							"速喜": "白虎",
+							"赤口": "玄武",
+							"小吉": "腾蛇"
+						},
+						"午": {
+							"大安": "青龙",
+							"留连": "朱雀",
+							"速喜": "勾陈",
+							"赤口": "白虎",
+							"小吉": "玄武",
+							"空亡": "腾蛇"
+						},
+						"未": {
+							"留连": "青龙",
+							"速喜": "朱雀",
+							"赤口": "勾陈",
+							"小吉": "白虎",
+							"空亡": "玄武",
+							"大安": "腾蛇"
+						},
+						"申": {
+							"速喜": "青龙",
+							"赤口": "朱雀",
+							"小吉": "勾陈",
+							"空亡": "白虎",
+							"大安": "玄武",
+							"留连": "腾蛇"
+						},
+						"酉": {
+							"赤口": "青龙",
+							"小吉": "朱雀",
+							"空亡": "勾陈",
+							"大安": "白虎",
+							"留连": "玄武",
+							"速喜": "腾蛇"
+						},
+						"戌": {
+							"小吉": "青龙",
+							"空亡": "朱雀",
+							"大安": "勾陈",
+							"留连": "白虎",
+							"速喜": "玄武",
+							"赤口": "腾蛇"
+						},
+						"亥": {
+							"空亡": "青龙",
+							"大安": "朱雀",
+							"留连": "勾陈",
+							"速喜": "白虎",
+							"赤口": "玄武",
+							"小吉": "腾蛇"
+						}
+					};
+
+					const boxes = document.querySelectorAll('.box');
+
+					// 获取“时”所在宫位名称
+					const currentPalaceName = getCurrentPalaceForShi();
+					if (!currentPalaceName) {
+						console.log("未找到当前“时”所在宫位，无法装六神。");
+						return;
+					}
+
+					// 假获取当前时辰（取一个字）
+					const currentBranch = document.getElementById("lunar-hour-display").textContent[0];
+					if (!currentBranch) {
+						console.log("未获取到当前“时”所在宫位的地支，无法装六神。");
+						return;
+					}
+
+					let currentLiuShenMap;
+					if (currentBranch === '子' || currentBranch === '午') {
+						currentLiuShenMap = liuShenDict['子'];
+					} else if (currentBranch === '丑' || currentBranch === '未') {
+						currentLiuShenMap = liuShenDict['丑'];
+					} else if (currentBranch === '寅' || currentBranch === '申') {
+						currentLiuShenMap = liuShenDict['寅'];
+					} else if (currentBranch === '卯' || currentBranch === '酉') {
+						currentLiuShenMap = liuShenDict['卯'];
+					} else if (currentBranch === '辰' || currentBranch === '戌') {
+						currentLiuShenMap = liuShenDict['辰'];
+					} else if (currentBranch === '巳' || currentBranch === '亥') {
+						currentLiuShenMap = liuShenDict['巳'];
+					}
+
+					if (!currentLiuShenMap) {
+						console.log("未找到对应地支的六神映射，无法装六神。");
+						return;
+					}
+
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+						const reservedPosition1 = box.querySelector('.reserved-position:nth-child(1)');
+						if (reservedPosition1) {
+							const liuShen = currentLiuShenMap[palaceTitle];
+							reservedPosition1.innerHTML = liuShen;
+						}
+					});
+
+				}
+
+				// 起五星
+				qiWuXing() {
+					console.log("类名：riShiQiKe  函数：起五星");
+					// 获取“日”所在的宫位名称
+					const dayPalaceName = getDayPalaceName();
+					if (!dayPalaceName) {
+						console.log("未找到“日”所在宫位，无法起五星。");
+						return;
+					}
+
+					const palaceNames = ["大安", "留连", "速喜", "赤口", "小吉", "空亡"];
+					const wuXingNames = ["木星", "火星", "土星", "金星", "水星", "天空"];
+					const startIndex = palaceNames.indexOf(dayPalaceName);
+					const boxes = document.querySelectorAll('.box');
+
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+						const reservedPosition2 = box.querySelector('.reserved-position:nth-child(2)');
+						if (reservedPosition2) {
+							const currentIndex = (palaceNames.indexOf(palaceTitle) - startIndex + 6) % 6;
+							reservedPosition2.innerHTML = wuXingNames[currentIndex];
+						}
+					});
+				}
+
+
+
+
+
+			} // 类结尾
+
+
+
+
+
+			// 辅助函数，用于获取当前确定的“时”对应的六宫名称
+			function getCurrentPalaceForShi() {
+				console.log("辅助函数，用于获取当前确定的“时”对应的六宫名称............ ");
+
+				const boxes = document.querySelectorAll('.box');
+				const reservedPosition8Elements = document.querySelectorAll('.reserved-position:nth-child(8)');
+
+				for (let i = 0; i < boxes.length; i++) {
+					const palaceTitle = boxes[i].querySelector('.reserved-position:nth-child(6)').textContent;
+					const reservedPosition8 = reservedPosition8Elements[i];
+
+					if (reservedPosition8 && reservedPosition8.textContent === '时') {
+						console.log("辅助函数，当前“时”对应的六宫名称: " + palaceTitle);
+						return palaceTitle;
+					}
+				}
+
+				return null;
+			}
+
+			// 辅助函数，用于获取“日”所在的宫位名称
+			function getDayPalaceName() {
+				console.log("辅助函数：用于获取“日”所在的宫位名称！")
+				const boxes = document.querySelectorAll('.box');
+				const reservedPosition5Elements = document.querySelectorAll('.reserved-position:nth-child(5)');
+
+				for (let i = 0; i < boxes.length; i++) {
+					const palaceTitle = boxes[i].querySelector('.reserved-position:nth-child(6)').textContent;
+					const reservedPosition5 = reservedPosition5Elements[i];
+
+					if (reservedPosition5 && reservedPosition5.textContent === '日') {
+						console.log("辅助函数：用于获取“日”所在的宫位名称: " + palaceTitle)
+						return palaceTitle;
+					}
+				}
+
+				return null;
+			}
+
+
+
+
+			//辅助函数：农历日子换算成数字
+			function szzh(lunarDay) {
+				console.log("辅助函数：农历日子换算成数字！")
+				// 先将传入的农历日子字符串去除首尾可能存在的空格，确保后续比较准确
+				lunarDay = lunarDay.trim();
+				console.log("传入的农历日子: " + lunarDay)
+
+				if (lunarDay === "初一") {
+					console.log("农历转换后的日子: 1");
+					return 1;
+				} else if (lunarDay === "初二") {
+					console.log("农历转换后的日子: 2");
+					return 2;
+				} else if (lunarDay === "初三") {
+					console.log("农历转换后的日子: 3");
+					return 3;
+				} else if (lunarDay === "初四") {
+					console.log("农历转换后的日子: 4");
+					return 4;
+				} else if (lunarDay === "初五") {
+					console.log("农历转换后的日子: 5");
+					return 5;
+				} else if (lunarDay === "初六") {
+					console.log("农历转换后的日子: 6");
+					return 6;
+				} else if (lunarDay === "初七") {
+					console.log("农历转换后的日子: 7");
+					return 7;
+				} else if (lunarDay === "初八") {
+					console.log("农历转换后的日子: 8");
+					return 8;
+				} else if (lunarDay === "初九") {
+					console.log("农历转换后的日子: 9");
+					return 9;
+				} else if (lunarDay === "初十") {
+					console.log("农历转换后的日子: 10");
+					return 10;
+				} else if (lunarDay === "十一") {
+					console.log("农历转换后的日子: 11");
+					return 11;
+				} else if (lunarDay === "十二") {
+					console.log("农历转换后的日子: 12");
+					return 12;
+				} else if (lunarDay === "十三") {
+					console.log("农历转换后的日子: 13");
+					return 13;
+				} else if (lunarDay === "十四") {
+					console.log("农历转换后的日子: 14");
+					return 14;
+				} else if (lunarDay === "十五") {
+					console.log("农历转换后的日子: 15");
+					return 15;
+				} else if (lunarDay === "十六") {
+					console.log("农历转换后的日子: 16");
+					return 16;
+				} else if (lunarDay === "十七") {
+					console.log("农历转换后的日子: 17");
+					return 17;
+				} else if (lunarDay === "十八") {
+					console.log("农历转换后的日子: 18");
+					return 18;
+				} else if (lunarDay === "十九") {
+					console.log("农历转换后的日子: 19");
+					return 19;
+				} else if (lunarDay === "二十") {
+					console.log("农历转换后的日子: 20");
+					return 20;
+				} else if (lunarDay === "廿一" || lunarDay === "廿十一" || lunarDay === "二十一") {
+					console.log("农历转换后的日子: 21");
+					return 21;
+				} else if (lunarDay === "廿二" || lunarDay === "廿十二" || lunarDay === "二十二") {
+					console.log("农历转换后的日子: 22");
+					return 22;
+				} else if (lunarDay === "廿三" || lunarDay === "廿十三" || lunarDay === "二十三") {
+					console.log("农历转换后的日子: 23");
+					return 23;
+				} else if (lunarDay === "廿四" || lunarDay === "廿十四" || lunarDay === "二十四") {
+					console.log("农历转换后的日子: 24");
+					return 24;
+				} else if (lunarDay === "廿五" || lunarDay === "廿十五" || lunarDay === "二十五") {
+					console.log("农历转换后的日子: 25");
+					return 25;
+				} else if (lunarDay === "廿六" || lunarDay === "廿十六" || lunarDay === "二十六") {
+					console.log("农历转换后的日子: 26");
+					return 26;
+				} else if (lunarDay === "廿七" || lunarDay === "廿十七" || lunarDay === "二十七") {
+					console.log("农历转换后的日子: 27");
+					return 27;
+				} else if (lunarDay === "廿八" || lunarDay === "廿十八" || lunarDay === "二十八") {
+					console.log("农历转换后的日子: 28");
+					return 28;
+				} else if (lunarDay === "廿九" || lunarDay === "廿十九" || lunarDay === "二十九") {
+					console.log("农历转换后的日子: 29");
+					return 29;
+				} else if (lunarDay === "三十") {
+					console.log("农历转换后的日子: 30");
+					return 30;
+				} else {
+					console.log("传入的农历日子格式不正确，请检查！");
+					return null;
+				}
+
+			}
+
+
+			// 辅助函数：停顿一下
+			function sleep(ms) {
+				console.log("辅助函数：停顿一下")
+				return new Promise(resolve => setTimeout(resolve, ms));
+			}
+
+			//日时起课  按钮函数
+			async function executeAllFunctions() {
+				console.log("主函数开始运行................")
+				const riShiQiKeObj = new riShiQiKe(); // 初始化  “ 日时起课 ” 类
+				riShiQiKeObj.getData(); //调用接口获取农历的方法
+				await sleep(1000); // 停顿1秒  
+				riShiQiKeObj.yueShangQiRi(); // 月上起日
+				riShiQiKeObj.riShangQiShi(); // 日上起时
+				riShiQiKeObj.paiDiZhi(); // 排地支
+				riShiQiKeObj.xianWuXing(); // 现五行
+				riShiQiKeObj.dingLiuQing(); // 定六亲
+				riShiQiKeObj.zhuangLiuShen(); // 装六神
+				riShiQiKeObj.qiWuXing() // 起五星
+			}
+
+
+			// 数字起课类
+			class shuZiQiKe {
+				constructor() {
+					console.log("类名：shiKeQiKe  数字起课  初始化 ............. ")
+					// 在这里可以初始化一些需要用到的属性等，目前暂未用到，可根据后续需求添加
+
+				}
+				//获取当前时辰
+				getShiChen() {
+					console.log("类名：shuZiQiKe  函数：获取当前时辰 ")
+
+					// 获取当前时间
+					const currentDate = new Date();
+					const hours = currentDate.getHours();
+
+					// 将当前时间转换为十二时辰
+					let shiChen;
+					if (hours >= 23 || hours < 1) {
+						shiChen = "子时";
+					} else if (hours >= 1 && hours < 3) {
+						shiChen = "丑时";
+					} else if (hours >= 3 && hours < 5) {
+						shiChen = "寅时";
+					} else if (hours >= 5 && hours < 7) {
+						shiChen = "卯时";
+					} else if (hours >= 7 && hours < 9) {
+						shiChen = "辰时";
+					} else if (hours >= 9 && hours < 11) {
+						shiChen = "巳时";
+					} else if (hours >= 11 && hours < 13) {
+						shiChen = "午时";
+					} else if (hours >= 13 && hours < 15) {
+						shiChen = "未时";
+					} else if (hours >= 15 && hours < 17) {
+						shiChen = "申时";
+					} else if (hours >= 17 && hours < 19) {
+						shiChen = "酉时";
+					} else if (hours >= 19 && hours < 21) {
+						shiChen = "戌时";
+					} else if (hours >= 21 && hours < 23) {
+						shiChen = "亥时";
+					}
+
+					// 获取时间展示部分的元素
+					const contentElement = document.getElementById("content");
+
+					// 更新时间展示部分的元素内容，包含当前时间和十二时辰
+					const currentTime = currentDate.toLocaleTimeString();
+					//网页修改部分
+					contentElement.innerHTML = `
+					        <!-- 时间展示部分 -->
+					        日期：<span id="date-display">${currentDate.toLocaleDateString()}</span> &nbsp; &nbsp;
+					        时间：<span id="time-display">${currentTime}</span> <br />
+					        农历：<span id="lunar-date-display">${document.getElementById("lunar-date-display").textContent}</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+							时辰：<span id="lunar-hour-display" style="color: red;">${shiChen}</span>`;
+
+
+
+				}
+
+				//输入数字
+				getShuZi() {
+					console.log("类名：shuZiQiKe  函数：输入数字 ");
+					// 重新获取contentElement变量
+					const contentElement = document.getElementById("content");
+
+					// 弹出输入框让用户输入数字
+					let userInput = prompt("请输入一个数字：");
+
+					// 检查输入是否为有效的数字
+					while (isNaN(userInput)) {
+						alert("请输入一个有效的数字！");
+						userInput = prompt("请输入一个数字：");
+					}
+
+					// 创建一个新的span元素用于展示输入的数字（如果不存在的话）
+					let inputNumberDisplay = document.getElementById("lunar-date-display");
+
+					// 更新新创建的span元素的内容为输入的数字
+					contentElement.innerHTML =
+						`
+					        <!-- 时间展示部分 -->
+					        日期：<span id="date-display">${document.getElementById("date-display").textContent}</span> &nbsp; &nbsp;
+					        时间：<span id="time-display">${document.getElementById("time-display").textContent}</span> <br />
+					        数字：<span id="lunar-date-display">${userInput}</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+							时辰：<span id="lunar-hour-display" style="color: red;">${document.getElementById("lunar-hour-display").textContent}</span>`;
+				}
+
+
+
+
+				// 数字起六宫
+				shuZiLiuGong() {
+					console.log("类名：shuZiQiKe  函数：数字起六宫 ")
+					// 从页面上获取展示农历日期的元素，其id为 "lunar-date-display"
+					var lunarDateDisplay = document.getElementById("lunar-date-display");
+					var lunarDateNumber = Number(lunarDateDisplay.textContent);
+					console.log("类名：shuZiQiKe  函数：数字起六宫 : " + lunarDateNumber)
+
+					// 判断是否成功获取到了展示农历日期的元素，如果获取到了则进行后续操作
+					if (lunarDateNumber) {
+
+						// 定义一个包含六个宫殿名称的数组，与排盘展示中的六宫相对应，用于后续根据农历日子确定对应的宫殿
+						const palaceNames = ["大安", "留连", "速喜", "赤口", "小吉", "空亡"];
+						// 初始化宫殿索引为0，用于在循环中确定当前对应的宫殿位置，从第一个宫殿（索引为0）开始
+						let palaceIndex = 0;
+						// 初始化日子索引为1，用于在循环中与农历日子进行比较，从初一（对应索引为1）开始计数
+						let dayIndex = 1;
+
+						// 通过循环，根据农历日子的数值，按照规则确定对应的宫殿索引
+						while (dayIndex < lunarDateNumber) {
+							// 每次循环将宫殿索引向后移动一位（循环到最后一个宫殿后会回到第一个宫殿重新循环），通过取余操作确保索引始终在0到5之间，对应六个宫殿
+							palaceIndex = (palaceIndex + 1) % 6;
+							// 日子索引自增1，用于与农历日子进行比较，直到达到或超过农历日子的数值
+							dayIndex++;
+						}
+
+						// 根据确定好的宫殿索引，从palaceNames数组中获取对应的宫殿名称，作为目标宫殿名称，用于后续在页面上找到对应的宫殿元素
+						const targetPalaceName = palaceNames[palaceIndex];
+						console.log("函数：数字起六宫    对应的目标宫殿序号: " + palaceIndex)
+
+						// 使用document.querySelectorAll('.box')获取页面上所有class为 "box" 的元素，这些元素对应排盘展示中的各个宫殿盒子
+						const boxes = document.querySelectorAll('.box');
+
+						// 遍历获取到的所有 "box" 元素，逐个检查每个元素是否为目标宫殿对应的元素
+						boxes.forEach((box) => {
+							// 在每个 "box" 元素内部，通过querySelector('.reserved-position:nth-child(6)')找到其中表示宫殿名称的元素（对应每个盒子里预留6的位置，即显示宫殿名称的地方），并获取其文本内容
+							const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+							// console.log("当前的宫殿：" + palaceTitle)
+
+
+							// 将获取到的当前 "box" 元素中的宫殿名称与目标宫殿名称进行比较，如果两者相等，说明找到了目标宫殿对应的元素
+							if (palaceTitle === targetPalaceName) {
+								console.log("目标宫殿对应的box元素: " + palaceTitle)
+								// 在找到目标宫殿对应的 "box" 元素内部，通过querySelector('.reserved-position:nth-child(5)')找到每个盒子里预留5的位置（对应用于月上起日展示的位置）的元素
+								const reservedPosition5 = box.querySelector('.reserved-position:nth-child(5)');
+								// console.log(" 元素内部： " + reservedPosition5)
+
+								// 判断是否成功获取到了预留5位置的元素，如果获取到了则进行后续操作
+								if (reservedPosition5) {
+									// 将 <p class="reserved-position">日</p> 添加到预留5位置的元素的innerHTML中，从而实现在对应的六宫位置展示 "日" 的效果
+									reservedPosition5.innerHTML = '日';
+									return palaceTitle;
+								}
+							}
+						});
+					}
+				}
+
+				// 数上起时
+				shuShangQiShi() {
+					console.log("类名：shuZiQiKe  函数：数上起时 ");
+					let shiChenDict = {
+						"子时": 1,
+						"丑时": 2,
+						"寅时": 3,
+						"卯时": 4,
+						"辰时": 5,
+						"巳时": 6,
+						"午时": 7,
+						"未时": 8,
+						"申时": 9,
+						"酉时": 10,
+						"戌时": 11,
+						"亥时": 12
+					};
+					// 先获取“日”所在的宫位
+					const dayPalaceName = getDayPalaceName();
+					console.log("先获取“日”所在的宫位名字：" + dayPalaceName);
+
+					// 获取显示农历时辰的元素
+					const lunarHourDisplay = document.getElementById("lunar-hour-display");
+					console.log("获取显示农历时辰：" + dayPalaceName);
+					if (lunarHourDisplay) {
+						const lunarHour = lunarHourDisplay.textContent;
+
+						const palaceNames = ["大安", "留连", "速喜", "赤口", "小吉", "空亡"];
+
+						// 根据“日”所在宫位和当前时辰确定“时”所在的宫位索引
+						const dayPalaceIndex = palaceNames.indexOf(dayPalaceName);
+						const currentHourNumber = shiChenDict[lunarHour];
+						const targetPalaceIndex = (dayPalaceIndex + currentHourNumber - 1) % 6;
+
+						const boxes = document.querySelectorAll('.box');
+						boxes.forEach((box) => {
+							const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+							if (palaceTitle === palaceNames[targetPalaceIndex]) {
+								const reservedPosition8 = box.querySelector('.reserved-position:nth-child(8)');
+								if (reservedPosition8) {
+									reservedPosition8.innerHTML = '时';
+								}
+							}
+						});
+					}
+				}
+
+
+
+
+				// 排地支
+				paiDiZhi() {
+					console.log("类名：shuZiQiKe  函数：排地支 ");
+
+					// 获取当前“时”对应的六宫名称
+					const currentPalaceName = getCurrentPalaceForShi();
+					// console.log("排地支     获取当前“时” 所在的宫位  ：" + currentPalaceName)
+					// 获取当前时辰（取一个字）
+					const currentLunarHour = document.getElementById("lunar-hour-display").textContent[0];
+
+					// 存储所有字典的数组，每个字典表示不同组合下的地支对应关系
+					const allDicts = [{
+							'大安': '子',
+							'留连': '寅',
+							'速喜': '辰',
+							'赤口': '午',
+							'小吉': '申',
+							'空亡': '戌'
+						},
+						{
+							'大安': '丑',
+							'留连': '卯',
+							'速喜': '巳',
+							'赤口': '未',
+							'小吉': '酉',
+							'空亡': '亥'
+						},
+						{
+							'大安': '寅',
+							'留连': '辰',
+							'速喜': '午',
+							'赤口': '申',
+							'小吉': '戌',
+							'空亡': '子'
+						},
+						{
+							'大安': '卯',
+							'留连': '巳',
+							'速喜': '未',
+							'赤口': '酉',
+							'小吉': '亥',
+							'空亡': '丑'
+						},
+						{
+							'大安': '辰',
+							'留连': '午',
+							'速喜': '申',
+							'赤口': '戌',
+							'小吉': '子',
+							'空亡': '寅'
+						},
+						{
+							'大安': '巳',
+							'留连': '未',
+							'速喜': '酉',
+							'赤口': '亥',
+							'小吉': '丑',
+							'空亡': '卯'
+						},
+						{
+							'大安': '午',
+							'留连': '申',
+							'速喜': '戌',
+							'赤口': '子',
+							'小吉': '寅',
+							'空亡': '辰'
+						},
+						{
+							'大安': '未',
+							'留连': '酉',
+							'速喜': '亥',
+							'赤口': '丑',
+							'小吉': '卯',
+							'空亡': '巳'
+						},
+						{
+							'大安': '申',
+							'留连': '戌',
+							'速喜': '子',
+							'赤口': '寅',
+							'小吉': '辰',
+							'空亡': '午'
+						},
+						{
+							'大安': '酉',
+							'留连': '亥',
+							'速喜': '丑',
+							'赤口': '卯',
+							'小吉': '巳',
+							'空亡': '未'
+						},
+						{
+							'大安': '戌',
+							'留连': '子',
+							'速喜': '寅',
+							'赤口': '辰',
+							'小吉': '午',
+							'空亡': '申'
+						},
+						{
+							'大安': '亥',
+							'留连': '丑',
+							'速喜': '卯',
+							'赤口': '巳',
+							'小吉': '未',
+							'空亡': '酉'
+						}
+					];
+
+					let dictToUse;
+					// 调试输出，先将对象属性值转换为字符串再拼接
+					// console.log("22222222222" + String(allDicts[0]["大安"]));
+					// 遍历所有字典，查找同时包含当前宫位和时辰的字典
+					for (let i = 0; i < allDicts.length; i++) {
+						// console.log("000000000" + allDicts[i][currentPalaceName]);
+						// console.log("11111111111" + currentLunarHour);
+
+						// console.log("11111111111" + allDicts[i][currentLunarHour]);
+						if (allDicts[i][currentPalaceName] === currentLunarHour) {
+							// console.log("000000000" + currentPalaceName);
+							// console.log("11111111111" + allDicts[i][currentPalaceName]);
+							dictToUse = allDicts[i];
+							break;
+						}
+					}
+
+					if (!dictToUse) {
+						console.log("未找到匹配的字典，请检查！");
+						return;
+					}
+
+					// 获取所有符合条件的.box元素
+					const boxes = document.querySelectorAll('.box');
+
+					// 遍历所有box元素，将对应字典中的剩余地支添加至其他宫位
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+						const reservedPosition3 = box.querySelector('.reserved-position:nth-child(3)');
+						if (reservedPosition3) {
+							// 先清空原有内容（如果有）
+							reservedPosition3.innerHTML = "";
+
+							// 添加对应字典中该宫位的地支
+							reservedPosition3.innerHTML += dictToUse[palaceTitle];
+						}
+					});
+				};
+
+
+				//函数 现五行
+				xianWuXing() {
+					console.log("类名：shuZiQiKe  函数：现五行 ");
+
+					const boxes = document.querySelectorAll('.box');
+					const wuxing = {
+						"寅": "木",
+						"卯": "木",
+						"巳": "火",
+						"午": "火",
+						"辰": "土",
+						"戌": "土",
+						"丑": "土",
+						"未": "土",
+						"申": "金",
+						"酉": "金",
+						"亥": "水",
+						"子": "水"
+					};
+
+					boxes.forEach((box) => {
+						const reservedPosition7 = box.querySelector('.reserved-position:nth-child(7)');
+						if (reservedPosition7) {
+							const reservedPosition3 = box.querySelector('.reserved-position:nth-child(3)')
+								.textContent.trim();
+							if (wuxing[reservedPosition3]) {
+								reservedPosition7.innerHTML = "(" + wuxing[reservedPosition3] + ")";
+							}
+						}
+					});
+				}
+
+
+
+
+				// 定六亲
+				dingLiuQing() {
+					console.log("类名：shuZiQiKe  函数：定六亲 ");
+
+					// 获取当前“时”对应的六宫名称
+					const currentPalaceName = getCurrentPalaceForShi();
+					// console.log("函数：定六亲  取当前“时”对应的六宫名称: " + currentPalaceName)
+					// 获取当前时辰（取一个字）
+					const currentLunarHour = document.getElementById("lunar-hour-display").textContent[0];
+					// console.log("函数：定六亲  获取当前时辰（取一个字）: " + currentLunarHour)
+
+					// 定义liuqin字典数组，其中每个对象包含了不同地支与六亲关系的对应设置，用于后续根据“时”所在宫位的地支查找对应的六亲关系
+					const allDicts = [{
+							"寅": "自身",
+							"辰": "兄弟",
+							"午": "子孙",
+							"申": "官鬼",
+							"戌": "妻财",
+							"子": "父母"
+						},
+						{
+							"卯": "自身",
+							"未": "兄弟",
+							"巳": "子孙",
+							"酉": "官鬼",
+							"丑": "妻财",
+							"亥": "父母"
+						},
+						{
+							"辰": "自身",
+							"戌": "兄弟",
+							"申": "子孙",
+							"寅": "官鬼",
+							"子": "妻财",
+							"午": "父母"
+						},
+						{
+							"巳": "自身",
+							"丑": "子孙",
+							"亥": "官鬼",
+							"酉": "妻财",
+							"卯": "父母",
+							"未": "兄弟"
+						},
+						{
+							"辰": "子孙",
+							"午": "自身",
+							"子": "官鬼",
+							"申": "妻财",
+							"寅": "父母",
+							"戌": "兄弟"
+						},
+						{
+							"酉": "子孙",
+							"未": "自身",
+							"卯": "官鬼",
+							"亥": "妻财",
+							"巳": "父母",
+							"丑": "兄弟"
+						},
+						{
+							"子": "子孙",
+							"申": "自身",
+							"午": "官鬼",
+							"寅": "妻财",
+							"辰": "父母",
+							"戌": "兄弟"
+						},
+						{
+							"亥": "子孙",
+							"酉": "自身",
+							"巳": "官鬼",
+							"卯": "妻财",
+							"未": "父母",
+							"丑": "兄弟"
+						},
+						{
+							"申": "子孙",
+							"寅": "官鬼",
+							"戌": "自身",
+							"子": "妻财",
+							"午": "父母",
+							"辰": "兄弟"
+						},
+						{
+							"卯": "子孙",
+							"亥": "自身",
+							"未": "官鬼",
+							"巳": "妻财",
+							"酉": "父母",
+							"丑": "兄弟"
+						},
+						{
+							"子": "自身",
+							"寅": "子孙",
+							"戌": "官鬼",
+							"午": "妻财",
+							"申": "父母",
+							"辰": "兄弟"
+						},
+						{
+							"酉": "子孙",
+							"丑": "自身",
+							"卯": "官鬼",
+							"亥": "妻财",
+							"巳": "父母",
+							"未": "兄弟"
+						}
+					];
+
+					let dictToUse;
+					// 调试输出，先将对象属性值转换为字符串再拼接
+					// console.log("22222222222" + String(allDicts[0]["大安"]));
+					// 遍历所有字典，查找同时包含当前宫位和时辰的字典
+					for (let i = 0; i < allDicts.length; i++) {
+						// console.log("000000000" + allDicts[i][currentLunarHour]);
+						// console.log("11111111111" + currentLunarHour);
+
+						// console.log("11111111111" + allDicts[i][currentLunarHour]);
+						if (allDicts[i][currentLunarHour] === '自身') {
+							// console.log("000000000" + currentPalaceName);
+							// console.log("定六亲00000000000000000000" + allDicts[i][currentLunarHour]);
+							dictToUse = allDicts[i];
+							console.log(dictToUse);
+							break;
+						}
+					}
+
+					if (!dictToUse) {
+						console.log("未找到匹配的字典，请检查！");
+						return;
+					}
+
+					// 获取所有符合条件的.box元素
+					const boxes = document.querySelectorAll('.box');
+
+					// 遍历所有box元素，将对应字典中的剩余地支添加至其他宫位
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(3)').textContent;
+						const reservedPosition3 = box.querySelector('.reserved-position:nth-child(4)');
+						if (reservedPosition3) {
+							// 先清空原有内容（如果有）
+							reservedPosition3.innerHTML = "";
+
+							// 添加对应字典中该宫位的地支
+							reservedPosition3.innerHTML = dictToUse[palaceTitle];
+						}
+					});
+				};
+
+				// 装六神
+				zhuangLiuShen() {
+					console.log("类名：shuZiQiKe  函数：装六神 ");
+
+					// 创建一个字典，用于存储不同地支对应的六神与宫位的映射字典
+					const liuShenDict = {
+						"子": {
+							"大安": "青龙",
+							"留连": "朱雀",
+							"速喜": "勾陈",
+							"赤口": "白虎",
+							"小吉": "玄武",
+							"空亡": "腾蛇"
+						},
+						"丑": {
+							"留连": "青龙",
+							"速喜": "朱雀",
+							"赤口": "勾陈",
+							"小吉": "白虎",
+							"空亡": "玄武",
+							"大安": "腾蛇"
+						},
+						"寅": {
+							"速喜": "青龙",
+							"赤口": "朱雀",
+							"小吉": "勾陈",
+							"空亡": "白虎",
+							"大安": "玄武",
+							"留连": "腾蛇"
+						},
+						"卯": {
+							"赤口": "青龙",
+							"小吉": "朱雀",
+							"空亡": "勾陈",
+							"大安": "白虎",
+							"留连": "玄武",
+							"速喜": "腾蛇"
+						},
+						"辰": {
+							"小吉": "青龙",
+							"空亡": "朱雀",
+							"大安": "勾陈",
+							"留连": "白虎",
+							"速喜": "玄武",
+							"赤口": "腾蛇"
+						},
+						"巳": {
+							"空亡": "青龙",
+							"大安": "朱雀",
+							"留连": "勾陈",
+							"速喜": "白虎",
+							"赤口": "玄武",
+							"小吉": "腾蛇"
+						},
+						"午": {
+							"大安": "青龙",
+							"留连": "朱雀",
+							"速喜": "勾陈",
+							"赤口": "白虎",
+							"小吉": "玄武",
+							"空亡": "腾蛇"
+						},
+						"未": {
+							"留连": "青龙",
+							"速喜": "朱雀",
+							"赤口": "勾陈",
+							"小吉": "白虎",
+							"空亡": "玄武",
+							"大安": "腾蛇"
+						},
+						"申": {
+							"速喜": "青龙",
+							"赤口": "朱雀",
+							"小吉": "勾陈",
+							"空亡": "白虎",
+							"大安": "玄武",
+							"留连": "腾蛇"
+						},
+						"酉": {
+							"赤口": "青龙",
+							"小吉": "朱雀",
+							"空亡": "勾陈",
+							"大安": "白虎",
+							"留连": "玄武",
+							"速喜": "腾蛇"
+						},
+						"戌": {
+							"小吉": "青龙",
+							"空亡": "朱雀",
+							"大安": "勾陈",
+							"留连": "白虎",
+							"速喜": "玄武",
+							"赤口": "腾蛇"
+						},
+						"亥": {
+							"空亡": "青龙",
+							"大安": "朱雀",
+							"留连": "勾陈",
+							"速喜": "白虎",
+							"赤口": "玄武",
+							"小吉": "腾蛇"
+						}
+					};
+
+					const boxes = document.querySelectorAll('.box');
+
+					// 获取“时”所在宫位名称
+					const currentPalaceName = getCurrentPalaceForShi();
+					if (!currentPalaceName) {
+						console.log("未找到当前“时”所在宫位，无法装六神。");
+						return;
+					}
+
+					// 假获取当前时辰（取一个字）
+					const currentBranch = document.getElementById("lunar-hour-display").textContent[0];
+					if (!currentBranch) {
+						console.log("未获取到当前“时”所在宫位的地支，无法装六神。");
+						return;
+					}
+
+					let currentLiuShenMap;
+					if (currentBranch === '子' || currentBranch === '午') {
+						currentLiuShenMap = liuShenDict['子'];
+					} else if (currentBranch === '丑' || currentBranch === '未') {
+						currentLiuShenMap = liuShenDict['丑'];
+					} else if (currentBranch === '寅' || currentBranch === '申') {
+						currentLiuShenMap = liuShenDict['寅'];
+					} else if (currentBranch === '卯' || currentBranch === '酉') {
+						currentLiuShenMap = liuShenDict['卯'];
+					} else if (currentBranch === '辰' || currentBranch === '戌') {
+						currentLiuShenMap = liuShenDict['辰'];
+					} else if (currentBranch === '巳' || currentBranch === '亥') {
+						currentLiuShenMap = liuShenDict['巳'];
+					}
+
+					if (!currentLiuShenMap) {
+						console.log("未找到对应地支的六神映射，无法装六神。");
+						return;
+					}
+
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+						const reservedPosition1 = box.querySelector('.reserved-position:nth-child(1)');
+						if (reservedPosition1) {
+							const liuShen = currentLiuShenMap[palaceTitle];
+							reservedPosition1.innerHTML = liuShen;
+						}
+					});
+				}
+
+				// 起五星
+				qiWuXing() {
+					console.log("类名：shuZiQiKe  函数：起五星");
+					// 获取“日”所在的宫位名称
+					const dayPalaceName = getDayPalaceName();
+					if (!dayPalaceName) {
+						console.log("未找到“日”所在宫位，无法起五星。");
+						return;
+					}
+
+					const palaceNames = ["大安", "留连", "速喜", "赤口", "小吉", "空亡"];
+					const wuXingNames = ["木星", "火星", "土星", "金星", "水星", "天空"];
+					const startIndex = palaceNames.indexOf(dayPalaceName);
+					const boxes = document.querySelectorAll('.box');
+
+					boxes.forEach((box) => {
+						const palaceTitle = box.querySelector('.reserved-position:nth-child(6)').textContent;
+						const reservedPosition2 = box.querySelector('.reserved-position:nth-child(2)');
+						if (reservedPosition2) {
+							const currentIndex = (palaceNames.indexOf(palaceTitle) - startIndex + 6) % 6;
+							reservedPosition2.innerHTML = wuXingNames[currentIndex];
+						}
+					});
+				}
+
+
+
+
+
+
+			} // 类结尾
+
+			//数字起课  按钮函数
+			async function startSkeqike() {
+				console.log("数字起课  函数开始运行................")
+				const shuZiQiKeObj = new shuZiQiKe(); // 初始化  “ 数字起课 ” 类
+				shuZiQiKeObj.getShiChen(); //获取当前时辰
+				shuZiQiKeObj.getShuZi(); //输入数字
+				shuZiQiKeObj.shuZiLiuGong(); // 数字起六宫
+				shuZiQiKeObj.shuShangQiShi(); // 数上起时
+				shuZiQiKeObj.paiDiZhi(); // 排地支
+				shuZiQiKeObj.xianWuXing(); // 现五行
+				shuZiQiKeObj.dingLiuQing(); // 定六亲
+				await sleep(1000); // 停顿1秒
+				shuZiQiKeObj.zhuangLiuShen(); // 装六神
+				shuZiQiKeObj.qiWuXing() // 起五星
+
+
+
+
+			}
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<h1>小六壬排盘</h1>
+		</div>
+		<br />
+		<div>
+			<button onclick="executeAllFunctions()">日时起课</button>
+		</div>
+		<div>
+			<button onclick="startSkeqike()">数字起课</button>
+		</div>
+		<div>
+			<button onclick="location.reload()">重新起课</button>
+		</div>
+		<br />
+		<div id="content">
+			<!-- 时间展示部分 -->
+			日期：<span id="date-display">2024-4-22</span> &nbsp; &nbsp;
+			时间：<span id="time-display">07:10:20</span> <br />
+			农历：<span id="lunar-date-display">甲辰龙年 三月 十四 </span> &nbsp; &nbsp; &nbsp; &nbsp; <span
+				id="lunar-hour-display" style="color: red;">辰时</span>
+		</div>
+		<br />
+		<!-- 排盘展示盒子 -->
+		<div id="DB">
+			<!-- 创建一个容器 div -->
+			<div class="container">
+				<!-- 创建第一个盒子 -->
+				<div class="box">
+					<!-- 留连宫 -->
+					<p class="reserved-position">玄武</p> <!-- 预留1 -> 装六神 -->
+					<p class="reserved-position">水星</p> <!-- 预留2 -> 起五星 -->
+					<p class="reserved-position">亥</p> <!-- 预留3 -> 排地支 -->
+					<p class="reserved-position">子孙</p> <!-- 预留4 -> 定六亲 -->
+					<p class="reserved-position"></p> <!-- 预留5 -> 月上起日 -->
+					<p class="reserved-position">留连</p> <!-- 预留6 -> 为六宫 -->
+					<p class="reserved-position">(水)</p> <!-- 预留7 -> 现五行 -->
+					<p class="reserved-position"></p> <!-- 预留8 -> 日上起时 -->
+				</div>
+				<div class="box">
+					<!-- 速喜宫 -->
+					<p class="reserved-position">勾陈</p> <!-- 预留1 -> 装六神 -->
+					<p class="reserved-position">天空</p> <!-- 预留2 -> 起五星 -->
+					<p class="reserved-position">丑</p> <!-- 预留3 -> 排地支 -->
+					<p class="reserved-position">兄弟</p> <!-- 预留4 -> 定六亲 -->
+					<p class="reserved-position"></p> <!-- 预留5 -> 月上起日 -->
+					<p class="reserved-position">速喜</p> <!-- 预留6 -> 为六宫 -->
+					<p class="reserved-position">(土)</p> <!-- 预留7 -> 现五行 -->
+					<p class="reserved-position"></p> <!-- 预留8 -> 日上起时 -->
+				</div>
+				<div class="box">
+					<!-- 赤口宫 -->
+					<p class="reserved-position">青龙</p> <!-- 预留1 -> 装六神 -->
+					<p class="reserved-position">木星</p> <!-- 预留2 -> 起五星 -->
+					<p class="reserved-position">卯</p> <!-- 预留3 -> 排地支 -->
+					<p class="reserved-position">妻财</p> <!-- 预留4 -> 定六亲 -->
+					<p class="reserved-position"></p> <!-- 预留5 -> 月上起日 -->
+					<p class="reserved-position">赤口</p> <!-- 预留6 -> 为六宫 -->
+					<p class="reserved-position">(木)</p> <!-- 预留7 -> 现五行 -->
+					<p class="reserved-position"></p> <!-- 预留8 -> 日上起时 -->
+				</div>
+				<div class="box">
+					<!-- 大安宫 -->
+					<p class="reserved-position">白虎</p> <!-- 预留1 -> 装六神 -->
+					<p class="reserved-position">金星</p> <!-- 预留2 -> 起五星 -->
+					<p class="reserved-position">酉</p> <!-- 预留3 -> 排地支 -->
+					<p class="reserved-position">自身</p> <!-- 预留4 -> 定六亲 -->
+					<p class="reserved-position"></p> <!-- 预留5 -> 月上起日 -->
+					<p class="reserved-position">大安</p> <!-- 预留6 -> 为六宫 -->
+					<p class="reserved-position">(金)</p> <!-- 预留7 -> 现五行 -->
+					<p class="reserved-position"></p> <!-- 预留8 -> 日上起时 -->
+				</div>
+				<div class="box">
+					<!-- 空亡宫 -->
+					<p class="reserved-position">腾蛇</p> <!-- 预留1 -> 装六神 -->
+					<p class="reserved-position">土星</p> <!-- 预留2 -> 起五星 -->
+					<p class="reserved-position">未</p> <!-- 预留3 -> 排地支 -->
+					<p class="reserved-position">父母</p> <!-- 预留4 -> 定六亲 -->
+					<p class="reserved-position"></p> <!-- 预留5 -> 月上起日 -->
+					<p class="reserved-position">空亡</p> <!-- 预留6 -> 为六宫 -->
+					<p class="reserved-position">(土)</p> <!-- 预留7 -> 现五行 -->
+					<p class="reserved-position"></p> <!-- 预留8 -> 日上起时 -->
+				</div>
+				<div class="box">
+					<!-- 小吉宫 -->
+					<p class="reserved-position">朱雀</p> <!-- 预留1 -> 装六神 -->
+					<p class="reserved-position">火星</p> <!-- 预留2 -> 起五星 -->
+					<p class="reserved-position">巳</p> <!-- 预留3 -> 排地支 -->
+					<p class="reserved-position">官鬼</p> <!-- 预留4 -> 定六亲 -->
+					<p class="reserved-position"></p> <!-- 预留5 -> 月上起日 -->
+					<p class="reserved-position">小吉</p> <!-- 预留6 -> 为六宫 -->
+					<p class="reserved-position">(火)</p> <!-- 预留7 -> 现五行 -->
+					<p class="reserved-position"></p> <!-- 预留8 -> 日上起时 -->
+				</div>
+			</div>
+			<div id="shichen12">
+				<p>12时辰:</p>
+				<p> 子时（23:00 - 00:59） - &nbsp;丑时（01:00 - 02:59） </p>
+				<p> 寅时（03:00 - 04:59） - &nbsp;卯时（05:00 - 06:59） </p>
+				<p> 辰时（07:00 - 08:59） - &nbsp;巳时（09:00 - 10:59） </p>
+				<p> 午时（11:00 - 12:59） - &nbsp;未时（13:00 - 14:59） </p>
+				<p> 申时（15:00 - 16:59） - &nbsp;酉时（17:00 - 18:59） </p>
+				<p> 戌时（19:00 - 20:59） - &nbsp;亥时（21:00 - 22:59） </p>
+				<br />
+				<p> 定六亲： </p>
+				<p> 寅、申、巳、亥、为自身时，第二宫为兄弟！ </p>
+				<p> 以自身为准紧邻自身的地支土为兄弟！ </p>
+				<p> 子、午、卯、酉、为自身时，第三宫为兄弟！ </p>
+				<p> 以自身为准隔位地支的土为兄弟！ </p>
+				<br />
+				<p> 装六神： </p>
+				<p> 子午大安起青龙！ </p>
+				<p> 丑未留连起青龙！ </p>
+				<p> 寅申速喜起青龙！ </p>
+				<p> 卯酉赤口起青龙！ </p>
+				<p> 辰戌小吉起青龙！ </p>
+				<p> 巳亥空亡起青龙！ </p>
+				<br />
+				<p> 六宫五行所属：</p>
+				<p> 大安宫属木；留连宫属阴土；速喜宫属火；赤口宫属金；小吉宫属阳土；空亡宫属水； </p>
+				<br />
+				<p> 六神定数：</p>
+				<p> 大安_147；留连_258；速喜_369；赤口_147；小吉_258；空亡_369； </p>
+				<br />
+				<p> 六宫方向所属：</p>
+				<p> 大安_东方；留连_中方、南方；速喜_南方；赤口_西方；小吉_中方、北方；空亡_北方； </p>
+				<br />
+				<p> 六宫颜色所属：</p>
+				<p> 大安_青色；留连_暗色；速喜_红色；赤口_白色；小吉_黄色；空亡_黑色； </p>
+				<br />
+				<p> 六宫人体五脏所属：</p>
+				<p> 大安宫主肝；留连宫主胃；速喜宫主心；赤口宫主肺；小吉宫主脾；空亡宫主肾； </p>
+				<br />
+				<p> 十二地支与人体部位：</p>
+				<p> 子水：膀胱、耳； 丑土：肚、脾； 寅木：胆、脉、手； 卯木：肝、指； 辰土：皮、肩、胸； 巳火：咽喉、齿、肛； 午火：眼睛、头；未土： 胃、腕； 申金：大肠、肺、经络； 酉金：小肠； 戌土：腿；
+					亥水： 肾；
+				</p>
+				<br />
+				<p> 十二地支月建：</p>
+				<p> 寅为正月； 卯为二月； 辰为三月； 巳为四月； 午为五月； 未为六月； 申为七月； 酉为八月； 戌为九月； 亥为十月； 子为十一月； 丑为十二月； </p>
+				<br />
+				<p> 十二地支配五行方位：</p>
+				<p> 寅卯东方木； 巳午南方火； 辰戌丑未中央土； 申酉西方金； 亥子北方水； </p>
+				<br />
+				<p> 🔮 小六壬寻物口诀：快速找到失物</p>
+				<p> 🔮 大安相关口诀：</p>
+				<p>🔍 "大安加大安，失物在家中"：如果起卦结果中日加时均为大安，这通常意味着失物就在家中，可能藏匿在显眼的位置或熟悉的区域范围内。你可以在家中的客厅、卧室的床头柜等常见位置进行仔细搜寻。</p>
+				<p>🔍 "大安加留连，失物西北去"：当出现大安加留连的卦象时，预示着失物可能朝西北方向移动了。你可以在以失物地点为中心的西北方向附近区域进行仔细查找，如西北方向的房间、街道角落等。</p>
+				<p>🔍 "大安加速喜，失物当日见"：此口诀预示，当大安与速喜相加时，失物有望在当日被寻回。这为失主带来了积极的讯息，建议其抓紧时间在熟悉的地方或容易发现失物的位置进行搜寻。</p>
+				<p>🔍 "大安加赤口，失物不用找"：此口诀表明，根据卦象推断，失物可能已难以寻回，或者寻找过程中会面临诸多困难。然而，这并非绝对，仅作为参考。</p>
+				<p>🔍 "大安加小吉，失物不出门"：这意味着失物可能仍在家中或附近区域，并未被带至远方。因此，寻找时应在住所周围或当前位置仔细搜索。</p>
+				<p>🔍 "大安加空亡，失物无影踪"：空亡象征着虚无、不存在，所以当大安与空亡结合时，可能意味着失物已彻底消失或难以寻觅。</p>
+				<br />
+				<p> 🔮 留连相关口诀：</p>
+				<p>🔍 "留连加大安，失物家中藏"：留连象征着停滞、拖延，而大安则暗示着安全、稳定。因此，此口诀预示失物可能被遗忘或放置在家中某个角落，等待被发现。</p>
+				<p>🔍 "留连加速喜，失物三天里"：这意味着失物可能在三天内被发现或寻回。在这段时间内，建议失主保持警惕并留意周围环境，以获取与失物相关的线索。</p>
+				<p>🔍 "留连加赤口，失物准丢失"：由于留连的不确定性与赤口的凶相结合，此口诀预示失物可能已确实丢失或处于不良状态。</p>
+				<p>🔍 "留连加小吉，失物东南去"：此口诀提示失物可能朝东南方向移动了。因此，在寻找时，应着重在东南方向的区域进行搜索。</p>
+				<p>🔍 "留连加空亡，失物不见面"：这表示失物可能已彻底消失或难以寻回，即使付出努力也可能无法再见其踪。</p>
+				<p>🔍 "留连加留连，失物在南方"：当两个留连相连结时，预示失物可能固定在南方，因此建议失主在南方区域进行详细搜寻，特别是以失物地点为中心的南方位置。</p>
+				<br />
+				<p> 🔮 速喜相关口诀：</p>
+				<p>🔍 "速喜加大安，失物在家里"：与大安加大安相似，速喜加大安同样暗示失物在家中，可能藏匿于厨房、卫生间等日常活动的角落。</p>
+				<p>🔍 "速喜加留连，失物无信息"：此处，速喜的活跃与留连的停滞相冲突，导致关于失物的信息变得模糊，需进一步观察和等待更多线索。</p>
+				<p>🔍 "速喜加赤口，失物往正北"：预示失物正朝正北方向移动，因此寻找时宜关注正北方的区域，如北方的房间或街道北侧。</p>
+				<p>🔍 "速喜加小吉，失物在院里"：此口诀表明失物可能位于院子中，无论是自家的还是工作、学校等地的院子，都值得仔细搜寻。</p>
+				<p>🔍 "速喜加空亡，失物不久见"：此预示失物将在不久后出现或被找到，但具体时间尚不确定，需耐心等待。</p>
+				<br />
+				<p> 🔮 赤口相关口诀：</p>
+				<p>🔍 "赤口加小吉，失物无信息"：赤口的不顺与小吉的小吉之象相互冲突，使得关于失物的信息变得不明确，寻找难度加大。</p>
+				<p>🔍 "赤口加空亡，失物不用找"：与大安加赤口类似，此口诀意味着失物可能已无法找回或找回过程极为艰难。</p>
+				<p>🔍 "赤口加大安，失物东北找"：此预示失物可能在东北方向，建议寻找时重点搜索东北方的区域。</p>
+				<p>🔍 "赤口加留连，失物不回还"：表示失物可能已无法归还给失主，可能已被他人取走或彻底丢失。</p>
+				<p>🔍 "赤口加速喜，失物有着落"：在经历赤口的不顺之后，速喜的出现预示着失物最终会有明确的下落，可能是在意外的地方或经过曲折后被找到。</p>
+				<p>🔍 "赤口加赤口，失物正西找"：此口诀指出，当两个赤口相连结时，预示失物位于正西方向，因此建议失主在西方区域进行详细搜寻。</p>
+				<br />
+				<p> 🔮 小吉相关口诀：</p>
+				<p>🔍 "小吉加大安，失物自己出"：此预示失物可能会自己出现，无需刻意寻找，可能在不经意间或自然情况下回归。</p>
+				<p>🔍 "小吉加留连，失物上西南"：表明失物可能朝西南方向移动，应重点关注西南方的区域。</p>
+				<p>🔍 "小吉加速喜，失物在院里"：与速喜加小吉类似，意味着失物很可能在院子中，需仔细搜寻。</p>
+				<p>🔍 "小吉加赤口，失物丢了手"：此口诀表示失物可能已失去控制，寻找难度加大。</p>
+				<p>🔍 "小吉加小吉，失物在西南"：两个小吉预示失物稳定在西南方向，应重点搜索。</p>
+				<br />
+				<p> 🔮 空亡相关口诀：</p>
+				<p>🔍 "空亡加大安，失物反复问"：空亡的不确定性与大安的稳固性相冲突，导致失物情况不明朗，需反复询问和寻找。</p>
+				<p>🔍 "空亡加留连，失物永不还"：意味着失物可能永远无法找回。</p>
+				<p>🔍 "空亡加速喜，失物在家里"：尽管空亡带来不确定性，但速喜的活跃预示失物可能在家中某个角落。</p>
+				<p>🔍 "空亡加赤口，失物往远走"：表示失物已被带往远方，寻找范围需扩大。</p>
+				<p>🔍 "空亡加小吉，失物回家里"：预示失物最终会回家，但具体时间和方式不确定。</p>
+				<p>🔍 "空亡加空亡，失物寻不见"：两个空亡预示失物难以找回或已完全消失。</p>
+				<br />
+				<br />
+				<br />
+
+
+
+
+
+
+
+				<a href="#">
+					<img id="img_1" src="./img/wuxing.png" alt="五行" style="width: 100%;text-align: center; ">
+				</a>
+				<br />
+
+			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+
+
+			<div id="zhifu" style="text-align:center;">
+				<a href="#">
+					<img id="img_1" src="./img/zhifu1.jpg" alt="经济舱_机车驿站_支付二维码">
+				</a>
+				<br />
+				<br />
+				<a href="#">
+					<img id="img_2" src="./img/zhifu2.jpg" alt="经济舱_机车驿站_支付二维码">
+				</a>
+			</div>
+
+			<br />
+			<br />
+			<br />
+			<br />
+
+			<p class="em">Copyright 2024 ☕Victor's 小六壬排盘 All Rights Reserved. designed and developed by yangxiaodong.
+			</p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<p class="em"><a href="mailto:lzj155@foxmail.com?subject=关于demo443网站问题反馈:&body=你好，我想反馈以下问题:">联系站长</a></p>
+
+			<br />
+			<br />
+		</div>
+
+	</body>
+
+</html>
