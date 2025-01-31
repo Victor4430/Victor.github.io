@@ -293,23 +293,39 @@
 						<td class="right-align"><a target="_blank" href="./phone.html">跳转</a></td>
 					</tr>
 
-					<tr>
-						<td>豆包</td>
-						<td class="right-align"><a target="_blank" href="https://www.doubao.com/chat/?ghh=1">跳转</a></td>
+					<tr onclick="copyLinkOnTouch()">
+						<td>江氏小六壬</td>
+						<td class="right-align"><a target="_blank" href="http://www.jiangyangjun.com/paipan/#/pages/index/index">跳转</a></td>
 					</tr>
-					<tr>
+
+					<tr onclick="copyLinkOnTouch()">
+						<td>豆包</td>
+						<td class="right-align"><a target="_blank" href="https://www.doubao.com/chat/">跳转</a></td>
+					</tr>
+					<tr onclick="copyLinkOnTouch()">
 						<td>可灵AI</td>
 						<td class="right-align"><a target="_blank" href="https://klingai.kuaishou.com/">跳转</a></td>
 					</tr>
-					<tr>
+					<tr onclick="copyLinkOnTouch()">
 						<td>一起看TV版</td>
 						<td class="right-align"><a target="_blank" href="https://m.yqk1du7.com/tv/index.html">跳转</a>
 						</td>
 					</tr>
-					<tr>
+					<tr onclick="copyLinkOnTouch()">
 						<td>阿水AI6.0</td>
 						<td class="right-align"><a target="_blank" href="https://ai.ashuiai.com/home/">跳转</a></td>
 					</tr>
+					<tr onclick="copyLinkOnTouch()">
+						<td>情趣.app</td>
+						<td class="right-align"><a target=" _blank"
+								href="https://dph9boquygkqy.cloudfront.net/?parent_icode=1205073192">跳转</a></td>
+					</tr>
+					<tr onclick="copyLinkOnTouch()">
+						<td>NG28.app</td>
+						<td class="right-align"><a target=" _blank"
+								href="https://103.54.60.22:8866/#/link?invite=3228500">跳转</a></td>
+					</tr>
+					<tr onclick="copyLinkOnTouch()">
 					<tr>
 						<td>隐藏页面1</td>
 						<td class="right-align"><a target="_blank" href="index.html">跳转</a></td>
@@ -396,6 +412,24 @@
 		</div>
 
 		<script>
+			// 链接复制函数
+			function copyLinkOnTouch() {
+				const targetTr = event.target.closest('tr');
+				const anchorTag = targetTr.querySelector('a');
+				if (anchorTag) {
+					const link = anchorTag.href;
+					navigator.clipboard.writeText(link)
+						.then(() => {
+							console.log('链接已复制到剪切板：', link);
+						})
+						.catch((error) => {
+							console.error('复制链接失败：', error);
+						});
+				}
+			}
+
+
+
 			// 获取搜索框、搜索按钮、清除按钮和搜索结果列表
 			const searchInput = document.getElementById('search');
 			const searchButton = document.getElementById('search-btn');
